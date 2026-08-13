@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  GreySphere — sitemap.xml
+
+  NOTE ON /connect:
+  The /connect page is intentionally NOT listed below. It is a
+  personalised "digital business card" page reached via QR codes on
+  physical cards (e.g. /connect?from=amar, /connect?from=neha). Only
+  the query-string parameter changes who and what is shown — the
+  underlying page is the same for everyone, so it has no independent
+  content to rank on and should not be indexed as a distinct URL.
+  Do NOT add /connect or any /connect?from=... variant here.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://greysphere.in/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/careers.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://greysphere.in/blogs/why-branding-matters.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/blogs/seo-for-indian-startups.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://greysphere.in/blogs/the-invisible-buying-journey.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms, Privacy & Cookie Policy — GreySphere</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans">
+<link rel="stylesheet" href="global.css">
+
+<style>
+/* ============================================================
+   PAGE-SPECIFIC STYLES
+============================================================ */
+
+/* Hero */
+.legal-hero {
+  background-color: var(--snow);
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(232,180,79,.07) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(28,53,94,.05) 0%, transparent 45%),
+    repeating-linear-gradient(45deg,  transparent, transparent 28px, rgba(28,53,94,.02) 28px, rgba(28,53,94,.02) 29px),
+    repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(28,53,94,.012) 28px, rgba(28,53,94,.012) 29px);
+  padding: clamp(70px,9vw,110px) clamp(24px,6vw,80px) clamp(50px,6vw,70px);
+  text-align: center;
+}
+.legal-hero-inner { max-width: 720px; margin: 0 auto; }
+.legal-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1.5px solid var(--silver);
+  border-radius: var(--radius-pill); padding: 8px 18px;
+  font-size: 13px; font-weight: 500; color: var(--slate-400);
+  margin-bottom: 24px; box-shadow: 0 2px 8px rgba(28,53,94,.06);
+}
+.legal-badge svg { width: 14px; height: 14px; color: var(--amber); }
+.legal-hero h1 {
+  font-family: var(--font-serif); font-size: clamp(32px,4.5vw,54px);
+  color: var(--navy); line-height: 1.1; margin-bottom: 16px;
+}
+.legal-hero-meta {
+  font-size: 13px; color: var(--slate-300); margin-top: 16px;
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+}
+.legal-hero-meta span { display: flex; align-items: center; gap: 6px; }
+.legal-hero-meta svg { width: 13px; height: 13px; }
+
+/* Layout */
+.legal-body {
+  background: var(--white);
+  padding: clamp(48px,6vw,80px) clamp(24px,6vw,80px);
+}
+.legal-body-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start;
+}
+
+/* Sticky sidebar nav */
+.legal-sidebar {
+  position: sticky; top: 100px;
+}
+.legal-sidebar-title {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.legal-sidebar-title::before { content:''; display:block; width:16px; height:2px; background:var(--amber); }
+.legal-nav { display: flex; flex-direction: column; gap: 2px; }
+.legal-nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: var(--radius-sm);
+  font-size: 13.5px; color: var(--slate-400); cursor: pointer;
+  transition: var(--transition); text-decoration: none; border: none; background: none;
+  text-align: left;
+}
+.legal-nav-item:hover { background: var(--pearl); color: var(--navy); }
+.legal-nav-item.active { background: var(--navy); color: var(--white); font-weight: 600; }
+.legal-nav-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+.legal-nav-divider { height: 1px; background: var(--silver); margin: 10px 0; }
+
+/* Content area */
+.legal-content { min-width: 0; }
+
+/* Section */
+.legal-section {
+  padding-bottom: 56px; margin-bottom: 56px;
+  border-bottom: 1px solid var(--silver);
+  scroll-margin-top: 110px;
+}
+.legal-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+.legal-section-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 28px;
+}
+.legal-section-icon {
+  width: 44px; height: 44px; border-radius: var(--radius-sm);
+  background: var(--navy); display: flex; align-items: center;
+  justify-content: center; color: var(--white); flex-shrink: 0;
+}
+.legal-section-icon svg { width: 20px; height: 20px; }
+.legal-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 4px; display: block;
+}
+.legal-section-title {
+  font-family: var(--font-serif); font-size: clamp(22px,2.5vw,30px);
+  color: var(--navy); line-height: 1.2;
+}
+
+/* Typography inside sections */
+.legal-content h3 {
+  font-family: var(--font-serif); font-size: 18px; color: var(--navy);
+  margin: 28px 0 10px;
+}
+.legal-content p {
+  font-size: 15px; color: var(--slate-400); line-height: 1.8; margin-bottom: 16px;
+}
+.legal-content p:last-child { margin-bottom: 0; }
+.legal-content strong { color: var(--slate-500); font-weight: 600; }
+.legal-content a { color: var(--navy); text-decoration: underline; }
+.legal-content a:hover { color: var(--amber); }
+
+/* Info boxes */
+.legal-box {
+  border-radius: var(--radius-md); padding: 20px 24px;
+  margin: 20px 0; display: flex; gap: 16px; align-items: flex-start;
+}
+.legal-box.info    { background: rgba(28,53,94,.05);   border-left: 3px solid var(--navy); }
+.legal-box.amber   { background: var(--amber-glow);    border-left: 3px solid var(--amber); }
+.legal-box.strong  { background: var(--navy);          border-left: none; }
+.legal-box svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+.legal-box.info   svg { color: var(--navy); }
+.legal-box.amber  svg { color: var(--amber); }
+.legal-box.strong svg { color: rgba(255,255,255,.7); }
+.legal-box p { font-size: 14px; line-height: 1.7; margin: 0; }
+.legal-box.info   p { color: var(--slate-500); }
+.legal-box.amber  p { color: var(--slate-500); }
+.legal-box.strong p { color: rgba(255,255,255,.85); }
+
+/* Lists */
+.legal-list {
+  list-style: none; display: flex; flex-direction: column;
+  gap: 10px; margin: 16px 0;
+}
+.legal-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14.5px; color: var(--slate-400); line-height: 1.7;
+}
+.legal-list li svg { width: 16px; height: 16px; color: var(--amber); flex-shrink: 0; margin-top: 4px; }
+
+/* Cookie table */
+.cookie-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+.cookie-table th {
+  background: var(--navy); color: var(--white); text-align: left;
+  padding: 12px 16px; font-size: 12px; font-weight: 600; letter-spacing: .06em;
+}
+.cookie-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.cookie-table th:last-child  { border-radius: 0 var(--radius-sm) 0 0; }
+.cookie-table td {
+  padding: 12px 16px; color: var(--slate-400); border-bottom: 1px solid var(--silver);
+  vertical-align: top; line-height: 1.6;
+}
+.cookie-table tr:last-child td { border-bottom: none; }
+.cookie-table tr:nth-child(even) td { background: var(--pearl); }
+.cookie-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+}
+.cookie-badge.analytics  { background: rgba(28,53,94,.1);  color: var(--navy); }
+.cookie-badge.marketing  { background: var(--amber-glow);  color: #a07030; }
+.cookie-badge.functional { background: rgba(16,185,129,.1); color: #065f46; }
+
+/* Last updated bar */
+.legal-updated {
+  background: var(--pearl); border-radius: var(--radius-md);
+  padding: 16px 20px; margin-bottom: 40px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; color: var(--slate-300);
+}
+.legal-updated svg { width: 16px; height: 16px; color: var(--amber); flex-shrink: 0; }
+.legal-updated strong { color: var(--slate-500); }
+
+/* CTA strip */
+.legal-cta {
+  background: var(--navy); border-radius: var(--radius-lg);
+  padding: 32px 36px; margin-top: 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.legal-cta h3 { font-family: var(--font-serif); font-size: 22px; color: var(--white); margin-bottom: 6px; }
+.legal-cta p  { font-size: 14px; color: rgba(255,255,255,.65); }
+.btn-legal {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--amber); color: var(--white);
+  padding: 12px 24px; border-radius: var(--radius-pill);
+  font-size: 14px; font-weight: 600; font-family: var(--font-sans);
+  text-decoration: none; white-space: nowrap; transition: var(--transition-s);
+}
+.btn-legal:hover { background: var(--amber-light); transform: translateY(-2px); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .legal-body-inner { grid-template-columns: 1fr; gap: 32px; }
+  .legal-sidebar { position: static; }
+  .legal-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .legal-nav-item { padding: 8px 14px; font-size: 13px; }
+  .legal-nav-divider { display: none; }
+}
+@media (max-width: 600px) {
+  .legal-cta { flex-direction: column; align-items: flex-start; }
+  .cookie-table { font-size: 13px; }
+  .cookie-table th, .cookie-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero-inner">
+    <div class="legal-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Legal & Policies
+    </div>
+    <h1>Terms, Privacy &amp; Cookie Policy</h1>
+    <p style="font-size:16px; color:var(--slate-400); line-height:1.7; max-width:520px; margin:0 auto;">
+      We believe in transparency. These policies explain how GreySphere operates, what data we collect, and how we protect your information.
+    </p>
+    <div class="legal-hero-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Last Updated: April 2026</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Jurisdiction: Bangalore, Karnataka, India</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>GreySphere Consulting</span>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="legal-body">
+  <div class="legal-body-inner">
+
+    <!-- SIDEBAR -->
+    <aside class="legal-sidebar">
+      <div class="legal-sidebar-title">On This Page</div>
+      <nav class="legal-nav">
+        <a class="legal-nav-item active" href="#terms" onclick="setActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Terms of Use
+        </a>
+        <div class="legal-nav-divider"></div>
+        <a class="legal-nav-item" href="#privacy" onclick="setActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Privacy Policy
+        </a>
+        <div class="legal-nav-divider"></div>
+        <a class="legal-nav-item" href="#cookies" onclick="setActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="15" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+          Cookie Policy
+        </a>
+        <div class="legal-nav-divider"></div>
+        <a class="legal-nav-item" href="#contact-legal" onclick="setActive(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact Us
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="legal-content">
+
+      <div class="legal-updated">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>These policies were last updated in <strong>April 2026</strong>. We may update them from time to time — continued use of our website after any update constitutes acceptance of the revised terms.</span>
+      </div>
+
+      <!-- ===================== TERMS OF USE ===================== -->
+      <section class="legal-section" id="terms">
+        <div class="legal-section-header">
+          <div class="legal-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div>
+            <span class="legal-section-label">Section 01</span>
+            <div class="legal-section-title">Terms of Use</div>
+          </div>
+        </div>
+
+        <h3>Acceptance of Terms</h3>
+        <p>By accessing and using the GreySphere website (<strong>greysphere.in</strong>), you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use this website. These terms apply to all visitors, users, and anyone who accesses the website.</p>
+
+        <h3>About GreySphere</h3>
+        <p>GreySphere is a consulting and marketing firm based in Bangalore, Karnataka, India. We provide business strategy, brand architecture, market research, and full-funnel marketing services to businesses and institutions. These Terms govern the use of our public website only — they do not constitute a service agreement or engagement contract of any kind.</p>
+
+        <div class="legal-box strong">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p><strong style="color:var(--white);">No Engagement Without a Signed Agreement.</strong> Submitting a form, sending an email, or having a conversation with GreySphere does not constitute a service engagement, retainer, or partnership of any kind. No formal tie-up, consulting engagement, or marketing relationship is valid unless expressly confirmed through a signed written agreement between both parties. All commercial terms — including scope of work, deliverables, timelines, and responsibilities — are defined exclusively in those client-specific agreements.</p>
+        </div>
+
+        <h3>Commercial Terms — Client Agreements</h3>
+        <p>GreySphere's detailed commercial terms are not published on this website. The following are defined exclusively in individual client engagement contracts or partnership agreements:</p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Payment terms, invoicing schedules, and fee structures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Refund and cancellation policies</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Service Level Agreements (SLAs) and delivery timelines</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Scope of work, revisions, and deliverable ownership</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Confidentiality and non-disclosure obligations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Partnership terms and referral arrangements</li>
+        </ul>
+        <p>These terms are negotiated and agreed upon individually with each client and are not publicly disclosed.</p>
+
+        <h3>Intellectual Property</h3>
+        <p>All content on this website — including text, graphics, logos, visual design, service descriptions, frameworks, methodologies, and other materials — is the intellectual property of GreySphere and is protected under applicable Indian laws. You may not reproduce, distribute, modify, or create derivative works from any content on this website without prior written permission from GreySphere.</p>
+        <p>Referencing or citing GreySphere's publicly available content for informational purposes (with attribution) is permitted. Commercial use of any content is not permitted without a written licence agreement.</p>
+
+        <h3>User Responsibilities</h3>
+        <p>When using this website, you agree to:</p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Provide accurate information when submitting contact or inquiry forms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Not use the website for any unlawful, fraudulent, or misleading purpose</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Not attempt to gain unauthorised access to any part of the website or its infrastructure</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Not scrape, copy, or reproduce content from the website for commercial use</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Not use automated tools to interact with the website without permission</li>
+        </ul>
+
+        <h3>Third-Party Links</h3>
+        <p>This website may contain links to third-party websites for reference or convenience. GreySphere does not control, endorse, or accept responsibility for the content, privacy practices, or accuracy of any third-party website. Accessing any third-party link is at your own risk.</p>
+
+        <h3>Limitation of Liability</h3>
+        <p>This website and its content are provided on an "as is" and "as available" basis. GreySphere makes no warranties — express or implied — regarding the accuracy, completeness, or fitness for purpose of any information on this website.</p>
+        <p>To the fullest extent permitted by applicable law, GreySphere shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from your use of, or inability to use, this website or its content. This includes, but is not limited to, loss of revenue, loss of data, or business interruption.</p>
+
+        <div class="legal-box info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p>Liability for services rendered under an active client engagement is governed exclusively by the terms of the applicable client agreement — not by this website's Terms of Use.</p>
+        </div>
+
+        <h3>Governing Law & Jurisdiction</h3>
+        <p>These Terms of Use, and any disputes arising from or related to this website, shall be governed by and construed in accordance with the laws of India. Any legal proceedings shall be subject to the exclusive jurisdiction of the courts located in <strong>Bangalore, Karnataka, India</strong>.</p>
+
+        <h3>Modifications to Terms</h3>
+        <p>GreySphere reserves the right to update or modify these Terms of Use at any time without prior notice. Changes will be effective upon publication on this page. The date at the top of this page reflects when the terms were last updated. Continued use of the website following any changes constitutes your acceptance of the revised terms.</p>
+
+      </section>
+
+      <!-- ===================== PRIVACY POLICY ===================== -->
+      <section class="legal-section" id="privacy">
+        <div class="legal-section-header">
+          <div class="legal-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <span class="legal-section-label">Section 02</span>
+            <div class="legal-section-title">Privacy Policy</div>
+          </div>
+        </div>
+
+        <p>At GreySphere, we take the privacy of individuals seriously. This Privacy Policy explains what personal information we collect when you visit our website or interact with us, how we use it, and what choices you have. This policy applies to information collected through this website only.</p>
+
+        <h3>What Information We Collect</h3>
+        <p>We collect information in two ways — information you provide directly, and information collected automatically through your use of the website.</p>
+
+        <p><strong>Information You Provide:</strong></p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Contact Form:</strong> Name, email address, phone number, and message content when you reach out through our contact page</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Newsletter Sign-Up:</strong> Name and email address when you subscribe to our newsletter</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Business Interest:</strong> Service interest category you select in the contact form (e.g. Consulting & Strategy, Marketing Execution)</li>
+        </ul>
+
+        <p><strong>Information Collected Automatically:</strong></p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Usage Data:</strong> Pages visited, time spent on pages, referral sources, and general browsing behaviour on the website</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Device & Browser Data:</strong> Browser type, operating system, screen resolution, and device category (desktop, mobile, tablet)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Approximate Location:</strong> Country or region-level location derived from your IP address (not precise location)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Analytics & Tracking Data:</strong> Collected via Google Analytics, Google Tag Manager, and Meta Pixel (see Cookie Policy below)</li>
+        </ul>
+
+        <h3>How We Use This Information</h3>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>To respond to your enquiries and communicate about potential or active engagements</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>To send newsletters and updates to subscribers who have opted in</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>To understand how visitors use the website and improve the user experience</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>To run and optimise marketing campaigns, including retargeting ads (where permitted)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>To maintain basic records of interest and communication for business purposes</li>
+        </ul>
+
+        <h3>Where Your Data Is Stored</h3>
+        <p>Information submitted through our contact and newsletter forms is stored in Google Sheets, a product of Google LLC, which may process data on servers located outside India. By submitting a form on our website, you consent to this storage and processing.</p>
+        <p>Analytics and tracking data is processed by Google (Google Analytics, Google Tag Manager) and Meta Platforms Inc. (Meta Pixel), whose servers may also be located outside India. Their respective privacy policies govern how they handle this data.</p>
+
+        <h3>Data Sharing</h3>
+        <p>GreySphere does not sell, rent, or trade your personal information to any third party. We may share limited data in the following circumstances only:</p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Service Providers:</strong> Tools we use to operate the website (Google Workspace, Google Analytics, Meta Pixel) receive data only to the extent necessary for those tools to function</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Legal Obligations:</strong> Where required by applicable Indian law or a valid court order</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of business assets, personal data may be transferred as part of that transaction with the same privacy protections applying</li>
+        </ul>
+
+        <h3>Data Retention</h3>
+        <p>We retain contact form submissions for as long as they are relevant to an active or potential business relationship, typically no longer than 24 months unless there is an ongoing engagement. Newsletter subscriber data is retained until you unsubscribe. You may request deletion of your data at any time by emailing us.</p>
+
+        <h3>Your Rights</h3>
+        <p>You have the right to:</p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Request access to the personal information we hold about you</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Request correction of any inaccurate information</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Request deletion of your personal information from our records</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Withdraw consent for newsletter communications at any time</li>
+        </ul>
+        <p>To exercise any of these rights, please email us at <a href="mailto:contact@greysphere.in">contact@greysphere.in</a>. We will respond within a reasonable timeframe.</p>
+
+        <h3>Data Security</h3>
+        <p>We take reasonable measures to protect personal information from unauthorised access, loss, or misuse. Our website is hosted on a secure static platform, and form submissions are transmitted using standard HTTPS encryption. However, no method of data transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+        <div class="legal-box amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p>This Privacy Policy applies to data collected through this website only. Data collected during active client engagements is governed by the confidentiality and data handling clauses of the relevant client agreement.</p>
+        </div>
+
+        <h3>Children's Privacy</h3>
+        <p>This website is not directed at individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has submitted personal information through our website, please contact us and we will take steps to remove it.</p>
+
+      </section>
+
+      <!-- ===================== COOKIE POLICY ===================== -->
+      <section class="legal-section" id="cookies">
+        <div class="legal-section-header">
+          <div class="legal-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="15" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div>
+            <span class="legal-section-label">Section 03</span>
+            <div class="legal-section-title">Cookie Policy</div>
+          </div>
+        </div>
+
+        <p>This Cookie Policy explains what cookies are, which cookies GreySphere uses on its website, why we use them, and what choices you have regarding cookie usage. This policy should be read alongside our Privacy Policy above.</p>
+
+        <h3>What Are Cookies?</h3>
+        <p>Cookies are small text files placed on your device by a website when you visit it. They allow the website (or third-party services the website uses) to remember certain information about your visit — such as which pages you viewed or whether you've visited before. Cookies are widely used and are essential to how most websites function.</p>
+
+        <h3>What Cookies We Use</h3>
+        <p>GreySphere uses cookies placed by the following tools. We do not use cookies for any purpose beyond what is described below.</p>
+
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Provider</th>
+              <th>Purpose</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Google Analytics (GA4)</strong></td>
+              <td>Google LLC</td>
+              <td>Measures website traffic, page views, session duration, referral sources, and user behaviour to help us understand how visitors interact with our website.</td>
+              <td><span class="cookie-badge analytics">Analytics</span></td>
+            </tr>
+            <tr>
+              <td><strong>Google Tag Manager</strong></td>
+              <td>Google LLC</td>
+              <td>Manages and deploys tracking scripts (including Google Analytics and other tags) without modifying website code directly. GTM itself does not set analytics cookies, but enables the tools that do.</td>
+              <td><span class="cookie-badge functional">Functional</span></td>
+            </tr>
+            <tr>
+              <td><strong>Meta Pixel</strong><br><small>(Facebook / Instagram)</small></td>
+              <td>Meta Platforms Inc.</td>
+              <td>Tracks website visitors to measure the effectiveness of our advertising on Facebook and Instagram, and to enable retargeting — showing our ads to people who have previously visited our website.</td>
+              <td><span class="cookie-badge marketing">Marketing</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Cookie Categories</h3>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Analytics Cookies:</strong> Help us understand how visitors use our website. Data is aggregated and anonymised where possible. Used to improve website performance and content.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Marketing Cookies:</strong> Used to track visitors across websites for the purpose of displaying relevant advertisements. Data may be shared with advertising platforms (Meta) for campaign optimisation and retargeting.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Functional Cookies:</strong> Enable tag management systems like Google Tag Manager to operate correctly. These are necessary for our tracking infrastructure to function.</li>
+        </ul>
+
+        <h3>Data Processed by Third-Party Tools</h3>
+        <p>The tools listed above are operated by third parties. By using our website, you may be subject to their data collection and processing as well. We encourage you to review their privacy policies:</p>
+        <ul class="legal-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Meta Privacy Policy: <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">facebook.com/privacy/policy</a></li>
+        </ul>
+
+        <h3>Your Cookie Choices</h3>
+        <p>You have several options for controlling or limiting how cookies are used when you visit our website:</p>
+
+        <div class="legal-box info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p><strong>Browser Settings:</strong> Most browsers allow you to block or delete cookies through their settings. You can typically find these options under Privacy, Security, or Site Settings in your browser menu. Note that disabling cookies may affect how certain features of this website function.</p>
+        </div>
+
+        <ul class="legal-list" style="margin-top:16px;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Opt Out of Google Analytics:</strong> Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Opt Out of Meta Ads Tracking:</strong> Manage your ad preferences at <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener">facebook.com/ads/preferences</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><strong>Industry Opt-Outs:</strong> Visit <a href="https://youronlinechoices.eu" target="_blank" rel="noopener">youronlinechoices.eu</a> or <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener">optout.networkadvertising.org</a> for broader advertising opt-outs</li>
+        </ul>
+
+        <p style="margin-top:20px;">We do not currently display a cookie consent banner, as our website is a static informational site without user accounts or e-commerce. If you have concerns about cookie usage, you are welcome to contact us directly.</p>
+
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section class="legal-section" id="contact-legal">
+        <div class="legal-section-header">
+          <div class="legal-section-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <span class="legal-section-label">Section 04</span>
+            <div class="legal-section-title">Questions & Contact</div>
+          </div>
+        </div>
+
+        <p>If you have any questions, concerns, or requests relating to these terms, our privacy practices, or cookie usage, please reach out to us directly. We're happy to clarify anything on this page.</p>
+
+        <p><strong>GreySphere Consulting</strong><br>
+        Bangalore, Karnataka, India<br>
+        Email: <a href="mailto:contact@greysphere.in">contact@greysphere.in</a></p>
+
+        <p>For data-related requests (access, correction, or deletion of personal information), please email us with the subject line <strong>"Privacy Request"</strong> and we will respond within 14 business days.</p>
+
+        <div class="legal-box amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p>These terms are not a substitute for legal advice. If your matter involves a dispute, contractual claim, or significant legal concern, we recommend consulting a qualified legal professional. All disputes are subject to the jurisdiction of courts in Bangalore, Karnataka, India.</p>
+        </div>
+
+        <div class="legal-cta">
+          <div>
+            <h3>Have a Business Enquiry?</h3>
+            <p>These pages cover website terms. For service enquiries, partnerships, or anything business-related — talk to us directly.</p>
+          </div>
+          <a href="contact.html" class="btn-legal">
+            Contact GreySphere
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </section>
+
+    </div><!-- /legal-content -->
+  </div><!-- /legal-body-inner -->
+</div><!-- /legal-body -->
+
+<div id="site-footer"></div>
+
+<script src="global.js"></script>
+<script>
+/* Sidebar active state on click */
+function setActive(el) {
+  document.querySelectorAll('.legal-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* Sidebar active state on scroll */
+const sections = document.querySelectorAll('.legal-section');
+const navItems = document.querySelectorAll('.legal-nav-item');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + id) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreySphere — Brand & Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1c355e;--navy-dark:#121f3a;--navy-mid:#26437a;--navy-light:#2f5298;
+  --amber:#e8b44f;--amber-dark:#c9942a;--amber-light:#f2ca72;--amber-tint:#fdf3dc;
+  --white:#ffffff;--off-white:#f8f6f1;
+  --grey-100:#ebebeb;--grey-300:#c4c4c4;--grey-500:#888888;--grey-700:#4a4a4a;--grey-900:#1a1a1a;
+  --font-display:'DM Serif Display',Georgia,serif;
+  --font-body:'General Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Courier New',Courier,monospace;
+  --sp1:4px;--sp2:8px;--sp3:12px;--sp4:16px;--sp5:20px;--sp6:24px;
+  --sp8:32px;--sp10:40px;--sp12:48px;--sp16:64px;--sp20:80px;--sp24:96px;
+  --r-sm:4px;--r-md:8px;--r-lg:12px;--r-xl:20px;--r-pill:100px;
+  --sh-sm:0 1px 3px rgba(28,53,94,.08);--sh-md:0 4px 16px rgba(28,53,94,.12);
+  --sh-lg:0 12px 40px rgba(28,53,94,.18);--sh-ab:0 4px 24px rgba(232,180,79,.28);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-size:16px;color:var(--grey-900);background:var(--off-white);line-height:1.6;-webkit-font-smoothing:antialiased}
+/* SIDEBAR */
+.sb{position:fixed;top:0;left:0;width:240px;height:100vh;background:var(--navy-dark);overflow-y:auto;z-index:100;border-right:1px solid rgba(232,180,79,.15)}
+.sb::-webkit-scrollbar{width:3px}.sb::-webkit-scrollbar-thumb{background:rgba(232,180,79,.3)}
+.sb-logo{padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-wm{font-family:var(--font-display);font-size:20px;color:#fff;letter-spacing:-.3px}
+.sb-wm .dot{color:var(--amber)}
+.sb-lbl{font-size:10px;color:var(--grey-500);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+.sb-sec{padding:18px 0 6px}
+.sb-sec-t{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--amber);padding:0 24px 8px;opacity:.65}
+.sb a{display:block;padding:7px 24px;font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s}
+.sb a:hover{color:#fff;background:rgba(232,180,79,.08)}
+.sb a.on{color:var(--amber);background:rgba(232,180,79,.1);border-left:2px solid var(--amber);padding-left:22px}
+/* MAIN */
+.main{margin-left:240px;min-height:100vh}
+/* HERO */
+.hero{background:var(--navy-dark);padding:64px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,180,79,.12) 0%,transparent 70%);pointer-events:none}
+.hero-eye{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--amber);margin-bottom:20px;opacity:.85}
+.hero h1{font-family:var(--font-display);font-size:72px;color:#fff;line-height:1.05;letter-spacing:-1.5px;margin-bottom:24px;position:relative;z-index:1}
+.hero h1 em{color:var(--amber);font-style:italic}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.5);max-width:520px;line-height:1.7}
+.hero-meta{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap;position:relative;z-index:1}
+.hm-lbl{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.35);margin-bottom:2px}
+.hm-val{font-size:13px;color:rgba(255,255,255,.75)}
+/* SECTION */
+.sec{padding:64px 48px;border-bottom:1px solid var(--grey-100)}
+.sec:last-child{border-bottom:none}
+.sec-hdr{display:flex;align-items:flex-end;gap:24px;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--grey-100)}
+.sec-n{font-family:var(--font-display);font-size:60px;line-height:1;color:var(--grey-100);letter-spacing:-2px;flex-shrink:0}
+.sec-title{font-family:var(--font-display);font-size:44px;color:var(--navy);line-height:1.1;letter-spacing:-.5px}
+.sec-desc{font-size:18px;color:var(--grey-500);margin-top:8px;max-width:600px;line-height:1.7}
+/* CALLOUTS */
+.note{border-radius:8px;padding:20px 24px;margin-bottom:24px;display:flex;gap:16px;align-items:flex-start}
+.note.info{background:rgba(28,53,94,.05);border-left:3px solid var(--navy)}
+.note.do{background:rgba(34,150,80,.06);border-left:3px solid #22964d}
+.note.dont{background:rgba(220,53,53,.06);border-left:3px solid #dc3535}
+.note.amber{background:rgba(232,180,79,.08);border-left:3px solid var(--amber)}
+.note.warn{background:rgba(240,160,40,.07);border-left:3px solid #c07800}
+.ni{flex-shrink:0;width:18px;height:18px;margin-top:2px}
+.nt{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.note.info .nt{color:var(--navy)}.note.do .nt{color:#22964d}.note.dont .nt{color:#dc3535}
+.note.amber .nt{color:var(--amber-dark)}.note.warn .nt{color:#c07800}
+.note p{font-size:13px;color:var(--grey-700);line-height:1.65}
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+/* SWATCHES */
+.sw{border-radius:8px;overflow:hidden;box-shadow:var(--sh-sm)}
+.sw-c{height:80px;width:100%}.sw.lg .sw-c{height:120px}
+.sw-i{background:#fff;padding:10px 14px}
+.sw-n{font-weight:700;font-size:13px;color:var(--grey-900)}
+.sw-h{font-size:11px;color:var(--grey-500);font-family:monospace}
+.sw-u{font-size:11px;color:var(--grey-500);margin-top:2px;line-height:1.4}
+.sg-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--grey-500);margin-bottom:12px;margin-top:32px}
+/* WORDMARK */
+.wm{font-family:var(--font-display);letter-spacing:-.3px}
+.wm .dot{color:var(--amber)}.wm.navy{color:var(--navy)}.wm.white{color:#fff}.wm.dark{color:var(--navy-dark)}
+/* LOGO BOX */
+.lb{display:flex;align-items:center;justify-content:center;border-radius:12px;min-height:140px;position:relative}
+.lb.lw{background:#fff;border:1px solid var(--grey-100)}.lb.lo{background:var(--off-white);border:1px solid var(--grey-100)}
+.lb.ln{background:var(--navy)}.lb.ld{background:var(--navy-dark)}.lb.la{background:var(--amber)}
+.lb-lbl{position:absolute;bottom:10px;left:14px;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;opacity:.4}
+/* TYPE */
+.tc{background:#fff;border-radius:12px;padding:32px;margin-bottom:20px;box-shadow:var(--sh-sm)}
+.tm{display:flex;gap:24px;flex-wrap:wrap;padding-top:20px;margin-top:20px;border-top:1px solid var(--grey-100)}
+.tml{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--grey-300);font-weight:700}
+.tmv{font-size:13px;color:var(--grey-700);font-family:monospace}
+/* SPACING */
+.spr{display:flex;align-items:center;gap:24px;padding:12px 0;border-bottom:1px solid var(--grey-100)}
+.spr:last-child{border-bottom:none}
+.spn{font-family:monospace;font-size:13px;color:var(--grey-900);width:90px;flex-shrink:0}
+.spp{font-size:13px;color:var(--grey-500);width:36px;flex-shrink:0}
+.spb{height:14px;background:var(--navy);border-radius:2px;opacity:.8}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:13px;font-weight:600;padding:11px 22px;border-radius:4px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:all .2s ease;white-space:nowrap}
+.btn-lg{padding:15px 30px;font-size:16px}.btn-sm{padding:8px 16px;font-size:11px}
+.bp{background:var(--amber);color:var(--navy);border-color:var(--amber)}
+.bp:hover{background:var(--amber-dark);border-color:var(--amber-dark);box-shadow:var(--sh-ab);transform:translateY(-1px)}
+.bo{background:transparent;color:var(--navy);border-color:var(--navy)}
+.bo:hover{background:var(--navy);color:#fff}
+.bg{background:transparent;color:var(--navy);border-color:transparent;text-decoration:underline;text-underline-offset:3px}
+.bg:hover{color:var(--amber-dark)}
+.bpi{background:var(--amber);color:var(--navy-dark);border-color:var(--amber)}
+.boi{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.boi:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.bgi{background:transparent;color:rgba(255,255,255,.65);border-color:transparent;text-decoration:underline;text-underline-offset:3px}
+.bgi:hover{color:var(--amber)}
+/* COMP ROW */
+.cr{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:24px 32px;background:#fff;border-radius:12px;margin-bottom:16px;box-shadow:var(--sh-sm)}
+.cr.dark{background:var(--navy-dark)}
+.cr-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--grey-300);font-weight:700;width:100%;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--grey-100)}
+.cr.dark .cr-lbl{color:rgba(255,255,255,.2);border-color:rgba(255,255,255,.07)}
+/* CARDS */
+.card{background:#fff;border-radius:12px;box-shadow:var(--sh-sm);overflow:hidden;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
+.card-b{padding:32px}
+.card-eye{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber-dark);font-weight:700;margin-bottom:12px}
+.card-t{font-family:var(--font-display);font-size:26px;color:var(--navy);line-height:1.25;margin-bottom:16px}
+.card-b p{font-size:13px;color:var(--grey-700);line-height:1.7;margin-bottom:20px}
+.card-lnk{font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s,gap .2s}
+.card-lnk:hover{color:var(--amber-dark);gap:10px}
+.stat-card{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);border-bottom:3px solid var(--amber)}
+.stat-n{font-family:var(--font-display);font-size:48px;color:var(--navy);line-height:1;margin-bottom:8px}
+.stat-l{font-size:13px;color:var(--grey-500);line-height:1.5}
+.testi{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)}
+.testi p{font-size:18px;color:var(--grey-700);line-height:1.7;font-style:italic;margin-bottom:24px;margin-top:16px}
+.testi-n{font-weight:700;font-size:13px;color:var(--navy)}
+.testi-r{font-size:11px;color:var(--grey-500);margin-top:2px}
+.step{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--grey-100)}
+.step:last-child{border-bottom:none}
+.step-n{font-family:var(--font-display);font-size:36px;color:var(--grey-100);flex-shrink:0;line-height:1;width:40px}
+.step-t{font-family:var(--font-display);font-size:22px;color:var(--navy);margin-bottom:4px}
+.step-d{font-size:13px;color:var(--grey-500);line-height:1.65}
+/* FORMS */
+.gs-lbl{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.gs-inp{width:100%;padding:12px 16px;font-family:var(--font-body);font-size:13px;color:var(--grey-900);background:#fff;border:1.5px solid var(--grey-100);border-radius:4px;outline:none;transition:border-color .2s,box-shadow .2s}
+.gs-inp::placeholder{color:var(--grey-300)}
+.gs-inp:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(28,53,94,.08)}
+.gs-inp.err{border-color:#dc3535;box-shadow:0 0 0 3px rgba(220,53,53,.08)}
+.gs-fld{margin-bottom:24px}
+/* NAV/FOOTER */
+.hdr-demo{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--sh-md);margin-bottom:32px}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--grey-100)}
+.nav-l{display:flex;gap:32px;list-style:none}
+.nav-l a{font-size:13px;font-weight:500;color:var(--grey-700);text-decoration:none;transition:color .2s}
+.nav-l a:hover,.nav-l a.on{color:var(--navy);font-weight:700}
+.ftr{background:var(--navy-dark);border-radius:12px;padding:48px 40px;box-shadow:var(--sh-md)}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
+.ftr-ct{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);font-weight:700;margin-bottom:16px;opacity:.65}
+.ftr-lnks{list-style:none;display:flex;flex-direction:column;gap:8px}
+.ftr-lnks a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.ftr-lnks a:hover{color:rgba(255,255,255,.85)}
+.ftr-tag{font-family:var(--font-display);font-size:22px;color:#fff;margin-top:16px;margin-bottom:16px;opacity:.8;font-style:italic}
+.ftr-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7;max-width:280px}
+.ftr-bot{display:flex;justify-content:space-between;align-items:center}
+.ftr-copy{font-size:11px;color:rgba(255,255,255,.28)}
+/* CHIPS */
+.chip{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:100px}
+.chip.n{background:var(--navy);color:#fff}.chip.a{background:var(--amber);color:var(--navy)}
+.chip.o{border:1.5px solid var(--navy);color:var(--navy)}.chip.g{background:var(--grey-100);color:var(--grey-700)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:4px 10px;border-radius:100px}
+.badge.n{background:rgba(28,53,94,.1);color:var(--navy)}.badge.a{background:rgba(232,180,79,.15);color:var(--amber-dark)}
+.badge.s{background:rgba(34,150,80,.1);color:#22964d}.badge.w{background:rgba(240,160,40,.1);color:#c07800}
+/* ICONS */
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.ii{background:#fff;border-radius:8px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:var(--sh-sm)}
+.ii svg{width:24px;height:24px}
+.il{font-size:10px;color:var(--grey-500);text-align:center}
+/* SOCIAL */
+.sg3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:32px}
+.sfl{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--grey-500);font-weight:700;margin-bottom:12px}
+.sbox{border-radius:12px;overflow:hidden;box-shadow:var(--sh-md);position:relative}
+.s11{aspect-ratio:1/1}.s45{aspect-ratio:4/5}.s169{aspect-ratio:16/9}
+.spn{background:var(--navy);width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;position:relative}
+.spn::before{content:'';position:absolute;top:0;right:0;width:60%;height:60%;background:radial-gradient(circle at top right,rgba(232,180,79,.14) 0%,transparent 70%)}
+.spa{background:var(--amber);width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;position:relative}
+.spsp{width:100%;height:100%;display:grid;grid-template-columns:45% 55%}
+.spl{background:var(--navy-dark);display:flex;flex-direction:column;justify-content:flex-end;padding:18px 14px}
+.spr2{background:var(--amber);display:flex;flex-direction:column;justify-content:center;padding:18px 14px}
+.swm{font-family:var(--font-display);font-size:12px}.swm .dot{color:var(--amber)}.swm.inv .dot{color:var(--navy)}
+.stag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;opacity:.4}
+.shl{font-family:var(--font-display);font-size:17px;line-height:1.2;letter-spacing:-.3px}
+.surl{font-size:9px;font-weight:700;letter-spacing:.5px;margin-top:6px;opacity:.35}
+/* CODE */
+.code{background:var(--navy-dark);color:var(--amber-light);border-radius:8px;padding:24px 32px;font-family:var(--font-mono);font-size:13px;line-height:1.8;overflow-x:auto;margin-bottom:24px}
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--sh-sm);margin-bottom:32px}
+.tbl th{background:var(--navy);color:#fff;padding:11px 16px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.tbl td{padding:11px 16px;border-bottom:1px solid var(--grey-100);color:var(--grey-700);vertical-align:top;line-height:1.6}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:nth-child(even) td{background:var(--off-white)}
+.ok{color:#22964d;font-weight:700}.no{color:#dc3535;font-weight:700}
+/* DO/DONT */
+.dd-g{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.dd{border-radius:12px;overflow:hidden;box-shadow:var(--sh-sm)}
+.dd-h{padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.dd-h.do{background:#22964d;color:#fff}.dd-h.dont{background:#dc3535;color:#fff}
+.dd-b{background:#fff;padding:24px;font-size:13px;color:var(--grey-700);line-height:1.65}
+/* ARCH */
+.arch{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)}
+.arch-row{display:flex;gap:16px;align-items:stretch;margin-bottom:16px}
+.an{flex:1;border-radius:8px;padding:16px 20px;font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:4px}
+.an.nv{background:var(--navy);color:#fff}.an.ab{background:var(--amber);color:var(--navy)}
+.an.lt{background:rgba(28,53,94,.06);color:var(--navy);border:1px solid rgba(28,53,94,.1)}
+.an.gy{background:var(--grey-100);color:var(--grey-700);border:1px solid var(--grey-100)}
+.an .sub{font-weight:400;font-size:11px;opacity:.6}
+.aarr{display:flex;align-items:center;justify-content:center;color:var(--grey-300);font-size:20px;flex-shrink:0}
+/* MOTION */
+.mc{background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);margin-bottom:16px}
+.mc-t{font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px}
+.mc-d{font-size:13px;color:var(--grey-500);margin-bottom:12px;line-height:1.6}
+.mc-v{font-family:var(--font-mono);font-size:11px;background:var(--off-white);padding:4px 10px;border-radius:4px;color:var(--navy);display:inline-block}
+/* PHOTO */
+.pg3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.pi{border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;box-shadow:var(--sh-sm)}
+.pi svg{opacity:.5}
+.pi.ok{background:rgba(28,53,94,.07);color:var(--navy);border:1px solid rgba(28,53,94,.12)}
+.pi.bad{background:rgba(220,53,53,.07);color:#dc3535;border:1px solid rgba(220,53,53,.18)}
+.pl{font-size:11px;font-weight:600;text-align:center;margin-top:8px;color:var(--grey-500)}
+/* MISC */
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:var(--off-white)}
+::-webkit-scrollbar-thumb{background:var(--grey-300);border-radius:3px}
+[id]{scroll-margin-top:20px}
+code{font-family:var(--font-mono);font-size:12px;background:rgba(28,53,94,.08);padding:2px 6px;border-radius:3px;color:var(--navy)}
+h3.sub{font-family:var(--font-display);font-size:28px;color:var(--navy);margin-bottom:20px}
+</style>
+</head>
+<body>
+<nav class="sb">
+  <div class="sb-logo">
+    <div class="sb-wm">GreySphere<span class="dot">.</span></div>
+    <div class="sb-lbl">Brand &amp; Design System</div>
+  </div>
+  <div class="sb-sec"><div class="sb-sec-t">Foundation</div>
+    <a class="on" href="#brand">Brand Identity</a><a href="#logo">Logo &amp; Wordmark</a>
+    <a href="#colour">Colour System</a><a href="#type">Typography</a>
+    <a href="#spacing">Spacing &amp; Grid</a><a href="#imagery">Photography</a>
+    <a href="#icons">Iconography</a><a href="#motion">Motion</a>
+  </div>
+  <div class="sb-sec"><div class="sb-sec-t">Components</div>
+    <a href="#buttons">Buttons</a><a href="#cards">Cards</a>
+    <a href="#forms">Forms</a><a href="#nav">Nav &amp; Footer</a><a href="#chips">Badges &amp; Chips</a>
+  </div>
+  <div class="sb-sec"><div class="sb-sec-t">Application</div>
+    <a href="#voice">Voice &amp; Tone</a><a href="#social">Social Media</a>
+    <a href="#arch">Site Architecture</a><a href="#tokens">Design Tokens</a>
+    <a href="#donts">Do&rsquo;s &amp; Don&rsquo;ts</a>
+  </div>
+</nav>
+<main class="main">
+<div class="hero">
+  <div class="hero-eye">GreySphere &mdash; Brand &amp; Design System v1.0</div>
+  <h1>Built to signal<br>clarity, <em>not</em> noise.</h1>
+  <p class="hero-sub">Every visual and verbal decision that forms GreySphere&rsquo;s identity. For website teams, social media managers, designers, and all collaborators. Single source of truth.</p>
+  <div class="hero-meta">
+    <div><div class="hm-lbl">Live site</div><div class="hm-val">amar-marketingspace.github.io/consultingfirm/</div></div>
+    <div><div class="hm-lbl">Hosting</div><div class="hm-val">GitHub Pages (static HTML/CSS/JS)</div></div>
+    <div><div class="hm-lbl">Analytics</div><div class="hm-val">GTM + GA4 + Meta Pixel</div></div>
+    <div><div class="hm-lbl">Jurisdiction</div><div class="hm-val">Bangalore, India</div></div>
+    <div><div class="hm-lbl">Version</div><div class="hm-val">1.0 &mdash; 2025</div></div>
+  </div>
+</div>
+
+<!-- 01 BRAND -->
+<section class="sec" id="brand">
+<div class="sec-hdr"><div class="sec-n">01</div><div><div class="sec-title">Brand Identity</div><div class="sec-desc">Who GreySphere is, what we believe, and how that shapes every decision.</div></div></div>
+<div class="g2" style="margin-bottom:40px">
+<div>
+  <span class="chip n" style="margin-bottom:16px;display:inline-block">Positioning</span>
+  <h3 style="font-family:var(--font-display);font-size:26px;color:var(--navy);margin-bottom:16px;line-height:1.2">Consulting-led. Marketing-executed. Growth-oriented.</h3>
+  <p style="font-size:13px;color:var(--grey-700);line-height:1.75;margin-bottom:16px">GreySphere is a B2B consulting and marketing firm headquartered in Bangalore, India, with global ambitions. We serve founders and leadership teams who need more than campaigns &mdash; they need clarity, direction, and a system for growth.</p>
+  <p style="font-size:13px;color:var(--grey-700);line-height:1.75">We think like operators, advise like consultants, and execute like a full-service growth team. We are not a typical agency.</p>
+</div>
+<div>
+  <span class="chip a" style="margin-bottom:16px;display:inline-block">Brand Character</span>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="background:#fff;border-radius:8px;padding:16px 20px;box-shadow:var(--sh-sm);display:flex;gap:16px;align-items:center"><div style="width:4px;height:40px;background:var(--amber);border-radius:2px;flex-shrink:0"></div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Sophisticated, not Flashy</div><div style="font-size:11px;color:var(--grey-500);margin-top:2px">Precision over performance. No superlatives, no noise.</div></div></div>
+    <div style="background:#fff;border-radius:8px;padding:16px 20px;box-shadow:var(--sh-sm);display:flex;gap:16px;align-items:center"><div style="width:4px;height:40px;background:var(--navy);border-radius:2px;flex-shrink:0"></div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Trusted Advisory Tone</div><div style="font-size:11px;color:var(--grey-500);margin-top:2px">We earn trust through rigour, not self-promotion.</div></div></div>
+    <div style="background:#fff;border-radius:8px;padding:16px 20px;box-shadow:var(--sh-sm);display:flex;gap:16px;align-items:center"><div style="width:4px;height:40px;background:var(--amber-dark);border-radius:2px;flex-shrink:0"></div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Nuance over Simplification</div><div style="font-size:11px;color:var(--grey-500);margin-top:2px">Growth is complex. We don&rsquo;t pretend otherwise.</div></div></div>
+    <div style="background:#fff;border-radius:8px;padding:16px 20px;box-shadow:var(--sh-sm);display:flex;gap:16px;align-items:center"><div style="width:4px;height:40px;background:var(--navy-light);border-radius:2px;flex-shrink:0"></div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Global Ambition, Indian Roots</div><div style="font-size:11px;color:var(--grey-500);margin-top:2px">Headquartered in Bangalore. Built for the world.</div></div></div>
+  </div>
+</div>
+</div>
+<div class="g3" style="margin-bottom:40px">
+  <div style="background:var(--navy);border-radius:12px;padding:32px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);font-weight:700;margin-bottom:16px;opacity:.7">Mission</div><div style="font-family:var(--font-display);font-size:22px;color:#fff;line-height:1.35;font-style:italic;margin-bottom:16px">&ldquo;Architect clarity before acceleration.&rdquo;</div><div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.65">We align strategy, brand, and marketing under one accountable framework so every decision compounds.</div></div>
+  <div style="background:var(--amber);border-radius:12px;padding:32px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);font-weight:700;margin-bottom:16px;opacity:.6">Vision</div><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);line-height:1.35;font-style:italic;margin-bottom:16px">&ldquo;Most trusted growth partner for ambitious businesses across India and beyond.&rdquo;</div><div style="font-size:13px;color:var(--navy);opacity:.55;line-height:1.65">Trusted by founders. Respected by leadership. Driven by outcomes.</div></div>
+  <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);font-weight:700;margin-bottom:20px">Core Taglines</div><div style="display:flex;flex-direction:column;gap:12px"><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);line-height:1.2">Brands Don&rsquo;t Grow by Playing <em>Safe.</em></div><div style="width:40px;height:2px;background:var(--amber);border-radius:1px"></div><div style="font-size:13px;color:var(--grey-500);font-style:italic">&ldquo;No pitches. Just Clarity.&rdquo;</div><div style="font-size:13px;color:var(--grey-500);font-style:italic">&ldquo;Consulting + Marketing Partner&rdquo;</div></div></div>
+</div>
+<h3 class="sub">Industries Served</h3>
+<div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);margin-bottom:32px"><div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px"><span class="chip g">SaaS</span><span class="chip g">D2C</span><span class="chip g">Fitness</span><span class="chip g">EdTech</span><span class="chip g">F&amp;B</span><span class="chip g">Retail</span><span class="chip g">Higher Education</span><span class="chip g">Export</span><span class="chip g">Personal Branding</span></div><p style="font-size:13px;color:var(--grey-500);line-height:1.65">Primary: B2B founders and leadership teams in India. Growing global outreach. Always speak to sophistication &mdash; never to a general consumer audience.</p></div>
+<h3 class="sub">Brand Metrics &mdash; Use in All Collateral</h3>
+<div class="g4">
+  <div class="stat-card"><div class="stat-n">47.9%</div><div class="stat-l">Retention Revenue Increase</div></div>
+  <div class="stat-card"><div class="stat-n">25+</div><div class="stat-l">Brands Transformed</div></div>
+  <div class="stat-card"><div class="stat-n">2500+</div><div class="stat-l">Professionals Trained</div></div>
+  <div class="stat-card"><div class="stat-n">10+</div><div class="stat-l">Industries Served</div></div>
+</div>
+</section>
+
+<!-- 02 LOGO -->
+<section class="sec" id="logo">
+<div class="sec-hdr"><div class="sec-n">02</div><div><div class="sec-title">Logo &amp; Wordmark</div><div class="sec-desc">A typographic wordmark only &mdash; no icon, no mark. The amber period is the brand&rsquo;s sole graphic element and signature.</div></div></div>
+<div class="note amber">
+  <svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9942a" stroke-width="1.5"/><path d="M10 6v5M10 14h.01" stroke="#c9942a" stroke-width="1.5" stroke-linecap="round"/></svg>
+  <div><div class="nt">The Dot IS the Logo Mark</div><p>The amber period after &ldquo;GreySphere&rdquo; is not punctuation. It is the brand&rsquo;s only graphic element. It signals precision, finality, and confidence. Always <strong>#e8b44f</strong>. Never omit it. Never recolour it. Exception: on amber backgrounds, the dot matches the text colour. The website header uses only this text wordmark &mdash; no icon, no symbol, ever.</p></div>
+</div>
+<h3 class="sub">Approved Colour Combinations</h3>
+<div class="g4" style="margin-bottom:40px">
+  <div><div class="lb lw"><span class="wm navy" style="font-size:24px">GreySphere<span class="dot">.</span></span><span class="lb-lbl" style="color:var(--grey-300)">On White</span></div></div>
+  <div><div class="lb lo"><span class="wm navy" style="font-size:24px">GreySphere<span class="dot">.</span></span><span class="lb-lbl" style="color:var(--grey-300)">On Off-White</span></div></div>
+  <div><div class="lb ln"><span class="wm white" style="font-size:24px">GreySphere<span class="dot">.</span></span><span class="lb-lbl" style="color:rgba(255,255,255,.3)">On Navy</span></div></div>
+  <div><div class="lb ld"><span class="wm white" style="font-size:24px">GreySphere<span class="dot">.</span></span><span class="lb-lbl" style="color:rgba(255,255,255,.2)">On Dark Navy</span></div></div>
+</div>
+<div class="g2" style="margin-bottom:40px">
+  <div><div class="lb la" style="min-height:120px"><span class="wm dark" style="font-size:24px">GreySphere<span style="color:var(--navy-dark)">.</span></span><span class="lb-lbl" style="color:rgba(28,53,94,.35)">On Amber &mdash; dot matches text</span></div></div>
+  <div class="note dont" style="margin-bottom:0;align-self:stretch">
+    <svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <div><div class="nt">Amber Background Exception</div><p>On an amber background the dot takes the same dark navy as the text. This is the only exception to the amber dot rule. The dot never stays amber on amber.</p></div>
+  </div>
+</div>
+<h3 class="sub">Size Scale</h3>
+<div style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--sh-sm);margin-bottom:32px">
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--grey-100);padding-bottom:24px"><span class="wm navy" style="font-size:52px;flex-shrink:0">GreySphere<span class="dot">.</span></span><div><div style="font-size:13px;font-weight:700;color:var(--navy)">Hero &mdash; 48&ndash;80px</div><div style="font-size:11px;color:var(--grey-500)">Homepage hero, print, banners, OOH</div></div></div>
+    <div style="display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--grey-100);padding-bottom:24px"><span class="wm navy" style="font-size:34px;flex-shrink:0">GreySphere<span class="dot">.</span></span><div><div style="font-size:13px;font-weight:700;color:var(--navy)">Display &mdash; 28&ndash;36px</div><div style="font-size:11px;color:var(--grey-500)">Presentations, social covers, email headers</div></div></div>
+    <div style="display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--grey-100);padding-bottom:24px"><span class="wm navy" style="font-size:20px;flex-shrink:0">GreySphere<span class="dot">.</span></span><div><div style="font-size:13px;font-weight:700;color:var(--navy)">Standard &mdash; 18&ndash;22px &nbsp;<span class="chip n" style="font-size:9px;vertical-align:middle">Website header</span></div><div style="font-size:11px;color:var(--grey-500)">Website header, document footers, letterheads</div></div></div>
+    <div style="display:flex;align-items:center;gap:32px"><span class="wm navy" style="font-size:13px;flex-shrink:0">GreySphere<span class="dot">.</span></span><div><div style="font-size:13px;font-weight:700;color:var(--navy)">Minimum &mdash; 13px</div><div style="font-size:11px;color:var(--grey-500)">Watermarks, footnotes only. Never go smaller.</div></div></div>
+  </div>
+</div>
+<div style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--sh-sm);margin-bottom:24px">
+  <div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px">Clear Space Rule</div>
+  <div style="display:flex;align-items:center;justify-content:center;background:var(--off-white);border-radius:8px;padding:48px">
+    <div style="position:relative;border:1.5px dashed var(--amber);padding:20px 28px;border-radius:4px"><span class="wm navy" style="font-size:28px">GreySphere<span class="dot">.</span></span><div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--amber-dark);font-weight:700;white-space:nowrap;letter-spacing:.5px">MIN. 1&times; cap-height clear space on all sides</div></div>
+  </div>
+</div>
+<div class="note dont"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Never Do This</div><p>No icon or mark alongside the text. No retype in a different font. No drop shadows or outlines. No distortion or rotation. No removing the dot. No placing on low-contrast surfaces. Never &ldquo;Gray&rdquo; (always &ldquo;Grey&rdquo;).</p></div></div>
+</section>
+
+<!-- 03 COLOUR -->
+<section class="sec" id="colour">
+<div class="sec-hdr"><div class="sec-n">03</div><div><div class="sec-title">Colour System</div><div class="sec-desc">Two brand colours. No other hues permitted. Neutrals support structure only.</div></div></div>
+<div class="sg-lbl" style="margin-top:0">Primary Brand Colours</div>
+<div class="g2" style="margin-bottom:40px">
+  <div class="sw lg"><div class="sw-c" style="background:#1c355e"></div><div class="sw-i"><div class="sw-n">GreySphere Navy</div><div class="sw-h">#1c355e &mdash; var(--navy)</div><div class="sw-u">Primary brand colour. Backgrounds, text, borders, all primary UI elements, nav, footer. Conveys trust, depth, authority.</div></div></div>
+  <div class="sw lg"><div class="sw-c" style="background:#e8b44f"></div><div class="sw-i"><div class="sw-n">GreySphere Amber</div><div class="sw-h">#e8b44f &mdash; var(--amber)</div><div class="sw-u">Accent colour. Logo dot, CTA buttons, highlights, eyebrow labels. Conveys intelligence, warmth, distinction. Never overuse.</div></div></div>
+</div>
+<div class="sg-lbl">Navy Tonal Scale</div>
+<div class="g4" style="margin-bottom:32px">
+  <div class="sw"><div class="sw-c" style="background:#121f3a"></div><div class="sw-i"><div class="sw-n">Navy Dark</div><div class="sw-h">#121f3a</div><div class="sw-u">Footer, dark hero backgrounds</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#1c355e"></div><div class="sw-i"><div class="sw-n">Navy (Primary)</div><div class="sw-h">#1c355e</div><div class="sw-u">Default brand navy</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#26437a"></div><div class="sw-i"><div class="sw-n">Navy Mid</div><div class="sw-h">#26437a</div><div class="sw-u">Hover states, panels</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#2f5298"></div><div class="sw-i"><div class="sw-n">Navy Light</div><div class="sw-h">#2f5298</div><div class="sw-u">Focus rings, accents</div></div></div>
+</div>
+<div class="sg-lbl">Amber Tonal Scale</div>
+<div class="g4" style="margin-bottom:32px">
+  <div class="sw"><div class="sw-c" style="background:#c9942a"></div><div class="sw-i"><div class="sw-n">Amber Dark</div><div class="sw-h">#c9942a</div><div class="sw-u">Button hover, active states</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#e8b44f"></div><div class="sw-i"><div class="sw-n">Amber (Primary)</div><div class="sw-h">#e8b44f</div><div class="sw-u">Logo dot, CTAs</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#f2ca72"></div><div class="sw-i"><div class="sw-n">Amber Light</div><div class="sw-h">#f2ca72</div><div class="sw-u">Highlights, tints</div></div></div>
+  <div class="sw"><div class="sw-c" style="background:#fdf3dc"></div><div class="sw-i"><div class="sw-n">Amber Tint</div><div class="sw-h">#fdf3dc</div><div class="sw-u">Callout backgrounds</div></div></div>
+</div>
+<div class="sg-lbl">Neutral Scale</div>
+<div style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap">
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#f8f6f1;height:56px"></div><div class="sw-i"><div class="sw-h">#f8f6f1</div><div class="sw-u">Page bg</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#ebebeb;height:56px"></div><div class="sw-i"><div class="sw-h">#ebebeb</div><div class="sw-u">Borders</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#c4c4c4;height:56px"></div><div class="sw-i"><div class="sw-h">#c4c4c4</div><div class="sw-u">Disabled</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#888;height:56px"></div><div class="sw-i"><div class="sw-h">#888888</div><div class="sw-u">Subtext</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#4a4a4a;height:56px"></div><div class="sw-i"><div class="sw-h">#4a4a4a</div><div class="sw-u">Body text</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#1a1a1a;height:56px"></div><div class="sw-i"><div class="sw-h">#1a1a1a</div><div class="sw-u">Headings</div></div></div>
+  <div style="flex:1;min-width:70px" class="sw"><div class="sw-c" style="background:#fff;height:56px;border:1px solid #ebebeb"></div><div class="sw-i"><div class="sw-h">#ffffff</div><div class="sw-u">White</div></div></div>
+</div>
+<h3 class="sub">Contrast &amp; Accessibility (WCAG)</h3>
+<table class="tbl">
+  <thead><tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>AA</th><th>AAA</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td><span style="background:#1c355e;color:#fff;padding:2px 8px;border-radius:3px;font-size:12px">#1c355e</span></td><td><span style="background:#fff;border:1px solid #eee;padding:2px 8px;border-radius:3px;font-size:12px">#ffffff</span></td><td><strong>9.8:1</strong></td><td class="ok">Pass</td><td class="ok">Pass</td><td>Primary text on white</td></tr>
+    <tr><td><span style="background:#fff;color:#1c355e;border:1px solid #eee;padding:2px 8px;border-radius:3px;font-size:12px">#ffffff</span></td><td><span style="background:#1c355e;color:#fff;padding:2px 8px;border-radius:3px;font-size:12px">#1c355e</span></td><td><strong>9.8:1</strong></td><td class="ok">Pass</td><td class="ok">Pass</td><td>White text on navy</td></tr>
+    <tr><td><span style="background:#1c355e;color:#e8b44f;padding:2px 8px;border-radius:3px;font-size:12px">#e8b44f</span></td><td><span style="background:#1c355e;color:#fff;padding:2px 8px;border-radius:3px;font-size:12px">#1c355e</span></td><td><strong>5.1:1</strong></td><td class="ok">Pass</td><td class="no">Fail</td><td>Amber on navy &mdash; accents, not small text</td></tr>
+    <tr><td><span style="background:#e8b44f;color:#1c355e;padding:2px 8px;border-radius:3px;font-size:12px">#1c355e</span></td><td><span style="background:#e8b44f;padding:2px 8px;border-radius:3px;font-size:12px">#e8b44f</span></td><td><strong>5.1:1</strong></td><td class="ok">Pass</td><td class="no">Fail</td><td>Navy on amber &mdash; buttons, CTA labels</td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section class="sec" id="type">
+<div class="sec-hdr"><div class="sec-n">04</div><div><div class="sec-title">Typography</div><div class="sec-desc">Two fonts. DM Serif Display for gravitas. General Sans for clarity. Never introduce a third typeface.</div></div></div>
+<div class="g2" style="margin-bottom:40px">
+  <div style="background:var(--navy);border-radius:12px;padding:40px;overflow:hidden;position:relative">
+    <div style="position:absolute;top:-20px;right:-20px;font-family:'DM Serif Display',serif;font-size:180px;color:rgba(255,255,255,.04);line-height:1;pointer-events:none">Aa</div>
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:16px;opacity:.7">Display Font</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:40px;color:#fff;line-height:1.1;margin-bottom:12px">DM Serif<br>Display</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:20px">Google Fonts &middot; Free &middot; Open Source</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:16px;color:rgba(255,255,255,.65);line-height:1.55;font-style:italic">&ldquo;Strategy before speed. Clarity before campaigns.&rdquo;</div>
+    <div style="margin-top:24px;font-size:11px;color:rgba(255,255,255,.3);font-family:monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz &middot; 0123456789</div>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--sh-sm);overflow:hidden;position:relative">
+    <div style="position:absolute;top:-20px;right:-20px;font-size:180px;color:rgba(28,53,94,.04);line-height:1;pointer-events:none;font-weight:300">Aa</div>
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--amber-dark);font-weight:700;margin-bottom:16px">Body Font</div>
+    <div style="font-size:40px;color:var(--navy);line-height:1.1;margin-bottom:12px;font-weight:300;letter-spacing:-.5px">General<br>Sans</div>
+    <div style="font-size:13px;color:var(--grey-500);margin-bottom:20px">Fontshare &middot; Free for commercial use</div>
+    <div style="font-size:16px;color:var(--grey-700);line-height:1.65">We work with founders and leadership teams who need more than campaigns.</div>
+    <div style="margin-top:24px;font-size:11px;color:var(--grey-300);font-family:monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz &middot; 0123456789</div>
+  </div>
+</div>
+<div class="note dont" style="margin-bottom:32px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Banned Fonts</div><p>Inter, Roboto, Montserrat, Lato, Poppins, Open Sans, Space Grotesk &mdash; all banned. System fonts are emergency fallbacks only. Two fonts. No exceptions in any medium.</p></div></div>
+<div class="tc"><div style="font-family:'DM Serif Display',serif;font-size:64px;color:var(--navy);line-height:1;letter-spacing:-2px">Display / H1</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">DM Serif Display</div></div><div><div class="tml">Size</div><div class="tmv">64&ndash;80px</div></div><div><div class="tml">Weight</div><div class="tmv">400 Regular</div></div><div><div class="tml">Leading</div><div class="tmv">1.0&ndash;1.05</div></div><div><div class="tml">Tracking</div><div class="tmv">&minus;1.5 to &minus;2px</div></div><div><div class="tml">Usage</div><div class="tmv">Hero headlines only</div></div></div></div>
+<div class="tc"><div style="font-family:'DM Serif Display',serif;font-size:48px;color:var(--navy);line-height:1.1;letter-spacing:-1px">Section Heading / H2</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">DM Serif Display</div></div><div><div class="tml">Size</div><div class="tmv">36&ndash;48px</div></div><div><div class="tml">Leading</div><div class="tmv">1.1</div></div><div><div class="tml">Usage</div><div class="tmv">Section titles, pull quotes</div></div></div></div>
+<div class="tc"><div style="font-family:'DM Serif Display',serif;font-size:26px;color:var(--navy);line-height:1.25">Card Title / H3 &mdash; Strategy &amp; Business Consulting</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">DM Serif Display</div></div><div><div class="tml">Size</div><div class="tmv">22&ndash;28px</div></div><div><div class="tml">Usage</div><div class="tmv">Card headings, sub-section titles</div></div></div></div>
+<div class="tc"><div style="font-size:18px;color:var(--grey-700);line-height:1.7;max-width:600px">Lead paragraph &mdash; We work with founders and leadership teams who need more than campaigns. We sit at the intersection of business consulting and modern marketing.</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">General Sans</div></div><div><div class="tml">Size</div><div class="tmv">18px</div></div><div><div class="tml">Leading</div><div class="tmv">1.7</div></div><div><div class="tml">Usage</div><div class="tmv">Hero sub-copy, intro text</div></div></div></div>
+<div class="tc"><div style="font-size:16px;color:var(--grey-700);line-height:1.65;max-width:600px">Body copy &mdash; GreySphere begins with better questions and clearer decisions before anything is built or launched. Every engagement begins with diagnosis, not execution.</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">General Sans</div></div><div><div class="tml">Size</div><div class="tmv">16px</div></div><div><div class="tml">Leading</div><div class="tmv">1.65</div></div><div><div class="tml">Usage</div><div class="tmv">General body copy, card text</div></div></div></div>
+<div class="tc"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--amber-dark)">EYEBROW LABEL &mdash; STRATEGY &amp; CONSULTING</div><div class="tm"><div><div class="tml">Font</div><div class="tmv">General Sans</div></div><div><div class="tml">Size</div><div class="tmv">10&ndash;12px</div></div><div><div class="tml">Weight</div><div class="tmv">700 Bold / ALL CAPS</div></div><div><div class="tml">Tracking</div><div class="tmv">1.5&ndash;2px</div></div><div><div class="tml">Colour</div><div class="tmv">var(--amber-dark)</div></div></div></div>
+</section>
+
+<!-- 05 SPACING -->
+<section class="sec" id="spacing">
+<div class="sec-hdr"><div class="sec-n">05</div><div><div class="sec-title">Spacing &amp; Grid</div><div class="sec-desc">Base-4 spacing. One mobile breakpoint at 900px. Whitespace is a premium signal &mdash; never compress.</div></div></div>
+<div class="g2" style="margin-bottom:40px">
+  <div>
+    <h3 class="sub">Spacing Scale</h3>
+    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)">
+      <div class="spr"><div class="spn">--space-1</div><div class="spp">4px</div><div style="width:140px"><div class="spb" style="width:4px"></div></div></div>
+      <div class="spr"><div class="spn">--space-2</div><div class="spp">8px</div><div style="width:140px"><div class="spb" style="width:8px"></div></div></div>
+      <div class="spr"><div class="spn">--space-3</div><div class="spp">12px</div><div style="width:140px"><div class="spb" style="width:12px"></div></div></div>
+      <div class="spr"><div class="spn">--space-4</div><div class="spp">16px</div><div style="width:140px"><div class="spb" style="width:16px"></div></div></div>
+      <div class="spr"><div class="spn">--space-6</div><div class="spp">24px</div><div style="width:140px"><div class="spb" style="width:24px"></div></div></div>
+      <div class="spr"><div class="spn">--space-8</div><div class="spp">32px</div><div style="width:140px"><div class="spb" style="width:32px"></div></div></div>
+      <div class="spr"><div class="spn">--space-10</div><div class="spp">40px</div><div style="width:140px"><div class="spb" style="width:40px"></div></div></div>
+      <div class="spr"><div class="spn">--space-12</div><div class="spp">48px</div><div style="width:140px"><div class="spb" style="width:48px"></div></div></div>
+      <div class="spr"><div class="spn">--space-16</div><div class="spp">64px</div><div style="width:140px"><div class="spb" style="width:64px"></div></div></div>
+      <div class="spr"><div class="spn">--space-20</div><div class="spp">80px</div><div style="width:140px"><div class="spb" style="width:80px"></div></div></div>
+      <div class="spr"><div class="spn">--space-24</div><div class="spp">96px</div><div style="width:140px"><div class="spb" style="width:96px"></div></div></div>
+    </div>
+  </div>
+  <div>
+    <h3 class="sub">Grid &amp; Breakpoints</h3>
+    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);margin-bottom:20px">
+      <div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:16px">Desktop &mdash; 901px to 1440px</div>
+      <div style="display:flex;gap:3px;margin-bottom:12px"><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(28,53,94,.08);border-radius:2px"></div></div>
+      <div style="font-size:11px;color:var(--grey-500)">12 columns &middot; 24px gutter &middot; Max content 1200px &middot; 40&ndash;48px side padding</div>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);margin-bottom:20px">
+      <div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:16px">Mobile &mdash; max-width: 900px</div>
+      <div style="display:flex;gap:3px;margin-bottom:12px"><div style="flex:1;height:40px;background:rgba(232,180,79,.2);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(232,180,79,.2);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(232,180,79,.2);border-radius:2px"></div><div style="flex:1;height:40px;background:rgba(232,180,79,.2);border-radius:2px"></div></div>
+      <div style="font-size:11px;color:var(--grey-500)">4 columns &middot; 16px gutter &middot; 20px side padding</div>
+    </div>
+    <div class="note warn" style="margin-bottom:0">
+      <svg class="ni" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="#c07800" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9v4M10 14.5h.01" stroke="#c07800" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div><div class="nt">Hard Rule &mdash; Single Breakpoint Only</div><p>Only one breakpoint: <strong>max-width: 900px</strong>. Desktop holds 1440px down to 901px. <strong>Never use 1024px.</strong> This is enforced across all pages and all future additions.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 06 IMAGERY -->
+<section class="sec" id="imagery">
+<div class="sec-hdr"><div class="sec-n">06</div><div><div class="sec-title">Photography &amp; Imagery</div><div class="sec-desc">Premium business publication aesthetic. No clich&eacute;s, no forced smiles, no generic stock.</div></div></div>
+<div class="g2" style="margin-bottom:40px">
+  <div>
+    <span class="chip n" style="margin-bottom:20px;display:inline-block">Approved</span>
+    <div class="pg3">
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#1c355e" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><span>Candid leaders</span></div><div class="pl">Natural leadership</div></div>
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1c355e" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="#1c355e" stroke-width="1.5"/></svg><span>Strategy sessions</span></div><div class="pl">Whiteboard / planning</div></div>
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21V7l9-4 9 4v14" stroke="#1c355e" stroke-width="1.5"/><rect x="9" y="13" width="6" height="8" rx="1" stroke="#1c355e" stroke-width="1.5"/></svg><span>Modern spaces</span></div><div class="pl">Bangalore architecture</div></div>
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#1c355e" stroke-width="1.5"/><path d="M8 12h8M8 16h5" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><span>Clean desks</span></div><div class="pl">Minimal workspaces</div></div>
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14l4-4 4 4 4-4" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><span>Data patterns</span></div><div class="pl">Abstract / overlays</div></div>
+      <div><div class="pi ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 20H7a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2z" stroke="#1c355e" stroke-width="1.5"/><path d="M9 10h6M9 14h4" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><span>Flat-lay</span></div><div class="pl">Strategy documents</div></div>
+    </div>
+  </div>
+  <div>
+    <span class="chip o" style="margin-bottom:20px;display:inline-block">Rejected</span>
+    <div class="pg3">
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Handshakes</span></div><div class="pl">Generic stock</div></div>
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Staged smiles</span></div><div class="pl">Boardroom performance</div></div>
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Neon / vivid</span></div><div class="pl">Oversaturated</div></div>
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Clipart</span></div><div class="pl">Any illustration stock</div></div>
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Rockets/bulbs</span></div><div class="pl">Gimmick metaphors</div></div>
+      <div><div class="pi bad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><span>Low quality</span></div><div class="pl">Blurry / pixelated</div></div>
+    </div>
+  </div>
+</div>
+<h3 class="sub">Photo Treatments</h3>
+<div class="g3">
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Navy Overlay</div><div style="height:72px;background:linear-gradient(135deg,rgba(28,53,94,.75),rgba(28,53,94,.35));border-radius:8px;margin-bottom:12px"></div><div style="font-size:11px;color:var(--grey-500)">60&ndash;75% navy overlay for text-on-image sections.</div></div>
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Amber Accent Gradient</div><div style="height:72px;background:linear-gradient(135deg,rgba(232,180,79,.18),rgba(28,53,94,.04));border-radius:8px;margin-bottom:12px"></div><div style="font-size:11px;color:var(--grey-500)">Subtle amber gradient at corners. Never full-bleed.</div></div>
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Monochrome + Accent</div><div style="height:72px;background:linear-gradient(135deg,#b0b0b0,#646464);border-radius:8px;margin-bottom:12px"></div><div style="font-size:11px;color:var(--grey-500)">Greyscale photo with navy or amber overlay. Editorial.</div></div>
+</div>
+</section>
+
+<!-- 07 ICONS -->
+<section class="sec" id="icons">
+<div class="sec-hdr"><div class="sec-n">07</div><div><div class="sec-title">Iconography</div><div class="sec-desc">Inline SVG only. 1.5px stroke, rounded caps. No emojis, no icon fonts, no PNG icons.</div></div></div>
+<div class="note dont" style="margin-bottom:20px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Zero Emojis. Zero Icon Fonts. Zero PNG Icons.</div><p>Every surface: website, social graphics, email, presentations. Font Awesome and PNG sprite sheets are banned. SVGs must be inlined in HTML &mdash; not externally src-linked.</p></div></div>
+<div class="note warn" style="margin-bottom:32px"><svg class="ni" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="#c07800" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9v4M10 14.5h.01" stroke="#c07800" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">SVG in CSS &mdash; Encoding Rule (from project history)</div><p>When using SVG inside a CSS <code>url()</code> declaration, single quotes must be encoded as <code>%27</code> or replaced with double quotes. Unencoded quotes cause silent CSS parser failures that break the entire style block. Prefer CSS gradient equivalents over SVG data URIs wherever possible.</p></div></div>
+<div class="ig" style="margin-bottom:32px">
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="il">arrow-right</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="il">external-link</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14l4-4 4 4 4-4" stroke="#e8b44f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="il">growth</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1" stroke="#1c355e" stroke-width="1.5"/><rect x="13" y="3" width="8" height="8" rx="1" stroke="#1c355e" stroke-width="1.5"/><rect x="3" y="13" width="8" height="8" rx="1" stroke="#1c355e" stroke-width="1.5"/><rect x="13" y="13" width="8" height="8" rx="1" stroke="#e8b44f" stroke-width="1.5"/></svg><div class="il">systems</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#1c355e" stroke-width="1.5"/><path d="M21 21l-4-4" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div class="il">research</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6.5 7 1-5 5 1 7-6-3.5L6 21.5l1-7-5-5 7-1z" stroke="#1c355e" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="il">brand</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><path d="M3 4h18l-7 9v7l-4-2V13L3 4z" stroke="#1c355e" stroke-width="1.5" stroke-linejoin="round"/></svg><div class="il">funnel</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="#1c355e" stroke-width="1.5"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.87" stroke="#e8b44f" stroke-width="1.5" stroke-linecap="round"/></svg><div class="il">clients</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#1c355e" stroke-width="1.5"/><path d="M2 8l10 7 10-7" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="il">email</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#1c355e" stroke-width="1.5"/><path d="M7 10v7M7 7v.01M11 17v-4c0-1.5 1-2 2-2s2 .5 2 2v4M11 10v7" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div class="il">linkedin</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1c355e" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#1c355e" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="#1c355e"/></svg><div class="il">instagram</div></div>
+  <div class="ii"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#22964d" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#22964d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="il">success</div></div>
+</div>
+<table class="tbl"><thead><tr><th>Size</th><th>Pixels</th><th>Usage</th></tr></thead><tbody>
+  <tr><td>XS</td><td>14px</td><td>Inline with small text, chips, tags</td></tr>
+  <tr><td>SM</td><td>18px</td><td>Button icons, navigation, form fields</td></tr>
+  <tr><td>MD (default)</td><td>24px</td><td>Standard UI icons, card icons</td></tr>
+  <tr><td>LG</td><td>32px</td><td>Feature icons, service pillar icons</td></tr>
+  <tr><td>XL</td><td>48px</td><td>Hero illustration icons (rare, justified only)</td></tr>
+</tbody></table>
+</section>
+
+<!-- 08 MOTION -->
+<section class="sec" id="motion">
+<div class="sec-hdr"><div class="sec-n">08</div><div><div class="sec-title">Motion &amp; Animation</div><div class="sec-desc">Deliberate and refined. Every animation serves a functional or hierarchical purpose.</div></div></div>
+<div class="g2">
+  <div>
+    <div class="mc"><div class="mc-t">Default Transition</div><div class="mc-d">Hover states, colour changes, opacity changes.</div><div class="mc-v">transition: all 0.2s ease</div></div>
+    <div class="mc"><div class="mc-t">Card / Element Lift</div><div class="mc-d">Service and blog cards on hover. Shadow escalates with lift.</div><div class="mc-v">transform: translateY(-2px) &middot; 0.25s ease</div></div>
+    <div class="mc"><div class="mc-t">Primary Button Hover</div><div class="mc-d">Amber CTA buttons rise with amber glow shadow.</div><div class="mc-v">translateY(-1px) &middot; shadow-amber &middot; 0.2s ease</div></div>
+    <div class="mc"><div class="mc-t">Arrow Nudge (CTA links)</div><div class="mc-d">&ldquo;Know more &rarr;&rdquo; links &mdash; gap between text and arrow widens.</div><div class="mc-v">gap: 6px &rarr; 10px &middot; 0.2s ease</div></div>
+  </div>
+  <div>
+    <div class="mc"><div class="mc-t">Page Load Fade-In</div><div class="mc-d">Sections fade up on scroll-enter with staggered delays.</div><div class="mc-v">opacity: 0&rarr;1 &middot; translateY(20px&rarr;0) &middot; 0.5s ease</div></div>
+    <div class="mc"><div class="mc-t">Testimonial Marquee</div><div class="mc-d">Auto-scrolling strip. Pauses on hover to let user read.</div><div class="mc-v">marquee 40s linear infinite &middot; pauses on hover</div></div>
+    <div class="mc"><div class="mc-t">Nav Underline</div><div class="mc-d">Active/hover nav link underline grows from left.</div><div class="mc-v">scaleX(0&rarr;1) &middot; transform-origin: left &middot; 0.2s ease</div></div>
+    <div class="note dont" style="margin-bottom:0"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Avoid</div><p>Bounce / spring / elastic easing. Spinning loaders &gt;1s. Parallax that distracts. UI interactions &gt;0.6s. Animations without user intent.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- 09 BUTTONS -->
+<section class="sec" id="buttons">
+<div class="sec-hdr"><div class="sec-n">09</div><div><div class="sec-title">Buttons</div><div class="sec-desc">Three variants, two sizes. Amber is always the primary CTA. One primary CTA per viewport.</div></div></div>
+<div class="cr"><div class="cr-lbl">Primary (on light)</div><a href="#" class="btn bp btn-lg">Start a Conversation &rarr;</a><a href="#" class="btn bp">Get in Touch &rarr;</a><a href="#" class="btn bp btn-sm">Know more &rarr;</a></div>
+<div class="cr"><div class="cr-lbl">Outline / Secondary (on light)</div><a href="#" class="btn bo btn-lg">View Services</a><a href="#" class="btn bo">Learn More</a><a href="#" class="btn bo btn-sm">About Us</a></div>
+<div class="cr"><div class="cr-lbl">Ghost / Text Link (on light)</div><a href="#" class="btn bg">Know more &rarr;</a><a href="#" class="btn bg">View all Blogs &rarr;</a></div>
+<div class="cr dark"><div class="cr-lbl">All variants on dark / navy background</div><a href="#" class="btn bpi btn-lg">Start a Conversation &rarr;</a><a href="#" class="btn boi">View Services</a><a href="#" class="btn bgi">Know more &rarr;</a></div>
+<div class="note info" style="margin-top:24px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1c355e" stroke-width="1.5"/><path d="M10 9v5M10 6h.01" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Button Copy Rules</div><p>Sentence case. Action-oriented: &ldquo;Start a Conversation&rdquo;, &ldquo;Get in Touch&rdquo;, &ldquo;Know more&rdquo;. Arrow &rarr; on primary CTAs only. Never &ldquo;Click Here&rdquo;, never &ldquo;SUBMIT&rdquo; in caps. Never capitalise every word in a label.</p></div></div>
+</section>
+
+<!-- 10 CARDS -->
+<section class="sec" id="cards">
+<div class="sec-hdr"><div class="sec-n">10</div><div><div class="sec-title">Cards &amp; Components</div><div class="sec-desc">Primary content containers. Consistent padding. Amber bottom-border on stat cards.</div></div></div>
+<h3 class="sub">Service Cards</h3>
+<div class="g3" style="margin-bottom:40px">
+  <div class="card"><div class="card-b"><div class="card-eye">Strategy</div><div class="card-t">Strategy &amp; Business Consulting</div><p>Clear positioning, narrative, segmentation, value proposition design, and go-to-market strategy for businesses entering, growing, or scaling.</p><a href="#" class="card-lnk">Know more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></div></div>
+  <div class="card"><div class="card-b"><div class="card-eye">Research</div><div class="card-t">Market &amp; Customer Research</div><p>Deep qualitative + quantitative research, JTBD, ICP definition, and insight frameworks that power smarter strategic decisions.</p><a href="#" class="card-lnk">Know more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></div></div>
+  <div class="card"><div class="card-b"><div class="card-eye">Brand</div><div class="card-t">Brand Architecture &amp; Systems</div><p>We design the very architecture of your brand &mdash; how it speaks, signals value, and how customers experience it at every touchpoint.</p><a href="#" class="card-lnk">Know more <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></div></div>
+</div>
+<h3 class="sub">Stat Cards</h3>
+<div class="g4" style="margin-bottom:40px">
+  <div class="stat-card"><div class="stat-n">47.9%</div><div class="stat-l">Retention Revenue Increase</div></div>
+  <div class="stat-card"><div class="stat-n">9.8%</div><div class="stat-l">Boost in Repeat Orders</div></div>
+  <div class="stat-card"><div class="stat-n">2500+</div><div class="stat-l">Professionals Trained</div></div>
+  <div class="stat-card"><div class="stat-n">25+</div><div class="stat-l">Brands Transformed</div></div>
+</div>
+<h3 class="sub">Testimonial Card</h3>
+<div class="g2" style="margin-bottom:40px">
+  <div class="testi"><svg width="40" height="32" viewBox="0 0 44 32" fill="none"><path d="M0 32V20C0 8.954 6.716 2.386 20.148 0L22 4.444C16.037 5.91 12.148 9.587 11.333 14.222H18V32H0zm24 0V20C24 8.954 30.716 2.386 44.148 0L46 4.444C40.037 5.91 36.148 9.587 35.333 14.222H42V32H24z" fill="#e8b44f" fill-opacity="0.25"/></svg><p>GreySphere didn&rsquo;t just hand us a deck &mdash; they rebuilt how we think about growth. The clarity we got in the first month was worth more than a year of scattered campaigns.</p><div class="testi-n">Riya Mehta</div><div class="testi-r">Founder, D2C Wellness Brand</div></div>
+  <div class="testi"><svg width="40" height="32" viewBox="0 0 44 32" fill="none"><path d="M0 32V20C0 8.954 6.716 2.386 20.148 0L22 4.444C16.037 5.91 12.148 9.587 11.333 14.222H18V32H0zm24 0V20C24 8.954 30.716 2.386 44.148 0L46 4.444C40.037 5.91 36.148 9.587 35.333 14.222H42V32H24z" fill="#e8b44f" fill-opacity="0.25"/></svg><p>They brought the same rigour to our marketing that we expected from a top-tier consulting firm. That combination is genuinely rare and extremely valuable.</p><div class="testi-n">Neeraj Bhatia</div><div class="testi-r">VP Marketing, Retail Chain</div></div>
+</div>
+<h3 class="sub">The Grey Framework</h3>
+<div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)">
+  <div class="step"><div class="step-n">01</div><div><div class="step-t">Discover</div><div class="step-d">Deep dive into your business, goals, market, and competition.</div></div></div>
+  <div class="step"><div class="step-n">02</div><div><div class="step-t">Diagnose</div><div class="step-d">Audit strategy, brand, and marketing to identify real gaps.</div></div></div>
+  <div class="step"><div class="step-n">03</div><div><div class="step-t">Strategize</div><div class="step-d">Build a clear, actionable roadmap aligned to business goals.</div></div></div>
+  <div class="step"><div class="step-n">04</div><div><div class="step-t">Build</div><div class="step-d">Launch brand, content, and marketing ecosystem.</div></div></div>
+  <div class="step"><div class="step-n">05</div><div><div class="step-t">Optimise</div><div class="step-d">Monitor, measure, refine for predictable scale. British spelling: Optimise, not Optimize.</div></div></div>
+</div>
+</section>
+
+<!-- 11 FORMS -->
+<section class="sec" id="forms">
+<div class="sec-hdr"><div class="sec-n">11</div><div><div class="sec-title">Forms &amp; Inputs</div><div class="sec-desc">Minimal forms. Backend: Google Apps Script Web App &rarr; Google Sheets with dual-tab routing via formType field.</div></div></div>
+<div class="note info" style="margin-bottom:32px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1c355e" stroke-width="1.5"/><path d="M10 9v5M10 6h.01" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Form Backend Architecture (from project history)</div><p>All forms POST to a <strong>Google Apps Script Web App</strong> using <code>fetch()</code> with <code>mode: 'no-cors'</code>. A <code>formType</code> field routes submissions: <code>"contact"</code> &rarr; Contact tab; <code>"newsletter"</code> &rarr; Newsletter tab in Google Sheets. Never add new form types without updating the Apps Script router first.</p></div></div>
+<div class="g2">
+  <div style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--sh-sm)">
+    <h4 style="font-family:var(--font-display);font-size:26px;color:var(--navy);margin-bottom:24px">Contact Form</h4>
+    <div class="gs-fld"><label class="gs-lbl">Full Name</label><input class="gs-inp" type="text" placeholder="Your full name" readonly></div>
+    <div class="gs-fld"><label class="gs-lbl">Email Address</label><input class="gs-inp" type="email" placeholder="you@company.com" readonly></div>
+    <div class="gs-fld"><label class="gs-lbl">Company / Organisation</label><input class="gs-inp" type="text" placeholder="Company name" readonly></div>
+    <div class="gs-fld"><label class="gs-lbl">Message</label><textarea class="gs-inp" rows="4" placeholder="Tell us about your goals..." readonly style="resize:none"></textarea></div>
+    <button class="btn bp" style="width:100%;justify-content:center">Send Message &rarr;</button>
+  </div>
+  <div>
+    <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm);margin-bottom:20px">
+      <div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:20px">Input States</div>
+      <div class="gs-fld"><label class="gs-lbl">Default</label><input class="gs-inp" type="text" placeholder="Placeholder text" readonly></div>
+      <div class="gs-fld"><label class="gs-lbl">Focus (navy ring)</label><input class="gs-inp" type="text" value="Focused state" style="border-color:var(--navy);box-shadow:0 0 0 3px rgba(28,53,94,.08)" readonly></div>
+      <div class="gs-fld"><label class="gs-lbl">Error</label><input class="gs-inp err" type="text" value="Invalid email"><div style="font-size:11px;color:#dc3535;margin-top:4px">Please enter a valid email address.</div></div>
+    </div>
+    <div class="note amber" style="margin-bottom:0"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9942a" stroke-width="1.5"/><path d="M10 6v5M10 14h.01" stroke="#c9942a" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Form Philosophy</div><p>Brief by design. Only ask what&rsquo;s needed. No dropdowns, no asterisk-heavy required labels, no CAPTCHA visible to users. Newsletter collects email only.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- 12 NAV -->
+<section class="sec" id="nav">
+<div class="sec-hdr"><div class="sec-n">12</div><div><div class="sec-title">Navigation &amp; Footer</div><div class="sec-desc">Injected as HTML fragments via global.js into div#site-header and div#site-footer on every page.</div></div></div>
+<div class="hdr-demo">
+  <div class="hdr-inner">
+    <span class="wm navy" style="font-size:20px">GreySphere<span class="dot">.</span></span>
+    <ul class="nav-l"><li><a href="#" class="on">Home</a></li><li><a href="#">About</a></li><li><a href="#">Services</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul>
+    <a href="#" class="btn bp btn-sm">Get in Touch &rarr;</a>
+  </div>
+  <div style="padding:10px 40px;background:rgba(28,53,94,.04);font-size:11px;color:var(--grey-500);text-align:center">White bg &middot; sticky &middot; 1px bottom border &middot; shadow on scroll &middot; wordmark left &middot; CTA right &middot; Pages: Home, About, Services, Blog, Careers</div>
+</div>
+<div class="ftr">
+  <div class="ftr-top">
+    <div><span class="wm white" style="font-size:22px;display:block;margin-bottom:12px">GreySphere<span class="dot">.</span></span><div class="ftr-tag">Consulting + Marketing Partner</div><div class="ftr-desc">We sit at the intersection of business consulting and modern marketing &mdash; helping companies enter markets, sharpen positioning, and build intelligent growth systems.</div></div>
+    <div><div class="ftr-ct">Services</div><ul class="ftr-lnks"><li><a href="#">Strategy Consulting</a></li><li><a href="#">Market Research</a></li><li><a href="#">Brand Architecture</a></li><li><a href="#">Full-Funnel Marketing</a></li><li><a href="#">Education &amp; Training</a></li></ul></div>
+    <div><div class="ftr-ct">Company</div><ul class="ftr-lnks"><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="ftr-bot">
+    <div class="ftr-copy">&copy; 2025 GreySphere. All rights reserved. Bangalore, India.</div>
+    <div style="display:flex;gap:16px">
+      <a href="#" style="color:rgba(255,255,255,.3);transition:color .2s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+      <a href="#" style="color:rgba(255,255,255,.3);transition:color .2s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.01M11 17v-4c0-1.5 1-2 2-2s2 .5 2 2v4M11 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 13 CHIPS -->
+<section class="sec" id="chips">
+<div class="sec-hdr"><div class="sec-n">13</div><div><div class="sec-title">Badges &amp; Chips</div><div class="sec-desc">Small text elements for categorisation, status, and labelling.</div></div></div>
+<div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px"><span class="chip n">Strategy</span><span class="chip n">Consulting</span><span class="chip a">Featured</span><span class="chip a">New</span><span class="chip o">Brand</span><span class="chip o">Research</span><span class="chip g">D2C</span><span class="chip g">SaaS</span><span class="chip g">EdTech</span><span class="chip g">F&amp;B</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <span class="badge n"><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#1c355e"/></svg>Consulting</span>
+    <span class="badge a"><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" fill="#c9942a"/></svg>Featured</span>
+    <span class="badge s"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#22964d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Active</span>
+    <span class="badge w"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v3M5 7h.01" stroke="#c07800" stroke-width="1.5" stroke-linecap="round"/></svg>In Review</span>
+  </div>
+</div>
+</section>
+
+<!-- 14 VOICE -->
+<section class="sec" id="voice">
+<div class="sec-hdr"><div class="sec-n">14</div><div><div class="sec-title">Voice &amp; Tone</div><div class="sec-desc">Consulting-grade clarity with warmth and confidence. Consistent across every touchpoint.</div></div></div>
+<div class="g3" style="margin-bottom:40px">
+  <div style="background:var(--navy);border-radius:12px;padding:32px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);font-weight:700;margin-bottom:16px;opacity:.7">We Are</div><div style="display:flex;flex-direction:column;gap:12px"><div style="font-family:var(--font-display);font-size:22px;color:#fff">Confident</div><div style="font-family:var(--font-display);font-size:22px;color:#fff">Precise</div><div style="font-family:var(--font-display);font-size:22px;color:#fff">Direct</div><div style="font-family:var(--font-display);font-size:22px;color:#fff">Thoughtful</div><div style="font-family:var(--font-display);font-size:22px;color:#fff">Sophisticated</div></div></div>
+  <div style="background:var(--amber);border-radius:12px;padding:32px"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);font-weight:700;margin-bottom:16px;opacity:.6">We Are Not</div><div style="display:flex;flex-direction:column;gap:12px"><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);text-decoration:line-through;opacity:.55">Hype-driven</div><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);text-decoration:line-through;opacity:.55">Jargon-heavy</div><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);text-decoration:line-through;opacity:.55">Casual / slangy</div><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);text-decoration:line-through;opacity:.55">Arrogant</div><div style="font-family:var(--font-display);font-size:22px;color:var(--navy);text-decoration:line-through;opacity:.55">Vague / fluffy</div></div></div>
+  <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)"><div style="font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);font-weight:700;margin-bottom:20px">Approved Phrases</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:var(--navy);background:var(--off-white);padding:8px 12px;border-radius:4px">&ldquo;No pitches. Just Clarity.&rdquo;</div><div style="font-size:13px;color:var(--navy);background:var(--off-white);padding:8px 12px;border-radius:4px">&ldquo;Architect clarity before acceleration.&rdquo;</div><div style="font-size:13px;color:var(--navy);background:var(--off-white);padding:8px 12px;border-radius:4px">&ldquo;Better questions. Clearer decisions.&rdquo;</div><div style="font-size:13px;color:var(--navy);background:var(--off-white);padding:8px 12px;border-radius:4px">&ldquo;Systems, not band-aids.&rdquo;</div><div style="font-size:13px;color:var(--navy);background:var(--off-white);padding:8px 12px;border-radius:4px">&ldquo;Consulting + Marketing Partner&rdquo;</div></div></div>
+</div>
+<table class="tbl">
+  <thead><tr><th>Context</th><th class="ok">Write This</th><th class="no">Not This</th></tr></thead>
+  <tbody>
+    <tr><td>Website headline</td><td>&ldquo;Brands Don&rsquo;t Grow by Playing Safe.&rdquo;</td><td>&ldquo;We&rsquo;re the #1 marketing agency in India!&rdquo;</td></tr>
+    <tr><td>Service description</td><td>&ldquo;We design the architecture of your brand &mdash; how it speaks, signals value, and how customers experience it.&rdquo;</td><td>&ldquo;Our branding solutions take your business to the next level!&rdquo;</td></tr>
+    <tr><td>CTA button</td><td>&ldquo;Start a Conversation &rarr;&rdquo;</td><td>&ldquo;CLICK HERE FOR FREE QUOTE&rdquo;</td></tr>
+    <tr><td>Social caption</td><td>&ldquo;Growth isn&rsquo;t a campaign. It&rsquo;s a system. Here&rsquo;s what that looks like in practice.&rdquo;</td><td>&ldquo;Excited to share our latest case study! Tag a business owner who needs this!&rdquo;</td></tr>
+    <tr><td>About section</td><td>&ldquo;We sit at the intersection of business consulting and modern marketing.&rdquo;</td><td>&ldquo;We&rsquo;re a passionate team of marketing ninjas!&rdquo;</td></tr>
+    <tr><td>Spelling &amp; style</td><td>&ldquo;Optimise&rdquo;, &ldquo;Grey&rdquo;, sentence case headings, active voice, INR pricing</td><td>&ldquo;Optimize&rdquo;, &ldquo;Gray&rdquo;, ALL CAPS body copy, passive voice, exclamation marks</td></tr>
+  </tbody>
+</table>
+<div class="g2"><div class="note do"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#22964d" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#22964d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div class="nt">Always</div><p>Sentence case. British spelling (Optimise, not Optimize). &ldquo;Grey&rdquo; not &ldquo;Gray&rdquo;. Short sentences. Active voice. Specific outcomes. India/Bangalore context. INR for pricing.</p></div></div><div class="note dont"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Never</div><p>ALL CAPS in body copy. Exclamation marks in formal contexts. &ldquo;Ninja&rdquo;, &ldquo;Rockstar&rdquo;, &ldquo;Guru&rdquo;, &ldquo;Synergy&rdquo;, &ldquo;Disruption&rdquo;. Passive voice where active works. &ldquo;Gray&rdquo; anywhere. Vague superlatives without data.</p></div></div></div>
+</section>
+
+<!-- 15 SOCIAL -->
+<section class="sec" id="social">
+<div class="sec-hdr"><div class="sec-n">15</div><div><div class="sec-title">Social Media</div><div class="sec-desc">LinkedIn is primary. Instagram is secondary. All post graphics carry the wordmark. Zero emojis in graphics.</div></div></div>
+<div class="note info" style="margin-bottom:32px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1c355e" stroke-width="1.5"/><path d="M10 9v5M10 6h.01" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Platform Priority</div><p><strong>LinkedIn</strong> is the primary social channel &mdash; targeting B2B founders and leadership teams. <strong>Instagram</strong> is secondary, for brand-building and awareness. Every post graphic must carry the wordmark. No emojis in graphics. Only DM Serif Display + General Sans in social post designs.</p></div></div>
+<div class="sg3">
+  <div>
+    <div class="sfl">Square &mdash; LinkedIn / Instagram (1080&times;1080)</div>
+    <div class="sbox s11"><div class="spn"><div style="position:absolute;top:16px;left:16px"><div class="swm" style="color:rgba(255,255,255,.9);font-family:'DM Serif Display',serif">GreySphere<span class="dot">.</span></div></div><div class="stag" style="color:rgba(255,255,255,.4)">INSIGHT</div><div class="shl" style="color:#fff;font-family:'DM Serif Display',serif">Strategy before<br>speed. Always.</div><div class="surl" style="color:rgba(255,255,255,.35)">greysphere.in</div></div></div>
+    <div style="font-size:11px;color:var(--grey-500);margin-top:8px;text-align:center">Dark navy &middot; white headline &middot; amber dot</div>
+  </div>
+  <div>
+    <div class="sfl">Portrait &mdash; Instagram (1080&times;1350)</div>
+    <div class="sbox s45"><div class="spa"><div style="position:absolute;top:16px;left:16px"><div class="swm inv" style="color:var(--navy);font-family:'DM Serif Display',serif">GreySphere<span style="color:var(--navy)">.</span></div></div><div style="position:absolute;top:50%;left:16px;right:16px;transform:translateY(-50%)"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy);opacity:.45;margin-bottom:8px">CASE STUDY</div><div style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--navy);line-height:1.2">47.9% retention revenue increase &mdash; here&rsquo;s how.</div></div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--navy);opacity:.35">greysphere.in</div></div></div>
+    <div style="font-size:11px;color:var(--grey-500);margin-top:8px;text-align:center">Amber bg &middot; navy text &middot; dot matches text</div>
+  </div>
+  <div>
+    <div class="sfl">Split &mdash; LinkedIn Document (1080&times;1080)</div>
+    <div class="sbox s11"><div class="spsp"><div class="spl"><div class="swm" style="color:rgba(255,255,255,.8);font-family:'DM Serif Display',serif;font-size:11px;margin-bottom:8px">GreySphere<span class="dot">.</span></div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.35);margin-bottom:6px">FRAMEWORK</div><div style="font-family:'DM Serif Display',serif;font-size:14px;color:#fff;line-height:1.3">The Grey Framework in 5 steps</div></div><div class="spr2"><div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:10px;font-weight:700;color:var(--navy)">01 &mdash; Discover</div><div style="font-size:10px;font-weight:700;color:var(--navy)">02 &mdash; Diagnose</div><div style="font-size:10px;font-weight:700;color:var(--navy)">03 &mdash; Strategize</div><div style="font-size:10px;font-weight:700;color:var(--navy)">04 &mdash; Build</div><div style="font-size:10px;font-weight:700;color:var(--navy)">05 &mdash; Optimise</div></div></div></div></div>
+    <div style="font-size:11px;color:var(--grey-500);margin-top:8px;text-align:center">Split layout &middot; navy + amber &middot; structured content</div>
+  </div>
+</div>
+<table class="tbl">
+  <thead><tr><th>Format</th><th>Platform</th><th>Dimensions</th><th>Ratio</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Feed Post</td><td>LinkedIn / Instagram</td><td>1080 &times; 1080 px</td><td>1:1</td><td>Most versatile. Thought leadership and insights.</td></tr>
+    <tr><td>Portrait Post</td><td>Instagram</td><td>1080 &times; 1350 px</td><td>4:5</td><td>More feed real estate. Best for case studies.</td></tr>
+    <tr><td>Story / Reel Cover</td><td>Instagram / LinkedIn</td><td>1080 &times; 1920 px</td><td>9:16</td><td>Keep wordmark within top 80px safe zone.</td></tr>
+    <tr><td>LinkedIn Banner</td><td>LinkedIn Page</td><td>1128 &times; 191 px</td><td>~6:1</td><td>Wordmark left, tagline or amber rule right.</td></tr>
+    <tr><td>OG / Link Preview</td><td>Website / all</td><td>1200 &times; 630 px</td><td>1.91:1</td><td>Website meta image. Navy bg, white wordmark.</td></tr>
+    <tr><td>Email Header</td><td>Email</td><td>600 &times; 200 px</td><td>3:1</td><td>Wordmark centred or left on white or navy.</td></tr>
+  </tbody>
+</table>
+<h3 class="sub">LinkedIn Caption Framework</h3>
+<div style="background:#fff;border-radius:12px;padding:32px;box-shadow:var(--sh-sm)">
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;gap:16px;align-items:flex-start"><div style="width:28px;height:28px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;flex-shrink:0">1</div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Hook (1&ndash;2 lines)</div><div style="font-size:11px;color:var(--grey-500)">Bold assertion, counterintuitive insight, or provocative question. No fluffy opener. No &ldquo;I&rsquo;m thrilled to share...&rdquo;</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><div style="width:28px;height:28px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;flex-shrink:0">2</div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Body (3&ndash;6 lines)</div><div style="font-size:11px;color:var(--grey-500)">Short paragraphs. One idea per paragraph. Data or client context where relevant. No filler sentences.</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><div style="width:28px;height:28px;background:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:11px;font-weight:700;flex-shrink:0">3</div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Insight / Takeaway (1&ndash;2 lines)</div><div style="font-size:11px;color:var(--grey-500)">The point. What the reader should walk away with. Plain, direct language.</div></div></div>
+    <div style="display:flex;gap:16px;align-items:flex-start"><div style="width:28px;height:28px;background:var(--grey-100);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--grey-700);font-size:11px;font-weight:700;flex-shrink:0">4</div><div><div style="font-weight:700;font-size:13px;color:var(--navy)">Optional CTA (once per post)</div><div style="font-size:11px;color:var(--grey-500)">&ldquo;Link in comments&rdquo; or &ldquo;DM us to discuss.&rdquo; Never desperate &mdash; never &ldquo;like and share if you agree.&rdquo;</div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- 16 SITE ARCHITECTURE -->
+<section class="sec" id="arch">
+<div class="sec-hdr"><div class="sec-n">16</div><div><div class="sec-title">Site Architecture</div><div class="sec-desc">For the web team. Static multi-page site on GitHub Pages. Global components injected via JS fragments.</div></div></div>
+<div class="g2" style="margin-bottom:32px">
+  <div class="note info" style="margin-bottom:0;align-self:start"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1c355e" stroke-width="1.5"/><path d="M10 9v5M10 6h.01" stroke="#1c355e" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Tech Stack</div><p>Static HTML/CSS/JS on <strong>GitHub Pages</strong>. No build step, no framework. VS Code + Live Server for local dev. Google Analytics 4 + Google Tag Manager + Meta Pixel for tracking. All tags routed through GTM &mdash; never hardcode GA or Pixel calls directly.</p></div></div>
+  <div class="note warn" style="margin-bottom:0;align-self:start"><svg class="ni" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 17h16L10 2z" stroke="#c07800" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 9v4M10 14.5h.01" stroke="#c07800" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Custom Domain Readiness</div><p>Never hardcode <code>/consultingfirm/</code> in paths. Base path must be derived from <code>document.currentScript.src</code> so the site works on GitHub Pages and any future custom domain without code changes.</p></div></div>
+</div>
+<h3 class="sub">Page Map</h3>
+<div class="arch" style="margin-bottom:32px">
+  <div class="arch-row"><div class="an nv" style="text-align:center"><div>Site Root</div><div class="sub">amar-marketingspace.github.io/consultingfirm/</div></div></div>
+<div class="arch-row" style="margin-top:8px">
+    <div class="an lt"><div>index.html</div><div class="sub">Homepage</div></div>
+    <div class="an lt"><div>about.html</div><div class="sub">About Us</div></div>
+    <div class="an lt"><div>services.html</div><div class="sub">Services</div></div>
+    <div class="an lt"><div>contact.html</div><div class="sub">Contact</div></div>
+    <div class="an lt"><div>blog.html</div><div class="sub">Blog Listing Page</div></div>
+    <div class="an lt"><div>careers.html</div><div class="sub">Careers</div></div>
+    <div class="an lt"><div>privacy.html</div><div class="sub">Privacy Policy</div></div>
+    <div class="an gy"><div>test.html</div><div class="sub">Header/footer injection test only &mdash; not a live page</div></div>
+  </div>
+  <div class="arch-row" style="margin-top:12px">
+    <div class="an ab"><div>Global Files</div><div class="sub">global.css &middot; global.js &middot; header.html &middot; footer.html &middot; package.json</div></div>
+    <div class="an ab"><div>blogs/</div><div class="sub">data.json &middot; blog post-template.html &middot; seo-for-indian-startups.html &middot; the-invisible-buying-journey.html &middot; why-branding-matters.html</div></div>
+    <div class="an gy"><div>assets/blog/</div><div class="sub">branding-thumb.jpg &middot; invisible-buying-journey-thumb.jpg &middot; seo-thumb.jpg</div></div>
+  </div>
+</div>
+<h3 class="sub">Fragment Injection &amp; Path Resolution</h3>
+<div class="g2" style="margin-bottom:32px">
+  <div>
+    <div class="note amber" style="margin-bottom:20px"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#c9942a" stroke-width="1.5"/><path d="M10 6v5M10 14h.01" stroke="#c9942a" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">How Fragment Injection Works</div><p>Every page has <code>&lt;div id="site-header"&gt;&lt;/div&gt;</code> and <code>&lt;div id="site-footer"&gt;&lt;/div&gt;</code>. <code>global.js</code> fetches <code>header.html</code> and <code>footer.html</code> and injects into those divs at load. Links in the fragments are resolved by <code>rewriteFragmentLinks()</code>.</p></div></div>
+    <div class="note dont"><svg class="ni" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#dc3535" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc3535" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="nt">Never Use &lt;base href&gt;</div><p>The <code>&lt;base href&gt;</code> tag was tried and abandoned &mdash; it breaks all asset paths site-wide and causes regressions across pages. Use <code>rewriteFragmentLinks()</code> exclusively. This is a hard rule from project history.</p></div></div>
+  </div>
+  <div>
+    <div class="code" style="font-size:12px"><span style="color:rgba(255,255,255,.3)">/* global.js &mdash; domain-agnostic base path */</span>
+
+<span style="color:#7ec8e3">const</span> src  = document.currentScript.src;
+<span style="color:#7ec8e3">const</span> base = src.substring(0, src.lastIndexOf(<span style="color:#98e4a3">'/'</span>) + 1);
+
+<span style="color:#7ec8e3">async function</span> loadFragment(id, file) {
+  <span style="color:#7ec8e3">const</span> html = <span style="color:#7ec8e3">await</span> (await fetch(base + file)).text();
+  document.getElementById(id).innerHTML = html;
+  rewriteFragmentLinks(id);
+}
+
+<span style="color:#7ec8e3">function</span> rewriteFragmentLinks(id) {
+  document.getElementById(id)
+    .querySelectorAll(<span style="color:#98e4a3">'a[href]'</span>)
+    .forEach(a =&gt; {
+      <span style="color:#7ec8e3">if</span> (!a.href.startsWith(<span style="color:#98e4a3">'http'</span>))
+        a.href = base + a.getAttribute(<span style="color:#98e4a3">'href'</span>);
+    });
+}</div>
+  </div>
+</div>
+<h3 class="sub">Form Backend</h3>
+<div class="arch" style="margin-bottom:32px">
+  <div class="arch-row">
+    <div class="an lt" style="text-align:center"><div>Website Form</div><div class="sub">HTML + JS fetch()</div></div>
+    <div class="aarr">&rarr;</div>
+    <div class="an ab" style="text-align:center"><div>Apps Script Web App</div><div class="sub">no-cors POST &middot; formType routing</div></div>
+    <div class="aarr">&rarr;</div>
+    <div class="an nv" style="text-align:center"><div>Google Sheets</div><div class="sub">Contact tab &middot; Newsletter tab</div></div>
+  </div>
+  <div style="margin-top:20px"><div class="code" style="font-size:12px"><span style="color:rgba(255,255,255,.3)">// POST pattern &mdash; both forms</span>
+fetch(APPS_SCRIPT_URL, {
+  method: <span style="color:#98e4a3">'POST'</span>,
+  mode:   <span style="color:#98e4a3">'no-cors'</span>,  <span style="color:rgba(255,255,255,.3)">// required &mdash; Apps Script has no CORS headers</span>
+  body: JSON.stringify({
+    <span style="color:#7ec8e3">formType</span>: <span style="color:#98e4a3">'contact'</span>,   <span style="color:rgba(255,255,255,.3)">// or 'newsletter'</span>
+    <span style="color:#7ec8e3">name</span>: data.name, <span style="color:#7ec8e3">email</span>: data.email, <span style="color:#7ec8e3">message</span>: data.message
+  })
+});</div></div>
+</div>
+<h3 class="sub">Analytics Stack</h3>
+<div class="g3">
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Google Tag Manager</div><div style="font-size:11px;color:var(--grey-500);margin-bottom:14px">Container on all pages. Routes all events to GA4 and Meta Pixel. Never hardcode GA or Pixel calls directly.</div><span class="chip n">GTM</span></div>
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Google Analytics 4</div><div style="font-size:11px;color:var(--grey-500);margin-bottom:14px">Page views, sessions, conversion events. Routed through GTM. Website performance reporting.</div><span class="chip g">GA4</span></div>
+  <div style="background:#fff;border-radius:12px;padding:24px;box-shadow:var(--sh-sm)"><div style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px">Meta Pixel</div><div style="font-size:11px;color:var(--grey-500);margin-bottom:14px">Facebook / Instagram audience tracking. Routed through GTM. Used for retargeting and Meta ad performance.</div><span class="chip g">Meta</span></div>
+</div>
+</section>
+
+<!-- 17 TOKENS -->
+<section class="sec" id="tokens">
+<div class="sec-hdr"><div class="sec-n">17</div><div><div class="sec-title">Design Tokens (CSS)</div><div class="sec-desc">Single source of truth. Always reference tokens &mdash; never hardcode raw values in component CSS.</div></div></div>
+<div class="code"><span style="color:rgba(255,255,255,.3)">/* GreySphere Design Tokens &mdash; global.css */</span>
+:root {
+  <span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; Colours &mdash;&mdash; */</span>
+  <span style="color:#7ec8e3">--navy</span>:         <span style="color:#e8b44f">#1c355e</span>;  <span style="color:#7ec8e3">--navy-dark</span>:  <span style="color:#e8b44f">#121f3a</span>;
+  <span style="color:#7ec8e3">--navy-mid</span>:     <span style="color:#e8b44f">#26437a</span>;  <span style="color:#7ec8e3">--navy-light</span>: <span style="color:#e8b44f">#2f5298</span>;
+  <span style="color:#7ec8e3">--amber</span>:        <span style="color:#e8b44f">#e8b44f</span>;  <span style="color:#7ec8e3">--amber-dark</span>: <span style="color:#e8b44f">#c9942a</span>;
+  <span style="color:#7ec8e3">--amber-light</span>:  <span style="color:#e8b44f">#f2ca72</span>;  <span style="color:#7ec8e3">--amber-tint</span>: <span style="color:#e8b44f">#fdf3dc</span>;
+  <span style="color:#7ec8e3">--off-white</span>:    <span style="color:#e8b44f">#f8f6f1</span>;  <span style="color:#7ec8e3">--grey-100</span>:   <span style="color:#e8b44f">#ebebeb</span>;
+
+  <span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; Typography &mdash;&mdash; */</span>
+  <span style="color:#7ec8e3">--font-display</span>: <span style="color:#98e4a3">'DM Serif Display', Georgia, serif</span>;
+  <span style="color:#7ec8e3">--font-body</span>:    <span style="color:#98e4a3">'General Sans', 'Helvetica Neue', Arial, sans-serif</span>;
+
+  <span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; Spacing (base-4) &mdash;&mdash; */</span>
+  <span style="color:#7ec8e3">--sp4</span>:<span style="color:#e8b44f">16px</span>; <span style="color:#7ec8e3">--sp6</span>:<span style="color:#e8b44f">24px</span>; <span style="color:#7ec8e3">--sp8</span>:<span style="color:#e8b44f">32px</span>; <span style="color:#7ec8e3">--sp10</span>:<span style="color:#e8b44f">40px</span>;
+  <span style="color:#7ec8e3">--sp12</span>:<span style="color:#e8b44f">48px</span>; <span style="color:#7ec8e3">--sp16</span>:<span style="color:#e8b44f">64px</span>; <span style="color:#7ec8e3">--sp20</span>:<span style="color:#e8b44f">80px</span>; <span style="color:#7ec8e3">--sp24</span>:<span style="color:#e8b44f">96px</span>;
+
+  <span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; Radii &mdash;&mdash; */</span>
+  <span style="color:#7ec8e3">--r-sm</span>:<span style="color:#e8b44f">4px</span>; <span style="color:#7ec8e3">--r-md</span>:<span style="color:#e8b44f">8px</span>; <span style="color:#7ec8e3">--r-lg</span>:<span style="color:#e8b44f">12px</span>; <span style="color:#7ec8e3">--r-pill</span>:<span style="color:#e8b44f">100px</span>;
+
+  <span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; Shadows &mdash;&mdash; */</span>
+  <span style="color:#7ec8e3">--sh-sm</span>:   <span style="color:#e8b44f">0 1px 3px rgba(28,53,94,.08)</span>;
+  <span style="color:#7ec8e3">--sh-md</span>:   <span style="color:#e8b44f">0 4px 16px rgba(28,53,94,.12)</span>;
+  <span style="color:#7ec8e3">--sh-ab</span>:   <span style="color:#e8b44f">0 4px 24px rgba(232,180,79,.28)</span>;
+}
+
+<span style="color:rgba(255,255,255,.3)">/* &mdash;&mdash; THE ONLY BREAKPOINT &mdash;&mdash; */</span>
+<span style="display:block;background:rgba(232,180,79,.12);padding:2px 0">@media (max-width: 900px) { <span style="color:rgba(255,255,255,.3)">/* all mobile overrides here */</span> }</span>
+<span style="color:rgba(255,255,255,.3)">/* NEVER: 1024px, 768px, 480px. 900px is the ONLY breakpoint. */</span>
+
+<span style="color:rgba(255,255,255,.3)">/* SVG in url() &mdash; encode single quotes as %27 or use double quotes */</span>
+<span style="color:rgba(255,255,255,.3)">/* Unencoded quotes silently break the entire CSS block &mdash; use gradient fallbacks instead */</span></div>
+</section>
+
+<!-- 18 DO/DONT -->
+<section class="sec" id="donts">
+<div class="sec-hdr"><div class="sec-n">18</div><div><div class="sec-title">Do&rsquo;s &amp; Don&rsquo;ts</div><div class="sec-desc">Non-negotiable rules. Every collaborator, contractor, and team member must know these.</div></div></div>
+<div class="dd-g">
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Always spell it &ldquo;Grey&rdquo;</div><div class="dd-b">British spelling. Every file, document, CSS variable, social handle. &ldquo;GreySphere&rdquo; &mdash; not &ldquo;GraySphere&rdquo;. No exceptions.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Never write &ldquo;Gray&rdquo;</div><div class="dd-b">&ldquo;GraySphere&rdquo;, &ldquo;Gray Sphere&rdquo;, &ldquo;graysphere&rdquo; &mdash; all wrong. Not even informally. Non-negotiable.</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use the wordmark exactly as defined</div><div class="dd-b">Use &ldquo;GreySphere.&rdquo; with the amber dot in the approved colour combinations. Maintain clear space. Scale proportionally only.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Never modify the wordmark</div><div class="dd-b">No icon alongside the text. No retype in another font. No drop shadows, outlines, distortion, or rotation. No removing the dot. No recolouring the dot (except on amber bg).</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inline SVG only for all icons</div><div class="dd-b">1.5px stroke, rounded caps, 24px default, inlined in HTML. Navy primary icons. Amber accent icons.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Zero emojis, anywhere</div><div class="dd-b">No emojis on website, social graphics, email, presentations. Icon fonts are also banned. PNG icons are banned. SVG only, always.</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Use only DM Serif Display + General Sans</div><div class="dd-b">Display headings &rarr; DM Serif Display. Body, UI, captions &rarr; General Sans. Two fonts. No exceptions in any medium or channel.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Never introduce new fonts</div><div class="dd-b">Inter, Roboto, Poppins, Montserrat, Space Grotesk, Lato, Open Sans &mdash; all banned. System fonts are emergency fallbacks only.</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>One breakpoint: max-width 900px only</div><div class="dd-b">All responsive CSS uses <code>@media (max-width: 900px)</code>. Desktop layout is the default from 901px to 1440px. No additional breakpoints.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Never use 1024px as a breakpoint</div><div class="dd-b">1024px, 768px, 480px &mdash; none of these breakpoints exist in GreySphere&rsquo;s CSS. 900px is the only one. Raise any deviation with the team.</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Derive base path from script src</div><div class="dd-b">In global.js, base path comes from <code>document.currentScript.src</code>. Domain-agnostic. Works on GitHub Pages and any future custom domain without changes.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Never hardcode paths or use &lt;base href&gt;</div><div class="dd-b">Hardcoding <code>/consultingfirm/</code> breaks on a custom domain. <code>&lt;base href&gt;</code> was tried and abandoned &mdash; breaks all asset paths site-wide. Use <code>rewriteFragmentLinks()</code> only.</div></div>
+
+  <div class="dd"><div class="dd-h do"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Encode SVG quotes in CSS url()</div><div class="dd-b">Single quotes inside SVG data URIs in CSS <code>url()</code> must be encoded as <code>%27</code> or replaced with double quotes. Prefer CSS gradients over SVG data URIs.</div></div>
+  <div class="dd"><div class="dd-h dont"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Legal terms don&rsquo;t belong on public pages</div><div class="dd-b">Payment terms, refunds, and SLAs belong in client-specific agreements, not the public Terms of Service page. Jurisdiction: Bangalore, India. Bangalore courts govern all disputes.</div></div>
+</div>
+
+<div style="background:var(--navy-dark);border-radius:20px;padding:64px 40px;text-align:center;margin-top:40px">
+  <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:16px;opacity:.7">Remember</div>
+  <div style="font-family:'DM Serif Display',serif;font-size:40px;color:#fff;line-height:1.2;margin-bottom:20px">Every pixel is a brand decision.<br><em style="color:var(--amber)">Make them count.</em></div>
+  <div style="font-size:18px;color:rgba(255,255,255,.4);max-width:480px;margin:0 auto;line-height:1.7">When in doubt, ask: does this look like it belongs to a premium consulting firm? If not &mdash; don&rsquo;t ship it.</div>
+  <div style="margin-top:40px;font-family:'DM Serif Display',serif;font-size:26px;color:#fff">GreySphere<span style="color:var(--amber)">.</span></div>
+</div>
+</section>
+
+</main>
+<script>
+  const secs = document.querySelectorAll('.sec[id]');
+  const links = document.querySelectorAll('.sb a');
+  secs.forEach(s => {
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('on'));
+          const a = document.querySelector('.sb a[href="#' + e.target.id + '"]');
+          if (a) a.classList.add('on');
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' }).observe(s);
+  });
+</script>
+</body>
+</html>

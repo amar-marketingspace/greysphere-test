@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers — GreySphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      /* ============================================================
+   PAGE-SPECIFIC STYLES ONLY
+   All breakpoints use max-width: 900px (desktop preserved to 1024px)
+============================================================ */
+
+      /* ---- HERO ---- */
+      .careers-hero {
+        background-color: var(--snow);
+        background-image: radial-gradient(
+            circle at 12% 25%,
+            rgba(232, 180, 79, 0.09) 0%,
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 88% 75%,
+            rgba(28, 53, 94, 0.06) 0%,
+            transparent 46%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.022) 28px,
+            rgba(28, 53, 94, 0.022) 29px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.015) 28px,
+            rgba(28, 53, 94, 0.015) 29px
+          );
+        padding: clamp(80px, 10vw, 120px) clamp(24px, 6vw, 80px)
+          clamp(60px, 8vw, 90px);
+        text-align: center;
+      }
+      .careers-hero-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--white);
+        border: 1.5px solid var(--silver);
+        border-radius: var(--radius-pill);
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--slate-400);
+        margin-bottom: 28px;
+        box-shadow: 0 2px 8px rgba(28, 53, 94, 0.06);
+      }
+      .hero-badge svg {
+        width: 15px;
+        height: 15px;
+        color: var(--amber);
+        flex-shrink: 0;
+      }
+      .careers-hero h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(38px, 5.5vw, 68px);
+        color: var(--navy);
+        line-height: 1.08;
+        margin-bottom: 20px;
+      }
+      .careers-hero h1 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .careers-hero p {
+        font-size: clamp(15px, 1.6vw, 18px);
+        color: var(--slate-400);
+        line-height: 1.75;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      /* ---- VALUES STRIP ---- */
+      .values-strip {
+        background: var(--navy);
+        padding: clamp(40px, 5vw, 60px) clamp(24px, 6vw, 80px);
+      }
+      .values-strip-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+      }
+      .value-item {
+        text-align: center;
+        padding: 20px 24px;
+        position: relative;
+      }
+      .value-item + .value-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .value-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 12px;
+        color: var(--amber);
+      }
+      .value-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .value-title {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+      .value-desc {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.6;
+      }
+
+      /* ---- WHY GREYSPHERE ---- */
+      .why-join-section {
+        background: var(--white);
+        padding: clamp(70px, 8vw, 110px) clamp(24px, 6vw, 80px);
+      }
+      .why-join-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(48px, 7vw, 100px);
+        align-items: center;
+      }
+      .why-join-img {
+        position: relative;
+        height: 440px;
+      }
+      .why-img-main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 72%;
+        height: 74%;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 12px 40px rgba(28, 53, 94, 0.14);
+        z-index: 1;
+      }
+      .why-img-accent {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 60%;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 8px 28px rgba(28, 53, 94, 0.12);
+        z-index: 2;
+        border: 4px solid var(--white);
+      }
+      .why-join-right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--amber);
+      }
+      .why-join-right h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(26px, 3vw, 40px);
+        color: var(--navy);
+        line-height: 1.15;
+      }
+      .why-join-right p {
+        font-size: 15px;
+        color: var(--slate-400);
+        line-height: 1.8;
+      }
+      .why-perks {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .why-perk {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--consulting-bg);
+        border: 1px solid var(--silver);
+        border-radius: var(--radius-md);
+        transition: var(--transition-s);
+      }
+      .why-perk:hover {
+        border-color: var(--navy);
+        background: var(--white);
+        transform: translateX(4px);
+      }
+      .why-perk-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-sm);
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        flex-shrink: 0;
+      }
+      .why-perk-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+      .why-perk-title {
+        font-family: var(--font-serif);
+        font-size: 15px;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+      .why-perk-desc {
+        font-size: 13px;
+        color: var(--slate-400);
+        line-height: 1.6;
+      }
+
+      /* ---- OPEN ROLES ---- */
+      .roles-section {
+        background: var(--consulting-bg);
+        background-image: linear-gradient(
+            rgba(28, 53, 94, 0.025) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(28, 53, 94, 0.025) 1px, transparent 1px);
+        background-size: 44px 44px;
+        padding: clamp(70px, 8vw, 110px) clamp(24px, 6vw, 80px);
+      }
+      .roles-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .roles-header {
+        margin-bottom: 48px;
+      }
+      .roles-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin-top: 14px;
+      }
+      .roles-header p {
+        font-size: 15px;
+        color: var(--slate-400);
+        margin-top: 10px;
+        max-width: 560px;
+      }
+
+      /* Department groupings */
+      .roles-dept {
+        margin-bottom: 40px;
+      }
+      .roles-dept:last-child {
+        margin-bottom: 0;
+      }
+      .dept-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--slate-300);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .dept-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--silver);
+      }
+
+      .roles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .role-card {
+        background: var(--white);
+        border: 1px solid var(--silver);
+        border-radius: var(--radius-lg);
+        padding: 24px 26px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        transition: var(--transition-s);
+        cursor: default;
+      }
+      .role-card:hover {
+        border-color: var(--navy);
+        box-shadow: 0 8px 28px rgba(28, 53, 94, 0.09);
+        transform: translateY(-3px);
+      }
+      .role-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: var(--radius-sm);
+        background: var(--pearl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+      .role-card:hover .role-icon {
+        background: var(--navy);
+        color: var(--white);
+      }
+      .role-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .role-info {
+        flex: 1;
+      }
+      .role-title {
+        font-family: var(--font-serif);
+        font-size: 17px;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .role-meta {
+        font-size: 12.5px;
+        color: var(--slate-300);
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .role-meta span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .role-meta svg {
+        width: 11px;
+        height: 11px;
+      }
+      .role-tag {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      .role-tag.open {
+        background: rgba(16, 185, 129, 0.1);
+        color: #065f46;
+      }
+      .role-tag.intern {
+        background: var(--amber-glow);
+        color: #7a5a1a;
+      }
+
+      /* Intern highlight card */
+      .role-card.intern-card {
+        border-color: var(--amber);
+      }
+      .role-card.intern-card .role-icon {
+        background: var(--amber-glow);
+        color: var(--amber);
+      }
+      .role-card.intern-card:hover .role-icon {
+        background: var(--amber);
+        color: var(--white);
+      }
+
+      /* ---- OPEN APPLICATION ---- */
+      .open-application {
+        background: var(--white);
+        padding: clamp(70px, 8vw, 110px) clamp(24px, 6vw, 80px);
+      }
+      .open-application-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .open-app-card {
+        background: var(--navy);
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          );
+        border-radius: var(--radius-lg);
+        padding: clamp(44px, 6vw, 72px) clamp(32px, 5vw, 64px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(40px, 5vw, 72px);
+        align-items: center;
+      }
+      .open-app-left {
+      }
+      .open-app-left .section-label {
+        color: rgba(232, 180, 79, 0.85);
+      }
+      .open-app-left .section-label::before {
+        background: rgba(232, 180, 79, 0.85);
+      }
+      .open-app-left h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(24px, 3vw, 38px);
+        color: var(--white);
+        line-height: 1.2;
+        margin: 14px 0 16px;
+      }
+      .open-app-left h2 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .open-app-left p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.8;
+      }
+
+      .open-app-right {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .app-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .app-step-num {
+        font-family: var(--font-serif);
+        font-size: 13px;
+        color: var(--amber);
+        min-width: 24px;
+        padding-top: 1px;
+      }
+      .app-step-text h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 4px;
+      }
+      .app-step-text p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+
+      .app-email-block {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        padding: 20px 22px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 4px;
+      }
+      .app-email-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-sm);
+        background: var(--amber);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--white);
+      }
+      .app-email-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .app-email-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 4px;
+      }
+      .app-email-addr {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .app-email-addr a {
+        color: var(--amber);
+        text-decoration: none;
+      }
+      .app-email-addr a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 900px) {
+        .values-strip-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .value-item:nth-child(3)::before {
+          display: none;
+        }
+        .value-item:nth-child(3),
+        .value-item:nth-child(4) {
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .why-join-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .why-join-img {
+          height: 320px;
+        }
+        .roles-grid {
+          grid-template-columns: 1fr;
+        }
+        .open-app-card {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+      @media (max-width: 600px) {
+        .values-strip-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+        .why-join-img {
+          height: 260px;
+        }
+        .why-img-accent {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <!-- HERO -->
+    <section class="careers-hero">
+      <div class="careers-hero-inner">
+        <div class="hero-badge reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg>
+          We're Hiring
+        </div>
+        <h1 class="reveal delay-1">
+          Come Build Something<br /><em>Worth Talking About</em>
+        </h1>
+        <p class="reveal delay-2">
+          We're a small team doing serious work. If you care deeply about
+          strategy, creativity, and getting things done — not just ticking boxes
+          — there's a place for you at Grey Sphere.
+        </p>
+      </div>
+    </section>
+
+    <!-- VALUES STRIP -->
+    <div class="values-strip">
+      <div class="values-strip-inner">
+        <div class="value-item reveal delay-1">
+          <div class="value-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <div class="value-title">Work That Matters</div>
+          <div class="value-desc">
+            Real clients, real outcomes, real impact — not hypotheticals
+          </div>
+        </div>
+        <div class="value-item reveal delay-2">
+          <div class="value-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+          </div>
+          <div class="value-title">Room to Grow</div>
+          <div class="value-desc">
+            We invest in people who invest in their own craft
+          </div>
+        </div>
+        <div class="value-item reveal delay-3">
+          <div class="value-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </div>
+          <div class="value-title">No Politics, Just Work</div>
+          <div class="value-desc">
+            Flat structure, direct communication, shared accountability
+          </div>
+        </div>
+        <div class="value-item reveal delay-4">
+          <div class="value-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+              <polyline points="17 6 23 6 23 12" />
+            </svg>
+          </div>
+          <div class="value-title">Ambition Welcomed</div>
+          <div class="value-desc">
+            We reward curiosity, initiative, and ownership mentality
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY GREYSPHERE -->
+    <section class="why-join-section">
+      <div class="why-join-inner">
+        <div class="why-join-img reveal-left">
+          <img
+            class="why-img-main"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+            alt="GreySphere team collaboration"
+          />
+          <img
+            class="why-img-accent"
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80"
+            alt="Team at work"
+          />
+        </div>
+        <div class="why-join-right reveal-right">
+          <div class="section-label">Why Join Us</div>
+          <h2>We're Looking for People Who Think, Not Just Execute</h2>
+          <p>
+            Grey Sphere is a consulting and marketing firm — which means we work
+            at the intersection of strategy and execution every single day. We
+            need people who can think clearly, act decisively, and care about
+            quality at every level of the work.
+          </p>
+          <div class="why-perks">
+            <div class="why-perk">
+              <div class="why-perk-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <div>
+                <div class="why-perk-title">Learn Across Disciplines</div>
+                <div class="why-perk-desc">
+                  You'll work across strategy, brand, marketing, and growth —
+                  building a rare combination of skills most roles never offer.
+                </div>
+              </div>
+            </div>
+            <div class="why-perk">
+              <div class="why-perk-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="why-perk-title">Work on Real Business Problems</div>
+                <div class="why-perk-desc">
+                  Every project involves actual clients, real stakes, and
+                  meaningful decisions — not simulations or internal exercises.
+                </div>
+              </div>
+            </div>
+            <div class="why-perk">
+              <div class="why-perk-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <div>
+                <div class="why-perk-title">Move Fast, Build Well</div>
+                <div class="why-perk-desc">
+                  We move at startup pace without sacrificing quality — which
+                  means you'll ship things that actually see the light of day.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN ROLES -->
+    <section class="roles-section">
+      <div class="roles-inner">
+        <div class="roles-header reveal">
+          <div class="section-label">Open Positions</div>
+          <h2>Current Openings</h2>
+          <p>
+            We hire for attitude first, skill second. If a role below feels like
+            you — even 80% — we want to hear from you.
+          </p>
+        </div>
+
+        <!-- MARKETING & GROWTH -->
+        <div class="roles-dept">
+          <div class="dept-label">Marketing &amp; Growth</div>
+          <div class="roles-grid">
+            <div class="role-card reveal delay-1">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Marketing Executive</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-2">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Business Development Associate</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-3">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <line x1="9" y1="3" x2="9" y2="21" />
+                  <line x1="3" y1="9" x2="21" y2="9" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Business Development Manager</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CREATIVE -->
+        <div class="roles-dept">
+          <div class="dept-label">Creative</div>
+          <div class="roles-grid">
+            <div class="role-card reveal delay-1">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"
+                  />
+                  <path
+                    d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"
+                  />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Graphic Designer</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore / Remote</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-2">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Senior Graphic Designer</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore / Remote</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-3">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <polygon points="23 7 16 12 23 17 23 7" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Video Editor</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore / Remote</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OPERATIONS & TECH -->
+        <div class="roles-dept">
+          <div class="dept-label">Operations &amp; Technology</div>
+          <div class="roles-grid">
+            <div class="role-card reveal delay-1">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Project Manager</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-2">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                  <path d="M12 6v6l4 2" />
+                  <path d="M4.93 4.93l14.14 14.14" opacity=".3" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">
+                  AI Generalist &amp; Automation Specialist
+                </div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore / Remote</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+
+            <div class="role-card reveal delay-3">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">Accountant</div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg
+                    >Full-Time</span
+                  >
+                </div>
+                <span class="role-tag open">Open</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERNSHIPS -->
+        <div class="roles-dept">
+          <div class="dept-label">Internships</div>
+          <div class="roles-grid">
+            <div class="role-card intern-card reveal delay-1">
+              <div class="role-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <path
+                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"
+                  />
+                  <path
+                    d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"
+                  />
+                </svg>
+              </div>
+              <div class="role-info">
+                <div class="role-title">
+                  Intern — Marketing, Strategy &amp; Creative
+                </div>
+                <div class="role-meta">
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" /></svg
+                    >Bangalore</span
+                  >
+                  <span
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" /></svg
+                    >3–6 Months</span
+                  >
+                </div>
+                <span class="role-tag intern">Internship</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN APPLICATION -->
+    <section class="open-application">
+      <div class="open-application-inner">
+        <div class="open-app-card reveal">
+          <div class="open-app-left">
+            <div class="section-label">Don't See Your Role?</div>
+            <h2>We Always Welcome<br /><em>Great People</em></h2>
+            <p>
+              We know talent doesn't always fit a job description. If you
+              believe you're the kind of person who belongs at Grey Sphere —
+              curious, driven, and genuinely good at what you do — we want to
+              hear from you, regardless of whether there's an open role that
+              matches exactly.
+            </p>
+            <p
+              style="
+                margin-top: 14px;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.5);
+              "
+            >
+              Tell us who you are, what you're great at, what role you see
+              yourself in, and why Grey Sphere feels like the right fit. We read
+              every email and we always write back.
+            </p>
+          </div>
+          <div class="open-app-right">
+            <div class="app-step">
+              <span class="app-step-num">01</span>
+              <div class="app-step-text">
+                <h4>Tell us who you are</h4>
+                <p>
+                  Send us a short note introducing yourself and what you're best
+                  at. No template required — write like a human.
+                </p>
+              </div>
+            </div>
+            <div class="app-step">
+              <span class="app-step-num">02</span>
+              <div class="app-step-text">
+                <h4>Mention the role you want</h4>
+                <p>
+                  Whether it's a listed role or one you're imagining — tell us
+                  what position you're applying for in the subject line.
+                </p>
+              </div>
+            </div>
+            <div class="app-step">
+              <span class="app-step-num">03</span>
+              <div class="app-step-text">
+                <h4>Tell us why Grey Sphere</h4>
+                <p>
+                  This one matters. Tell us why you want to work here
+                  specifically — not just any consulting firm, but this one.
+                </p>
+              </div>
+            </div>
+            <div class="app-step">
+              <span class="app-step-num">04</span>
+              <div class="app-step-text">
+                <h4>Attach your resume or portfolio</h4>
+                <p>
+                  Keep it relevant. A clean resume and one or two pieces of work
+                  you're proud of is more than enough.
+                </p>
+              </div>
+            </div>
+            <div class="app-email-block">
+              <div class="app-email-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <div class="app-email-label">Send your application to</div>
+                <div class="app-email-addr">
+                  <a
+                    href="mailto:contact@greysphere.in?subject=Application — [Role Name]"
+                    >contact@greysphere.in</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="global.js"></script>
+    <script>
+      /* No page-specific JS needed beyond global.js */
+    </script>
+  </body>
+</html>

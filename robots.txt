@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Internal scratch / reference files — not part of the live site
+Disallow: /test.html
+Disallow: /test%20index%20hero%20section%20ref.html
+Disallow: /greysphere-design-system.html
+
+Sitemap: https://greysphere.in/sitemap.xml

@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — GreySphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      /* PAGE-SPECIFIC STYLES ONLY */
+
+      /* ---- HERO ---- */
+      .services-hero {
+        background-color: var(--snow);
+        background-image: radial-gradient(
+            circle at 15% 30%,
+            rgba(232, 180, 79, 0.08) 0%,
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 85% 70%,
+            rgba(28, 53, 94, 0.06) 0%,
+            transparent 46%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.022) 28px,
+            rgba(28, 53, 94, 0.022) 29px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.015) 28px,
+            rgba(28, 53, 94, 0.015) 29px
+          );
+        padding: clamp(70px, 9vw, 110px) clamp(24px, 6vw, 80px)
+          clamp(60px, 8vw, 100px);
+        text-align: center;
+      }
+      .services-hero-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--white);
+        border: 1.5px solid var(--silver);
+        border-radius: var(--radius-pill);
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--slate-400);
+        margin-bottom: 28px;
+        box-shadow: 0 2px 8px rgba(28, 53, 94, 0.06);
+      }
+      .hero-badge svg {
+        width: 15px;
+        height: 15px;
+        color: var(--amber);
+        flex-shrink: 0;
+      }
+
+      .services-hero h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(36px, 5vw, 62px);
+        color: var(--navy);
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .services-hero h1 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+
+      .services-hero p {
+        font-size: clamp(15px, 1.5vw, 17px);
+        color: var(--slate-400);
+        line-height: 1.7;
+        max-width: 580px;
+        margin: 0 auto 36px;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--navy);
+        color: var(--white);
+        padding: 14px 28px;
+        border-radius: var(--radius-pill);
+        font-size: 15px;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-s);
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--navy-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(28, 53, 94, 0.25);
+      }
+      .btn-primary svg {
+        transition: transform 0.3s ease;
+      }
+      .btn-primary:hover svg {
+        transform: translateX(4px);
+      }
+
+      .btn-ghost-light {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--navy);
+        padding: 14px 28px;
+        border-radius: var(--radius-pill);
+        border: 1.5px solid var(--silver);
+        font-size: 15px;
+        font-weight: 500;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        transition: var(--transition-s);
+      }
+      .btn-ghost-light:hover {
+        border-color: var(--navy);
+        background: var(--pearl);
+      }
+      .btn-ghost-light svg {
+        transition: transform 0.3s ease;
+      }
+      .btn-ghost-light:hover svg {
+        transform: translateY(3px);
+      }
+
+      /* ---- SECTION TAG (page variant) ---- */
+      .section-tag-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .section-tag-line-sm {
+        width: 24px;
+        height: 2px;
+        background: var(--amber);
+      }
+      .section-tag-text-sm {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+
+      /* ---- PILLARS OVERVIEW ---- */
+      .pillars-overview {
+        padding: clamp(60px, 7vw, 100px) clamp(24px, 6vw, 80px)
+          clamp(50px, 6vw, 80px);
+        background: var(--white);
+      }
+      .pillars-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .pillars-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .pillars-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--ink);
+        line-height: 1.2;
+      }
+      .pillars-header h2 em {
+        font-style: italic;
+        color: var(--navy);
+      }
+
+      .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .pillar-card {
+        padding: 2rem;
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+      .pillar-card:hover {
+        box-shadow: 0 20px 50px rgba(28, 53, 94, 0.1);
+      }
+      .pillar-card.expanded {
+        box-shadow: 0 30px 60px rgba(28, 53, 94, 0.12);
+      }
+      .pillar-card-consulting {
+        background: linear-gradient(
+          135deg,
+          var(--consulting-bg) 0%,
+          var(--white) 100%
+        );
+        border: 1px solid var(--silver);
+      }
+      .pillar-card-marketing {
+        background: linear-gradient(
+          135deg,
+          var(--marketing-bg) 0%,
+          var(--white) 100%
+        );
+        border: 1px solid var(--silver);
+      }
+      .pillar-card-consulting:hover,
+      .pillar-card-consulting.expanded,
+      .pillar-card-marketing:hover,
+      .pillar-card-marketing.expanded {
+        border-color: var(--navy);
+      }
+
+      .pillar-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .pillar-icon {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        background: var(--navy);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+        color: var(--white);
+      }
+      .pillar-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .pillar-card.expanded .pillar-icon {
+        background: var(--navy-light);
+      }
+
+      .pillar-header-content {
+        flex: 1;
+      }
+      .pillar-num {
+        font-family: var(--font-serif);
+        font-size: 0.85rem;
+        color: var(--amber);
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      .pillar-title {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--ink);
+        line-height: 1.3;
+        margin: 0;
+      }
+
+      .pillar-toggle {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        background: var(--pearl);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+      }
+      .pillar-toggle svg {
+        width: 20px;
+        height: 20px;
+        color: var(--slate-400);
+        transition: transform 0.4s ease;
+      }
+      .pillar-card.expanded .pillar-toggle {
+        background: var(--amber);
+      }
+      .pillar-card.expanded .pillar-toggle svg {
+        color: var(--white);
+        transform: rotate(180deg);
+      }
+
+      .pillar-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          padding 0.5s ease;
+      }
+      .pillar-card.expanded .pillar-body {
+        max-height: 500px;
+        padding-top: 1.5rem;
+      }
+
+      .pillar-desc {
+        font-size: 1rem;
+        color: var(--slate-400);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+      .pillar-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .pillar-feature {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--white);
+        border: 1px solid var(--silver);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        color: var(--slate-500);
+      }
+      .pillar-feature svg {
+        width: 14px;
+        height: 14px;
+        color: var(--amber);
+      }
+      .pillar-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--navy);
+        text-decoration: none;
+        transition: gap 0.3s ease;
+      }
+      .pillar-link:hover {
+        gap: 0.75rem;
+      }
+      .pillar-link svg {
+        transition: transform 0.3s ease;
+      }
+      .pillar-link:hover svg {
+        transform: translateX(3px);
+      }
+
+      /* ---- ACCORDION SECTIONS ---- */
+      .services-section-block {
+        padding: clamp(50px, 6vw, 80px) clamp(24px, 6vw, 80px);
+      }
+      .services-section-block.consulting {
+        background: var(--consulting-bg);
+      }
+      .services-section-block.marketing {
+        background: var(--marketing-bg);
+      }
+      .services-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .services-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--silver);
+      }
+      .services-header-left h2 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        color: var(--ink);
+        margin-bottom: 0.35rem;
+      }
+      .services-header-left p {
+        font-size: 0.95rem;
+        color: var(--slate-400);
+      }
+      .services-count {
+        padding: 0.5rem 1rem;
+        background: var(--white);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        border: 1px solid var(--silver);
+        white-space: nowrap;
+      }
+
+      .accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .accordion-item {
+        background: var(--white);
+        border-radius: 20px;
+        border: 1px solid var(--silver);
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+      .accordion-item:hover {
+        border-color: var(--navy);
+      }
+      .accordion-item.active {
+        box-shadow: 0 20px 50px rgba(28, 53, 94, 0.08);
+      }
+
+      .accordion-header {
+        padding: 1.5rem 1.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .accordion-header:hover {
+        background: var(--pearl);
+      }
+
+      .accordion-icon {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        background: var(--pearl);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+        color: var(--navy);
+      }
+      .accordion-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+      .accordion-item.active .accordion-icon {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .accordion-title {
+        flex: 1;
+      }
+      .accordion-title h3 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        color: var(--ink);
+        margin-bottom: 0.2rem;
+      }
+      .accordion-title p {
+        font-size: 0.85rem;
+        color: var(--slate-300);
+      }
+
+      .accordion-toggle {
+        width: 40px;
+        height: 40px;
+        background: var(--pearl);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+        flex-shrink: 0;
+      }
+      .accordion-toggle svg {
+        width: 18px;
+        height: 18px;
+        color: var(--slate-400);
+        transition: transform 0.4s ease;
+      }
+      .accordion-item.active .accordion-toggle {
+        background: var(--amber);
+      }
+      .accordion-item.active .accordion-toggle svg {
+        transform: rotate(180deg);
+        color: var(--white);
+      }
+
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .accordion-item.active .accordion-content {
+        max-height: 1000px;
+      }
+      .accordion-body {
+        padding: 0 1.75rem 1.75rem;
+      }
+      .accordion-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      .service-details h4 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate-300);
+        margin-bottom: 1rem;
+      }
+      .service-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .service-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--slate-500);
+      }
+      .service-list li svg {
+        width: 18px;
+        height: 18px;
+        color: var(--amber);
+        flex-shrink: 0;
+      }
+
+      .service-outcome {
+        background: var(--pearl);
+        border-radius: 16px;
+        padding: 1.75rem;
+      }
+      .service-outcome h4 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate-300);
+        margin-bottom: 0.75rem;
+      }
+      .service-outcome p {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        color: var(--ink);
+        line-height: 1.5;
+      }
+
+      /* ---- INDUSTRIES ---- */
+      .industries-section {
+        background: var(--white);
+        padding: clamp(60px, 7vw, 100px) clamp(24px, 6vw, 80px);
+        text-align: center;
+      }
+      .industries-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .industries-inner h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--ink);
+        line-height: 1.2;
+        margin-bottom: 48px;
+      }
+      .industries-inner h2 em {
+        font-style: italic;
+        color: var(--navy);
+      }
+      .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+
+      .industry-card {
+        background: var(--pearl);
+        border: 1px solid var(--silver);
+        border-radius: var(--radius-lg);
+        padding: 32px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        transition: var(--transition-s);
+      }
+      .industry-card:hover {
+        background: var(--white);
+        border-color: var(--navy);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(28, 53, 94, 0.09);
+      }
+      .industry-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--silver);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        transition: var(--transition);
+      }
+      .industry-card:hover .industry-icon {
+        background: var(--navy);
+        color: var(--white);
+        border-color: var(--navy);
+      }
+      .industry-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+      .industry-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--slate-500);
+      }
+      .industry-card:hover .industry-label {
+        color: var(--navy);
+      }
+
+      /* ---- BOTTOM CTA ---- */
+      .services-cta {
+        background: var(--navy);
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          );
+        padding: clamp(70px, 9vw, 110px) clamp(24px, 6vw, 80px);
+        text-align: center;
+      }
+      .services-cta-inner {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .services-cta h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(32px, 4.5vw, 56px);
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .services-cta h2 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .services-cta p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        margin-bottom: 36px;
+      }
+
+      .btn-ghost-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: var(--radius-pill);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        font-size: 15px;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        transition: var(--transition-s);
+        text-decoration: none;
+      }
+      .btn-ghost-dark:hover {
+        background: var(--white);
+        color: var(--navy);
+        border-color: var(--white);
+        transform: translateY(-2px);
+      }
+      .btn-ghost-dark svg {
+        transition: transform 0.3s ease;
+      }
+      .btn-ghost-dark:hover svg {
+        transform: translateX(4px);
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 1100px) {
+        .pillars-grid {
+          grid-template-columns: 1fr;
+        }
+        .accordion-grid {
+          grid-template-columns: 1fr;
+        }
+        .industries-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+      }
+      @media (max-width: 768px) {
+        .services-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        .accordion-header {
+          padding: 1.25rem;
+        }
+        .accordion-body {
+          padding: 0 1.25rem 1.25rem;
+        }
+        .pillar-header {
+          flex-wrap: wrap;
+        }
+        .pillar-toggle {
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+        }
+        .pillar-card {
+          position: relative;
+        }
+        .industries-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-ctas {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .industries-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        .industry-card {
+          padding: 24px 14px;
+        }
+        .accordion-icon {
+          width: 42px;
+          height: 42px;
+          min-width: 42px;
+        }
+        .accordion-icon svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <!-- HERO -->
+    <section class="services-hero">
+      <div class="services-hero-inner">
+        <div class="hero-badge reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4l3 3" />
+          </svg>
+          End-to-End Growth Solutions
+        </div>
+        <h1 class="reveal delay-1">
+          Consulting &amp; Marketing Solutions -<br />Built as One
+          <em>Growth System</em>
+        </h1>
+        <p class="reveal delay-2">
+          From strategy and research to full-funnel execution, we design, build,
+          and operate growth systems that help businesses enter markets, scale
+          sustainably, and perform consistently.
+        </p>
+        <div class="hero-ctas reveal delay-3">
+          <a href="contact.html" class="btn-primary">
+            Book a Strategy Call
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <button class="btn-ghost-light" id="exploreBtn">
+            Explore Our Approach
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLARS OVERVIEW -->
+    <section class="pillars-overview" id="pillars">
+      <div class="pillars-container">
+        <div class="pillars-header reveal">
+          <div class="section-tag-row">
+            <div class="section-tag-line-sm"></div>
+            <span class="section-tag-text-sm">Two Core Pillars</span>
+          </div>
+          <h2>Strategy &amp; Execution — <em>Unified</em></h2>
+        </div>
+        <div class="pillars-grid">
+          <!-- Pillar 01 -->
+          <div
+            class="pillar-card pillar-card-consulting expanded reveal delay-1"
+            data-pillar="consulting"
+          >
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                  <line x1="12" y1="2" x2="12" y2="5" />
+                  <line x1="12" y1="19" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="5" y2="12" />
+                  <line x1="19" y1="12" x2="22" y2="12" />
+                </svg>
+              </div>
+              <div class="pillar-header-content">
+                <span class="pillar-num">Pillar 01</span>
+                <h3 class="pillar-title">Consulting &amp; Strategy</h3>
+              </div>
+              <div class="pillar-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p class="pillar-desc">
+                Clarity, research, positioning, GTM, brand architecture, and
+                growth planning. We build the strategic foundation before growth
+                execution begins.
+              </p>
+              <div class="pillar-features">
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Business Strategy</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Customer Research</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Brand Architecture</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >GTM Strategy</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Leadership Training</span
+                >
+              </div>
+              <a href="#consulting" class="pillar-link"
+                >Explore All 5 Services
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" /></svg
+              ></a>
+            </div>
+          </div>
+
+          <!-- Pillar 02 -->
+          <div
+            class="pillar-card pillar-card-marketing expanded reveal delay-2"
+            data-pillar="marketing"
+          >
+            <div class="pillar-header">
+              <div class="pillar-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"
+                  />
+                  <path
+                    d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"
+                  />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                </svg>
+              </div>
+              <div class="pillar-header-content">
+                <span class="pillar-num">Pillar 02</span>
+                <h3 class="pillar-title">Marketing Execution</h3>
+              </div>
+              <div class="pillar-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p class="pillar-desc">
+                Full-funnel marketing, digital performance, creative,
+                automation, and continuous optimization. We translate strategy
+                into measurable growth.
+              </p>
+              <div class="pillar-features">
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Performance Marketing</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >SEO &amp; Organic</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Social &amp; Content</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Email &amp; Retention</span
+                >
+                <span class="pillar-feature"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 6L9 17l-5-5" /></svg
+                  >Analytics &amp; CRO</span
+                >
+              </div>
+              <a href="#marketing" class="pillar-link"
+                >Explore All 8 Services
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSULTING SERVICES -->
+    <section class="services-section-block consulting" id="consulting">
+      <div class="services-container">
+        <div class="services-header reveal">
+          <div class="services-header-left">
+            <div class="section-tag-row">
+              <div class="section-tag-line-sm"></div>
+              <span class="section-tag-text-sm">Pillar 1</span>
+            </div>
+            <h2>Consulting &amp; Strategy Services</h2>
+            <p>
+              Build the strategic foundation before growth execution begins.
+            </p>
+          </div>
+          <span class="services-count">5 Services</span>
+        </div>
+        <div class="accordion">
+          <!-- C1 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="12" width="4" height="9" />
+                  <rect x="10" y="7" width="4" height="14" />
+                  <rect x="17" y="2" width="4" height="19" />
+                  <polyline points="3 8 7 5 11 8 15 5 19 7" opacity=".5" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Business &amp; Growth Strategy</h3>
+                <p>
+                  Strategic direction that aligns leadership, marketing, and
+                  operations
+                </p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Business positioning &amp; differentiation
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Market entry strategy (new businesses)
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Growth roadmap planning
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Competitive strategy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Revenue model alignment
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Expansion &amp; scaling strategy
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      A clear strategic direction that aligns leadership,
+                      marketing, and operations toward unified growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C2 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  <line x1="11" y1="8" x2="11" y2="14" />
+                  <line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Customer Research &amp; Market Intelligence</h3>
+                <p>Decisions backed by insight — not assumptions</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Customer discovery interviews
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Qualitative &amp; quantitative research
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >ICP &amp; buyer persona modeling
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Jobs-To-Be-Done (JTBD)
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Behavioral insights &amp; category mapping
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Market opportunity analysis
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Decisions backed by insight — not assumptions. Research
+                      that powers smarter strategy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C3 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Brand Architecture &amp; Positioning Systems</h3>
+                <p>A brand that speaks clearly and signals value intuitively</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Brand positioning framework
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Brand voice, tone &amp; personality
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Perception mapping
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Narrative development
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Messaging hierarchy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Communication architecture
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      A brand that speaks clearly, signals value intuitively,
+                      and communicates consistently across all touchpoints.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C4 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+                  <line x1="9" y1="3" x2="9" y2="18" />
+                  <line x1="15" y1="6" x2="15" y2="21" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Go-To-Market &amp; Funnel Strategy</h3>
+                <p>
+                  A structured market entry and acquisition system designed to
+                  scale
+                </p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >GTM planning for launches
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Product/service launch frameworks
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Funnel mapping (TOFU → MOFU → BOFU)
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Channel strategy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Customer journey mapping
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >CRM &amp; Martech planning
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      A structured market entry and acquisition system designed
+                      to scale predictably.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C5 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Leadership Enablement &amp; Training</h3>
+                <p>Teams equipped with real-world growth frameworks</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Executive growth workshops
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Marketing leadership training
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >University programs &amp; guest lectures
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Postgraduate growth bootcamps
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Corporate capability building
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Playbooks &amp; internal documentation
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Teams and institutions equipped with real-world growth
+                      frameworks they can execute independently.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKETING SERVICES -->
+    <section class="services-section-block marketing" id="marketing">
+      <div class="services-container">
+        <div class="services-header reveal">
+          <div class="services-header-left">
+            <div class="section-tag-row">
+              <div class="section-tag-line-sm"></div>
+              <span class="section-tag-text-sm">Pillar 2</span>
+            </div>
+            <h2>Marketing Execution &amp; Growth Operations</h2>
+            <p>Translate strategy into consistent, measurable growth.</p>
+          </div>
+          <span class="services-count">8 Services</span>
+        </div>
+        <div class="accordion">
+          <!-- M1 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Full-Funnel Performance Marketing</h3>
+                <p>Predictable acquisition and scalable performance</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>Channels Covered</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Google Ads (Search, Display, YouTube)
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Meta Ads (Facebook &amp; Instagram)
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >LinkedIn Ads
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Retargeting systems
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Funnel-based campaign architecture
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Predictable acquisition and scalable performance across
+                      all paid channels.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M2 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>SEO, GEO &amp; Organic Growth Systems</h3>
+                <p>Sustainable organic traffic and long-term discoverability</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Technical SEO
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >On-page optimization
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Content SEO
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Local SEO &amp; GEO targeting
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Authority building &amp; search visibility
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Sustainable organic traffic and long-term discoverability
+                      that compounds over time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M3 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Social Media &amp; Content Marketing</h3>
+                <p>Consistent brand presence and audience trust</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Social media strategy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Platform-specific growth planning
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Content calendars &amp; Reels strategy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Thought leadership positioning
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Community engagement
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Consistent brand presence and audience trust across all
+                      social platforms.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M4 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Influencer &amp; Partnership Marketing</h3>
+                <p>Expanded reach through trusted voices</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Influencer identification &amp; vetting
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Collaboration strategy
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Campaign execution
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Performance tracking
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Brand partnership planning
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Expanded reach through trusted voices and strategic
+                      partnerships.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M5 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                  />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Email, WhatsApp &amp; Retention Marketing</h3>
+                <p>Higher lifetime value and customer engagement</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Email automation &amp; sequences
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >CRM workflows
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >WhatsApp marketing systems
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Lifecycle campaigns
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Retention &amp; loyalty programs
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Higher lifetime value and sustained customer engagement
+                      throughout the journey.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M6 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                  />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Website, Funnels &amp; Conversion Systems</h3>
+                <p>Digital assets built to convert, not just look good</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Website design &amp; UX
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Landing pages &amp; funnel builds
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >CRO optimization
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Copywriting &amp; UX messaging
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Lead capture systems
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Digital assets built to convert visitors into leads and
+                      customers — not just look good.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M7 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20h9" />
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"
+                  />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Creative, PR &amp; Brand Presence</h3>
+                <p>Stronger brand visibility and credibility</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Creative direction &amp; campaign design
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Online reputation management
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >PR amplification
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Integrated digital + offline campaigns
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Stronger brand visibility and credibility in the market.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M8 -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                  <line x1="2" y1="20" x2="22" y2="20" />
+                </svg>
+              </div>
+              <div class="accordion-title">
+                <h3>Analytics, Tracking &amp; Optimization</h3>
+                <p>Data-driven decision making and continuous improvement</p>
+              </div>
+              <div class="accordion-toggle">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="accordion-grid">
+                  <div class="service-details">
+                    <h4>What This Covers</h4>
+                    <ul class="service-list">
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >GA4 &amp; analytics setup
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Attribution modeling
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Dashboard reporting
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Performance monitoring
+                      </li>
+                      <li>
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" /></svg
+                        >Funnel optimization
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="service-outcome">
+                    <h4>Outcome</h4>
+                    <p>
+                      Data-driven decision making and continuous improvement
+                      across all channels.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES & AUDIENCES -->
+    <section class="industries-section">
+      <div class="industries-inner">
+        <div
+          class="section-tag-row reveal"
+          style="justify-content: center; margin-bottom: 14px"
+        >
+          <div class="section-tag-line-sm"></div>
+          <span class="section-tag-text-sm">Who We Serve</span>
+        </div>
+        <h2 class="reveal delay-1">Industries &amp; <em>Audiences</em></h2>
+        <div class="industries-grid">
+          <div class="industry-card reveal delay-1">
+            <div class="industry-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"
+                />
+                <path
+                  d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"
+                />
+              </svg>
+            </div>
+            <span class="industry-label">Startups</span>
+          </div>
+
+          <div class="industry-card reveal delay-2">
+            <div class="industry-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
+            <span class="industry-label">Growth-Stage</span>
+          </div>
+
+          <div class="industry-card reveal delay-3">
+            <div class="industry-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+                <line x1="15" y1="3" x2="15" y2="21" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="3" y1="15" x2="21" y2="15" />
+              </svg>
+            </div>
+            <span class="industry-label">Enterprise</span>
+          </div>
+
+          <div class="industry-card reveal delay-4">
+            <div class="industry-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <span class="industry-label">Universities</span>
+          </div>
+
+          <div class="industry-card reveal delay-5">
+            <div class="industry-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <span class="industry-label">Leadership</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="services-cta">
+      <div class="services-cta-inner">
+        <h2 class="reveal">Ready to Build a Real <em>Growth System?</em></h2>
+        <p class="reveal delay-1">
+          Let's align your strategy, brand, and marketing into one clear
+          direction.
+        </p>
+        <a href="contact.html" class="btn-ghost-dark reveal delay-2">
+          Book a Call
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="global.js"></script>
+    <script>
+      /* Explore Our Approach — scroll to pillars section */
+      document.getElementById("exploreBtn").addEventListener("click", () => {
+        document
+          .getElementById("pillars")
+          .scrollIntoView({ behavior: "smooth" });
+      });
+
+      /* Pillar cards — independent expand/collapse */
+      document.querySelectorAll(".pillar-card").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest(".pillar-link")) return;
+          card.classList.toggle("expanded");
+        });
+      });
+
+      /* Accordion — one open at a time per section */
+      document.querySelectorAll(".accordion-item").forEach((item) => {
+        item
+          .querySelector(".accordion-header")
+          .addEventListener("click", () => {
+            const isActive = item.classList.contains("active");
+            const parentAccordion = item.closest(".accordion");
+            parentAccordion
+              .querySelectorAll(".accordion-item")
+              .forEach((i) => i.classList.remove("active"));
+            if (!isActive) item.classList.add("active");
+          });
+      });
+    </script>
+  </body>
+</html>

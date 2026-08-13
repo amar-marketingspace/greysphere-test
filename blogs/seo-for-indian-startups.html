@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO for Indian Startups: Where to Begin — GreySphere Blog</title>
+    <meta
+      name="description"
+      content="Search engine optimisation is not a one-time task. For Indian startups entering competitive markets, it is the compounding asset that pays dividends for years."
+    />
+    <meta
+      property="og:title"
+      content="SEO for Indian Startups: Where to Begin"
+    />
+    <meta
+      property="og:description"
+      content="For Indian startups entering competitive markets, SEO is the compounding asset that pays dividends for years."
+    />
+    <meta property="og:image" content="../assets/blog/seo-thumb.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=General+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../global.css" />
+
+    <style>
+      .post-hero {
+        background: var(--navy);
+        padding: 96px 0 64px;
+      }
+      .post-hero-inner {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      .post-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: rgba(250, 251, 252, 0.55);
+        text-decoration: none;
+        margin-bottom: 32px;
+        transition: color 0.2s;
+      }
+      .post-back:hover {
+        color: var(--snow);
+      }
+      .post-category {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 16px;
+      }
+      .post-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        color: var(--snow);
+        line-height: 1.2;
+        margin-bottom: 24px;
+      }
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .post-meta span {
+        font-family: var(--font-sans);
+        font-size: 0.8rem;
+        color: rgba(250, 251, 252, 0.5);
+      }
+      .post-meta .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(250, 251, 252, 0.3);
+      }
+      .post-image-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 40px;
+        transform: translateY(40px);
+      }
+      .post-image-wrap img {
+        width: 100%;
+        border-radius: 16px;
+        display: block;
+        box-shadow: 0 24px 64px rgba(28, 53, 94, 0.2);
+      }
+      .post-body {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 80px 40px 96px;
+      }
+      .post-body p {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--slate-700);
+        margin-bottom: 24px;
+      }
+      .post-body h2 {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        color: var(--navy);
+        margin-top: 48px;
+        margin-bottom: 16px;
+        line-height: 1.3;
+      }
+      .post-body h3 {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      .post-body ul,
+      .post-body ol {
+        padding-left: 24px;
+        margin-bottom: 24px;
+      }
+      .post-body li {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--slate-700);
+        margin-bottom: 8px;
+      }
+      .post-body blockquote {
+        border-left: 3px solid var(--amber);
+        padding: 4px 0 4px 24px;
+        margin: 32px 0;
+      }
+      .post-body blockquote p {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--navy);
+        margin-bottom: 0;
+      }
+      .post-body a {
+        color: var(--navy);
+        text-decoration: underline;
+        text-decoration-color: var(--amber);
+        text-underline-offset: 3px;
+      }
+      .post-body a:hover {
+        color: var(--amber);
+      }
+      .post-cta {
+        background: var(--navy);
+        padding: 64px 40px;
+        text-align: center;
+      }
+      .post-cta h3 {
+        font-family: var(--font-serif);
+        font-size: 1.8rem;
+        color: var(--snow);
+        margin-bottom: 12px;
+      }
+      .post-cta p {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: rgba(250, 251, 252, 0.6);
+        margin-bottom: 28px;
+      }
+      .post-cta .btn-primary {
+        background: var(--amber);
+        color: var(--navy);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 14px 32px;
+        border-radius: 100px;
+        text-decoration: none;
+        display: inline-block;
+        transition: opacity 0.2s;
+      }
+      .post-cta .btn-primary:hover {
+        opacity: 0.88;
+      }
+      @media (max-width: 768px) {
+        .post-hero-inner,
+        .post-image-wrap,
+        .post-body {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .post-image-wrap {
+          transform: translateY(24px);
+        }
+        .post-body {
+          padding-top: 56px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="site-header"></div>
+
+    <section class="post-hero">
+      <div class="post-hero-inner">
+        <a href="../blog.html" class="post-back">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M10 12L6 8l4-4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          All Blogs
+        </a>
+        <p class="post-category">SEO & Digital</p>
+        <h1 class="post-title">SEO for Indian Startups: Where to Begin</h1>
+        <div class="post-meta">
+          <span>22 March 2025</span>
+          <span class="dot"></span>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="post-image-wrap">
+      <img src="../assets/blog/seo-thumb.jpg" alt="SEO for Indian Startups" />
+    </div>
+
+    <article class="post-body">
+      <p>
+        Search engine optimisation is not a one-time task. For Indian startups
+        entering competitive markets, it is the compounding asset that pays
+        dividends for years — if you set it up correctly from the start.
+      </p>
+
+      <p>
+        Most founders treat SEO as something to "deal with later." The result is
+        a website that exists but cannot be found, a content library that nobody
+        reads, and a growing dependence on paid channels that evaporate the
+        moment the budget is cut.
+      </p>
+
+      <p>
+        This post is for founders who are ready to treat organic search as a
+        real acquisition channel — and want to know where to begin without
+        wasting months on the wrong things.
+      </p>
+
+      <h2>Understand What You Are Actually Optimising For</h2>
+
+      <p>
+        The first mistake is optimising for traffic when you should be
+        optimising for intent. A thousand monthly visitors searching "what is
+        digital marketing" are worth far less than fifty searching "digital
+        marketing agency for D2C brand in Bangalore." The second group is ready
+        to buy. The first is curious.
+      </p>
+
+      <p>
+        Before writing a single piece of content or touching your meta tags, you
+        need to answer one question: what does my ideal customer type into
+        Google when they are ready to solve the problem I solve?
+      </p>
+
+      <blockquote>
+        <p>SEO without intent mapping is just writing into a void.</p>
+      </blockquote>
+
+      <h2>Technical Foundations First</h2>
+
+      <p>
+        Content will not rank on a broken foundation. Before investing in blog
+        posts or link building, ensure the following are in order:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Site speed:</strong> Google's Core Web Vitals are a ranking
+          factor. Run your site through PageSpeed Insights and fix the flagged
+          issues. For most Indian startups, uncompressed images and unminified
+          JavaScript are the biggest offenders.
+        </li>
+        <li>
+          <strong>Mobile experience:</strong> India is a mobile-first market. If
+          your site is clunky on a mid-range Android, you are losing both users
+          and rankings.
+        </li>
+        <li>
+          <strong>HTTPS:</strong> Non-negotiable. If your site is still on HTTP,
+          fix it today.
+        </li>
+        <li>
+          <strong>Clean URL structure:</strong> URLs should be readable and
+          descriptive. <code>/services/brand-strategy</code> is better than
+          <code>/page?id=47</code>.
+        </li>
+        <li>
+          <strong>Sitemap and robots.txt:</strong> Submit your sitemap to Google
+          Search Console. Ensure your robots.txt is not accidentally blocking
+          crawlers.
+        </li>
+      </ul>
+
+      <h2>The Content Strategy That Actually Works</h2>
+
+      <p>
+        Once your technical foundation is solid, content is your primary lever.
+        But not all content is equal. The structure that works for most B2B
+        Indian startups is what we call the <em>pillar and cluster</em> model.
+      </p>
+
+      <h3>Pillar pages</h3>
+
+      <p>
+        These are comprehensive, authoritative pages on your core topics — the
+        things you most want to be known for. If GreySphere offers brand
+        strategy consulting, a pillar page might be titled "The Complete Guide
+        to Brand Strategy for Indian Businesses." It covers the topic in depth
+        and links out to more specific cluster articles.
+      </p>
+
+      <h3>Cluster articles</h3>
+
+      <p>
+        These are focused posts that go deep on one specific sub-topic and link
+        back to the pillar page. Examples: "How to Write a Brand Positioning
+        Statement," "When Should a Startup Invest in Rebranding," "Measuring
+        Brand Equity Without a Big Research Budget."
+      </p>
+
+      <p>
+        Over time, this architecture tells Google that you have genuine
+        authority on the subject — and your rankings reflect that.
+      </p>
+
+      <h2>The Indian Market Nuances</h2>
+
+      <p>
+        A few things that make SEO in India different from the playbooks written
+        for US and UK markets:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Regional language search is growing fast.</strong> If your
+          audience includes Tier 2 and Tier 3 cities, consider whether some
+          content should serve Hindi or regional language queries.
+        </li>
+        <li>
+          <strong>Local SEO is underutilised.</strong> If you serve businesses
+          in a specific city, your Google Business Profile is your most powerful
+          free SEO tool. Most startups ignore it entirely.
+        </li>
+        <li>
+          <strong>Trust signals matter more here.</strong> Indian B2B buyers do
+          deep due diligence. Press mentions, client logos, and case studies on
+          your website directly improve time-on-site — a signal Google uses to
+          assess quality.
+        </li>
+      </ul>
+
+      <h2>How Long Will It Take?</h2>
+
+      <p>
+        Honest answer: for a new domain targeting moderately competitive
+        keywords, expect 6–9 months before organic traffic becomes meaningful.
+        This is not a reason to delay — it is a reason to start today.
+      </p>
+
+      <p>
+        The businesses that dominate organic search in their category did not
+        get there by starting when they needed results. They started early,
+        stayed consistent, and compounded their advantage while competitors were
+        still running ads.
+      </p>
+
+      <h3>What to do in Month 1</h3>
+
+      <ol>
+        <li>Set up Google Search Console and Google Analytics 4</li>
+        <li>
+          Run a technical audit (free tools: Screaming Frog, Ahrefs Webmaster
+          Tools)
+        </li>
+        <li>Identify your 10 most important target keywords</li>
+        <li>Audit your existing pages against those keywords</li>
+        <li>Write your first two pieces of cluster content</li>
+      </ol>
+
+      <p>
+        That is enough to get started. SEO rewards motion over perfection. The
+        best strategy is the one you actually execute — consistently, over time.
+      </p>
+    </article>
+
+    <div class="post-cta">
+      <h3>Want an SEO strategy built for your business?</h3>
+      <p>
+        We'll help you identify the right keywords, fix the right foundations,
+        and build the right content.
+      </p>
+      <a href="../contact.html" class="btn-primary">Talk to us</a>
+    </div>
+
+    <div id="site-footer"></div>
+    <script src="../global.js"></script>
+  </body>
+</html>

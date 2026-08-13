@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - GreySphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      /* ============================================================
+   PAGE-SPECIFIC STYLES ONLY
+============================================================ */
+
+      /* ---- HERO ---- */
+      .about-hero {
+        background-color: var(--snow);
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(232, 180, 79, 0.09) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(28, 53, 94, 0.06) 0%,
+            transparent 45%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.022) 28px,
+            rgba(28, 53, 94, 0.022) 29px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 28px,
+            rgba(28, 53, 94, 0.015) 28px,
+            rgba(28, 53, 94, 0.015) 29px
+          );
+        padding: clamp(80px, 10vw, 120px) clamp(24px, 6vw, 80px)
+          clamp(60px, 8vw, 90px);
+        text-align: center;
+      }
+      .about-hero-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--white);
+        border: 1.5px solid var(--silver);
+        border-radius: var(--radius-pill);
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--slate-400);
+        margin-bottom: 28px;
+        box-shadow: 0 2px 8px rgba(28, 53, 94, 0.06);
+      }
+      .hero-badge svg {
+        width: 15px;
+        height: 15px;
+        color: var(--amber);
+        flex-shrink: 0;
+      }
+      .about-hero h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(40px, 5.5vw, 72px);
+        color: var(--navy);
+        line-height: 1.08;
+        margin-bottom: 20px;
+      }
+      .about-hero h1 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .about-hero p {
+        font-size: clamp(15px, 1.6vw, 18px);
+        color: var(--slate-400);
+        line-height: 1.7;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      /* ---- STATS BAR ---- */
+      .about-stats {
+        background: var(--navy);
+        padding: clamp(36px, 4vw, 52px) clamp(24px, 6vw, 80px);
+      }
+      .about-stats-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .about-stat {
+        text-align: center;
+        padding: 20px;
+        position: relative;
+      }
+      .about-stat + .about-stat::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .about-stat-num {
+        font-family: var(--font-serif);
+        font-size: clamp(32px, 4vw, 52px);
+        color: var(--white);
+        line-height: 1.1;
+        display: block;
+      }
+      .about-stat-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 500;
+        margin-top: 6px;
+      }
+
+      /* ---- WHO WE ARE ---- */
+      .who-section {
+        background: var(--white);
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .who-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(48px, 7vw, 100px);
+        align-items: center;
+      }
+      .who-visual {
+        position: relative;
+        height: 520px;
+      }
+      .who-img-1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 72%;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 12px 40px rgba(28, 53, 94, 0.16);
+        z-index: 1;
+      }
+      .who-img-2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 62%;
+        height: 62%;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 12px 40px rgba(28, 53, 94, 0.12);
+        z-index: 2;
+        border: 4px solid var(--white);
+      }
+      .who-img-badge {
+        position: absolute;
+        bottom: 28%;
+        left: -20px;
+        z-index: 3;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        padding: 14px 18px;
+        box-shadow: 0 8px 28px rgba(28, 53, 94, 0.14);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .who-img-badge-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--amber-glow);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .who-img-badge-icon svg {
+        width: 18px;
+        height: 18px;
+        color: var(--amber);
+      }
+      .who-img-badge-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .who-img-badge-num {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        color: var(--navy);
+        line-height: 1;
+      }
+      .who-img-badge-label {
+        font-size: 11px;
+        color: var(--slate-300);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+
+      .who-right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--amber);
+      }
+      .who-right h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        color: var(--navy);
+        line-height: 1.15;
+      }
+      .who-right p {
+        font-size: 15px;
+        color: var(--slate-400);
+        line-height: 1.8;
+      }
+      .who-right .pull-quote {
+        font-family: var(--font-serif);
+        font-size: clamp(18px, 2vw, 22px);
+        color: var(--ink);
+        line-height: 1.4;
+        font-style: italic;
+        border-left: 3px solid var(--amber);
+        padding-left: 20px;
+        margin: 4px 0;
+      }
+
+      /* ---- WHY WE EXIST ---- */
+      .why-section {
+        background: var(--navy);
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          );
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .why-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(48px, 7vw, 80px);
+        align-items: start;
+      }
+      .why-left {
+      }
+      .why-left .section-label {
+        color: rgba(232, 180, 79, 0.9);
+      }
+      .why-left .section-label::before {
+        background: rgba(232, 180, 79, 0.9);
+      }
+      .why-left h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 46px);
+        color: var(--white);
+        line-height: 1.15;
+        margin: 14px 0 24px;
+      }
+      .why-left h2 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .why-left p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.8;
+      }
+
+      .why-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin-top: 8px;
+      }
+      .why-point {
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .why-point:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .why-point-num {
+        font-family: var(--font-serif);
+        font-size: 13px;
+        color: var(--amber);
+        min-width: 28px;
+        padding-top: 2px;
+      }
+      .why-point-body h4 {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+      .why-point-body p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+      }
+
+      /* ---- VISION & MISSION ---- */
+      .vm-section {
+        background: var(--consulting-bg);
+        background-image: linear-gradient(
+            rgba(28, 53, 94, 0.025) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(28, 53, 94, 0.025) 1px, transparent 1px);
+        background-size: 44px 44px;
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .vm-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .vm-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .vm-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin-top: 14px;
+      }
+      .vm-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .vm-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--silver);
+        padding: clamp(28px, 4vw, 44px);
+        transition: var(--transition-s);
+      }
+      .vm-card:hover {
+        box-shadow: 0 12px 40px rgba(28, 53, 94, 0.09);
+        border-color: var(--navy);
+        transform: translateY(-4px);
+      }
+      .vm-card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-md);
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--white);
+      }
+      .vm-card-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+      .vm-card h3 {
+        font-family: var(--font-serif);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 14px;
+      }
+      .vm-card p {
+        font-family: var(--font-serif);
+        font-size: clamp(17px, 1.8vw, 21px);
+        color: var(--navy);
+        line-height: 1.5;
+        margin-bottom: 24px;
+        font-style: italic;
+      }
+      .vm-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .vm-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--slate-400);
+        line-height: 1.6;
+      }
+      .vm-list li svg {
+        width: 16px;
+        height: 16px;
+        color: var(--amber);
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+
+      /* ---- HOW WE THINK ---- */
+      .think-section {
+        background: var(--white);
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .think-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .think-header {
+        margin-bottom: 56px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: end;
+      }
+      .think-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin-top: 14px;
+      }
+      .think-header p {
+        font-size: 15px;
+        color: var(--slate-400);
+        line-height: 1.75;
+      }
+
+      /* Flow diagram */
+      .think-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .think-step {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 24px;
+        position: relative;
+      }
+      /* Vertical connector line */
+      .think-step:not(:last-child) .think-step-line {
+        position: absolute;
+        left: 27px;
+        top: 56px;
+        bottom: -40px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--amber), var(--silver));
+        z-index: 0;
+      }
+      .think-step-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+      }
+      .think-step-circle {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-serif);
+        font-size: 13px;
+        border: 3px solid var(--white);
+        box-shadow: 0 0 0 2px var(--navy);
+        flex-shrink: 0;
+      }
+      .think-step-right {
+        background: var(--consulting-bg);
+        border: 1px solid var(--silver);
+        border-radius: var(--radius-md);
+        padding: 24px 28px;
+        margin-bottom: 20px;
+        transition: var(--transition-s);
+      }
+      .think-step-right:hover {
+        border-color: var(--navy);
+        background: var(--white);
+        box-shadow: 0 8px 28px rgba(28, 53, 94, 0.07);
+      }
+      .think-step-tag {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 6px;
+        display: block;
+      }
+      .think-step-title {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .think-step-desc {
+        font-size: 14px;
+        color: var(--slate-400);
+        line-height: 1.7;
+      }
+      .think-outcome {
+        background: var(--navy);
+        border-radius: var(--radius-md);
+        padding: 24px 28px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .think-outcome svg {
+        width: 28px;
+        height: 28px;
+        color: var(--amber);
+        flex-shrink: 0;
+      }
+      .think-outcome p {
+        font-family: var(--font-serif);
+        font-size: 17px;
+        color: var(--white);
+        line-height: 1.5;
+        font-style: italic;
+      }
+
+      /* ---- PRINCIPLES ---- */
+      .principles-section {
+        background: var(--snow);
+        background-image: radial-gradient(
+          circle,
+          rgba(28, 53, 94, 0.05) 1px,
+          transparent 1px
+        );
+        background-size: 28px 28px;
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .principles-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .principles-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .principles-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin-top: 14px;
+      }
+      .principles-header p {
+        font-size: 15px;
+        color: var(--slate-400);
+        max-width: 520px;
+        margin: 12px auto 0;
+      }
+      .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .principle-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--silver);
+        padding: 36px 32px;
+        transition: var(--transition-s);
+        position: relative;
+        overflow: hidden;
+      }
+      .principle-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, var(--amber), var(--amber-light));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .principle-card:hover {
+        box-shadow: 0 16px 48px rgba(28, 53, 94, 0.1);
+        transform: translateY(-4px);
+        border-color: var(--navy);
+      }
+      .principle-card:hover::before {
+        transform: scaleX(1);
+      }
+      .principle-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-md);
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--white);
+      }
+      .principle-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+      .principle-num {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 8px;
+        display: block;
+      }
+      .principle-title {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+      .principle-desc {
+        font-size: 14.5px;
+        color: var(--slate-400);
+        line-height: 1.75;
+      }
+
+      /* ---- WHO WE WORK WITH ---- */
+      .audience-section {
+        background: var(--marketing-bg);
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .audience-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: clamp(48px, 6vw, 80px);
+        align-items: start;
+      }
+      .audience-left {
+      }
+      .audience-left h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin: 14px 0 20px;
+      }
+      .audience-left p {
+        font-size: 15px;
+        color: var(--slate-400);
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .audience-closing {
+        background: var(--navy);
+        border-radius: var(--radius-md);
+        padding: 24px 28px;
+        margin-top: 8px;
+      }
+      .audience-closing p {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        font-style: italic;
+      }
+      .audience-right {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .audience-card {
+        background: var(--white);
+        border: 1px solid var(--silver);
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: var(--transition-s);
+      }
+      .audience-card:hover {
+        border-color: var(--navy);
+        box-shadow: 0 8px 28px rgba(28, 53, 94, 0.08);
+        transform: translateX(6px);
+      }
+      .audience-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-sm);
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--white);
+      }
+      .audience-card-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .audience-card-title {
+        font-family: var(--font-serif);
+        font-size: 16px;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+      .audience-card-desc {
+        font-size: 13px;
+        color: var(--slate-400);
+      }
+
+      /* ---- DIFFERENTIATOR CALLOUT ---- */
+      .diff-callout-section {
+        background: var(--white);
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .diff-callout-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .diff-callout-inner h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin: 14px 0 16px;
+      }
+      .diff-callout-inner > p {
+        font-size: clamp(15px, 1.5vw, 17px);
+        color: var(--slate-400);
+        max-width: 620px;
+        margin: 0 auto 56px;
+        line-height: 1.75;
+      }
+      .diff-cols {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+      }
+      .diff-col {
+        padding: 36px 28px;
+        position: relative;
+        border: 1px solid var(--silver);
+        margin: -1px;
+      }
+      .diff-col:first-child {
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      }
+      .diff-col:last-child {
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        background: var(--navy);
+      }
+      .diff-col:last-child .diff-col-label {
+        color: rgba(232, 180, 79, 0.8);
+      }
+      .diff-col:last-child .diff-col-title {
+        color: var(--white);
+      }
+      .diff-col:last-child .diff-col-desc {
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .diff-col-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--slate-300);
+        margin-bottom: 12px;
+        display: block;
+      }
+      .diff-col-title {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+      .diff-col-desc {
+        font-size: 14px;
+        color: var(--slate-400);
+        line-height: 1.7;
+      }
+      .diff-col-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 20px;
+        background: var(--pearl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+      }
+      .diff-col:last-child .diff-col-icon {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--amber);
+      }
+      .diff-col-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      /* ---- TEAM ---- */
+      .team-section {
+        background: var(--consulting-bg);
+        background-image: linear-gradient(
+            rgba(28, 53, 94, 0.025) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(28, 53, 94, 0.025) 1px, transparent 1px);
+        background-size: 44px 44px;
+        padding: clamp(80px, 9vw, 120px) clamp(24px, 6vw, 80px);
+      }
+      .team-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .team-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .team-header h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--navy);
+        line-height: 1.15;
+        margin-top: 14px;
+      }
+      .team-header p {
+        font-size: 15px;
+        color: var(--slate-400);
+        max-width: 480px;
+        margin: 12px auto 0;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .team-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--silver);
+        overflow: hidden;
+        transition: var(--transition-s);
+      }
+      .team-card:hover {
+        box-shadow: 0 16px 48px rgba(28, 53, 94, 0.1);
+        transform: translateY(-4px);
+        border-color: var(--navy);
+      }
+      .team-card-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        background: var(--pearl);
+        display: block;
+      }
+      .team-card-img-placeholder {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .team-card-img-placeholder svg {
+        width: 60px;
+        height: 60px;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .team-card-body {
+        padding: 24px;
+      }
+      .team-card-name {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .team-card-role {
+        font-size: 13px;
+        color: var(--amber);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
+      }
+      .team-card-bio {
+        font-size: 13.5px;
+        color: var(--slate-400);
+        line-height: 1.7;
+      }
+      .team-card-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .team-card-links a {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--silver);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--slate-400);
+        transition: var(--transition);
+      }
+      .team-card-links a:hover {
+        border-color: var(--navy);
+        color: var(--navy);
+        background: var(--pearl);
+      }
+      .team-card-links svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      /* ---- CTA ---- */
+      .about-cta {
+        background: var(--navy);
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 47px,
+            rgba(255, 255, 255, 0.04) 47px,
+            rgba(255, 255, 255, 0.04) 48px
+          );
+        padding: clamp(80px, 9vw, 110px) clamp(24px, 6vw, 80px);
+        text-align: center;
+      }
+      .about-cta-inner {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .about-cta h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(32px, 4.5vw, 56px);
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .about-cta h2 em {
+        color: var(--amber);
+        font-style: italic;
+      }
+      .about-cta p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        margin-bottom: 36px;
+      }
+      .btn-cta-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--white);
+        color: var(--navy);
+        padding: 15px 32px;
+        border-radius: var(--radius-pill);
+        font-size: 15px;
+        font-weight: 700;
+        font-family: var(--font-sans);
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-s);
+        text-decoration: none;
+      }
+      .btn-cta-white:hover {
+        background: var(--amber);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+      }
+      .btn-cta-white svg {
+        transition: transform 0.3s ease;
+      }
+      .btn-cta-white:hover svg {
+        transform: translateX(4px);
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 900px) {
+        .who-inner {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .who-visual {
+          height: 360px;
+        }
+        .why-inner {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .think-header {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .diff-cols {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .diff-col {
+          border-radius: var(--radius-lg) !important;
+        }
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .audience-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .about-stats-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about-stat:nth-child(3)::before {
+          display: none;
+        }
+        .about-stat:nth-child(3),
+        .about-stat:nth-child(4) {
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+      }
+      @media (max-width: 768px) {
+        .vm-cards {
+          grid-template-columns: 1fr;
+        }
+        .principles-grid {
+          grid-template-columns: 1fr;
+        }
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+        .who-img-badge {
+          display: none;
+        }
+        .about-stats-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .about-stats-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+        .who-visual {
+          height: 280px;
+        }
+        .who-img-1 {
+          width: 70%;
+        }
+        .who-img-2 {
+          width: 65%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <div class="hero-badge reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg>
+          Consulting-Led Growth Partner
+        </div>
+        <h1 class="reveal delay-1">
+          We Help Businesses Grow<br />with <em>Clarity & Intent</em>
+        </h1>
+        <p class="reveal delay-2">
+          Grey Sphere sits at the intersection of business consulting and modern
+          marketing - connecting strategic thinking with market outcomes for
+          founders, teams, and institutions that are serious about growth.
+        </p>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="about-stats">
+      <div class="about-stats-inner">
+        <div class="about-stat reveal delay-1">
+          <span class="about-stat-num">25+</span>
+          <p class="about-stat-label">Brands Transformed</p>
+        </div>
+        <div class="about-stat reveal delay-2">
+          <span class="about-stat-num">2500+</span>
+          <p class="about-stat-label">Professionals Trained</p>
+        </div>
+        <div class="about-stat reveal delay-3">
+          <span class="about-stat-num">10+</span>
+          <p class="about-stat-label">Industries Served</p>
+        </div>
+        <div class="about-stat reveal delay-4">
+          <span class="about-stat-num">47.9%</span>
+          <p class="about-stat-label">Avg. Retention Revenue Lift</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO WE ARE -->
+    <section class="who-section">
+      <div class="who-inner">
+        <div class="who-visual reveal-left">
+          <img
+            class="who-img-1"
+            src="assets/site images/About 1.webp"
+            alt="Grey Sphere consulting team at work"
+          />
+          <img
+            class="who-img-2"
+            src="assets/site images/About 2.webp"
+            alt="Strategy session"
+          />
+          <div class="who-img-badge">
+            <div class="who-img-badge-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
+            <div class="who-img-badge-text">
+              <span class="who-img-badge-num">9.8%</span>
+              <span class="who-img-badge-label">Avg. Repeat Order Lift</span>
+            </div>
+          </div>
+        </div>
+        <div class="who-right reveal-right">
+          <div class="section-label">Who We Are</div>
+          <h2>Not an Agency. Not Just Consultants. Both.</h2>
+          <p class="pull-quote">
+            "We treat marketing as a business system — not a set of channels."
+          </p>
+          <p>
+            Grey Sphere is a consulting-led growth partner with deep marketing
+            capability. We work with founders and leadership teams who need more
+            than execution — they need clarity, direction, and a marketing
+            system that actually compounds.
+          </p>
+          <p>
+            Positioned at the intersection of business consulting and modern
+            marketing, we help companies enter markets, sharpen their
+            positioning, and build full-funnel growth engines that scale.
+          </p>
+          <p>
+            From early-stage businesses shaping their go-to-market and brand
+            presence, to established companies aligning strategy, narrative, and
+            marketing performance — our role is to connect thinking with
+            outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WE EXIST -->
+    <section class="why-section">
+      <div class="why-inner">
+        <div class="why-left">
+          <div class="section-label">Why We Exist</div>
+          <h2>Closing the Gap Between <em>Strategy & Growth</em></h2>
+          <p>
+            Most businesses don't suffer from a lack of effort. They suffer from
+            misalignment. Grey Sphere was built to unify how businesses think,
+            communicate, and grow — so marketing isn't just active, but
+            effective. Not just visible, but valuable.
+          </p>
+        </div>
+        <div class="why-right reveal">
+          <div class="why-point">
+            <span class="why-point-num">01</span>
+            <div class="why-point-body">
+              <h4>Strategy lives in decks</h4>
+              <p>
+                Brilliant thinking gets built, documented, approved — then sits
+                untouched while the business runs on instinct and habit.
+              </p>
+            </div>
+          </div>
+          <div class="why-point">
+            <span class="why-point-num">02</span>
+            <div class="why-point-body">
+              <h4>Marketing lives in channels</h4>
+              <p>
+                Campaigns run. Content goes out. Ads spend. But none of it
+                connects back to the strategic direction the leadership team
+                intended.
+              </p>
+            </div>
+          </div>
+          <div class="why-point">
+            <span class="why-point-num">03</span>
+            <div class="why-point-body">
+              <h4>Execution lives in silos</h4>
+              <p>
+                Teams work in parallel — brand, performance, content, sales —
+                each optimising their piece without a shared system or language.
+              </p>
+            </div>
+          </div>
+          <div class="why-point">
+            <span class="why-point-num">→</span>
+            <div class="why-point-body">
+              <h4>We exist to close that gap</h4>
+              <p>
+                One accountable framework. Strategy and execution, consulting
+                and marketing — unified by design.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section class="vm-section">
+      <div class="vm-inner">
+        <div class="vm-header reveal">
+          <div class="section-label" style="justify-content: center">
+            Our Direction
+          </div>
+          <h2>What We're Building Toward</h2>
+        </div>
+        <div class="vm-cards">
+          <div class="vm-card reveal delay-1">
+            <div class="vm-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+                <line x1="12" y1="2" x2="12" y2="5" />
+                <line x1="12" y1="19" x2="12" y2="22" />
+                <line x1="2" y1="12" x2="5" y2="12" />
+                <line x1="19" y1="12" x2="22" y2="12" />
+              </svg>
+            </div>
+            <h3>Our Vision</h3>
+            <p>
+              To redefine modern growth by integrating consulting-grade strategy
+              with intelligent marketing systems — so businesses can scale with
+              clarity instead of complexity.
+            </p>
+            <ul class="vm-list">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Growth that is deliberate and measurable
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Built on understanding, not guesswork
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Resilient systems that compound over time
+              </li>
+            </ul>
+          </div>
+          <div class="vm-card reveal delay-2">
+            <div class="vm-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"
+                />
+                <path
+                  d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"
+                />
+              </svg>
+            </div>
+            <h3>Our Mission</h3>
+            <p>
+              To help businesses enter markets with confidence, build brands
+              that communicate with intent, and design marketing systems that
+              perform across the full funnel.
+            </p>
+            <ul class="vm-list">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Enter markets with clarity and confidence
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Build brands that communicate with intent
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Design full-funnel marketing systems
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 6L9 17l-5-5" /></svg
+                >Align leadership, strategy, and execution
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE THINK -->
+    <section class="think-section">
+      <div class="think-inner">
+        <div class="think-header">
+          <div>
+            <div class="section-label reveal">How We Think</div>
+            <h2 class="reveal delay-1">Growth as an<br />Integrated System</h2>
+          </div>
+          <p class="reveal delay-2">
+            Marketing doesn't work when it's disconnected from strategy. And
+            strategy doesn't matter if it never reaches the market. Here's how
+            we link them.
+          </p>
+        </div>
+        <div class="think-flow">
+          <div class="think-step reveal">
+            <div class="think-step-left">
+              <div class="think-step-circle">01</div>
+              <div class="think-step-line"></div>
+            </div>
+            <div class="think-step-right">
+              <span class="think-step-tag">Foundation</span>
+              <div class="think-step-title">
+                Customer Research Shapes Positioning
+              </div>
+              <p class="think-step-desc">
+                We start by deeply understanding your customers — their
+                motivations, alternatives, jobs-to-be-done, and language. This
+                creates the strategic foundation everything else rests on.
+              </p>
+            </div>
+          </div>
+
+          <div class="think-step reveal delay-1">
+            <div class="think-step-left">
+              <div class="think-step-circle">02</div>
+              <div class="think-step-line"></div>
+            </div>
+            <div class="think-step-right">
+              <span class="think-step-tag">Architecture</span>
+              <div class="think-step-title">
+                Positioning Informs Narrative & Brand
+              </div>
+              <p class="think-step-desc">
+                Your market position becomes the blueprint for your brand voice,
+                story, and communication architecture — so everything you say is
+                consistent, credible, and resonant.
+              </p>
+            </div>
+          </div>
+
+          <div class="think-step reveal delay-2">
+            <div class="think-step-left">
+              <div class="think-step-circle">03</div>
+              <div class="think-step-line"></div>
+            </div>
+            <div class="think-step-right">
+              <span class="think-step-tag">Execution</span>
+              <div class="think-step-title">
+                Brand Guides Messaging, Creative & Channels
+              </div>
+              <p class="think-step-desc">
+                With a clear brand, every channel gets a clear brief. Content,
+                ads, email, and social stop being guesswork — they become
+                expressions of a single, unified direction.
+              </p>
+            </div>
+          </div>
+
+          <div class="think-step reveal delay-3">
+            <div class="think-step-left">
+              <div class="think-step-circle">04</div>
+              <div class="think-step-line"></div>
+            </div>
+            <div class="think-step-right">
+              <span class="think-step-tag">Scale</span>
+              <div class="think-step-title">
+                Channels Connect into a Full-Funnel Engine
+              </div>
+              <p class="think-step-desc">
+                SEO, paid, social, email, and conversion assets are designed to
+                work together as one acquisition and retention system — not as
+                independent, siloed efforts.
+              </p>
+            </div>
+          </div>
+
+          <div class="think-step reveal delay-4">
+            <div class="think-step-left">
+              <div class="think-step-circle">05</div>
+            </div>
+            <div class="think-step-right">
+              <span class="think-step-tag">Compounding</span>
+              <div class="think-step-title">
+                Performance Feedback Sharpens Decisions
+              </div>
+              <p class="think-step-desc">
+                Real data feeds back into positioning, messaging, and channel
+                priorities — creating a loop where the system gets smarter,
+                leaner, and more effective over time.
+              </p>
+            </div>
+          </div>
+
+          <div class="think-outcome reveal delay-5">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            <p>
+              This is how marketing stops being activity — and starts becoming
+              leverage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="principles-section">
+      <div class="principles-inner">
+        <div class="principles-header reveal">
+          <div class="section-label" style="justify-content: center">
+            How We Operate
+          </div>
+          <h2>Our Principles</h2>
+          <p>
+            The beliefs that shape every engagement, every decision, and every
+            conversation we have with clients.
+          </p>
+        </div>
+        <div class="principles-grid">
+          <div class="principle-card reveal delay-1">
+            <div class="principle-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                <line x1="11" y1="8" x2="11" y2="14" />
+                <line x1="8" y1="11" x2="14" y2="11" />
+              </svg>
+            </div>
+            <span class="principle-num">Principle 01</span>
+            <div class="principle-title">Research Before Reach</div>
+            <p class="principle-desc">
+              We lead with customer insight, market intelligence, and
+              behavioural understanding — before messaging, media, or spend. You
+              can't reach the right people with the wrong message no matter how
+              large your audience.
+            </p>
+          </div>
+
+          <div class="principle-card reveal delay-2">
+            <div class="principle-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <span class="principle-num">Principle 02</span>
+            <div class="principle-title">Systems Over Campaigns</div>
+            <p class="principle-desc">
+              We design integrated marketing and growth systems, not isolated
+              campaigns or short-term wins. A well-built system outlasts any
+              single campaign and compounds in value over time.
+            </p>
+          </div>
+
+          <div class="principle-card reveal delay-3">
+            <div class="principle-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path
+                  d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                />
+              </svg>
+            </div>
+            <span class="principle-num">Principle 03</span>
+            <div class="principle-title">Consulting + Marketing, Unified</div>
+            <p class="principle-desc">
+              We don't separate thinking from doing. Strategy and execution live
+              together — by design. Ideas that never get tested are theories.
+              Execution without strategy is noise.
+            </p>
+          </div>
+
+          <div class="principle-card reveal delay-4">
+            <div class="principle-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg>
+            </div>
+            <span class="principle-num">Principle 04</span>
+            <div class="principle-title">Partnership Over Vendor</div>
+            <p class="principle-desc">
+              We work alongside leadership teams, staying accountable to
+              outcomes — not deliverables. We measure ourselves by what actually
+              changes in your business, not what gets submitted in a deck.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE WORK WITH -->
+    <section class="audience-section">
+      <div class="audience-inner">
+        <div class="audience-left reveal-left">
+          <div class="section-label">Who We Work With</div>
+          <h2>
+            Built for Founders & Leadership Teams Ready to Grow Deliberately
+          </h2>
+          <p>
+            We partner with people who are serious about growth — not just
+            activity. Whether you're building from scratch or scaling what's
+            already working, we meet you where strategy and execution need to
+            connect.
+          </p>
+          <div class="audience-closing">
+            <p>
+              "If marketing feels busy but growth feels unclear — we're built
+              for that moment."
+            </p>
+          </div>
+        </div>
+        <div class="audience-right reveal-right">
+          <div class="audience-card">
+            <div class="audience-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"
+                />
+                <path
+                  d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="audience-card-title">
+                Founders Launching New Businesses
+              </div>
+              <div class="audience-card-desc">
+                Building your go-to-market, brand, and growth engine from the
+                ground up.
+              </div>
+            </div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path
+                  d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="audience-card-title">
+                Companies Entering New Markets
+              </div>
+              <div class="audience-card-desc">
+                New geography, new segment, or new product — we build your
+                market entry strategy.
+              </div>
+            </div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </div>
+            <div>
+              <div class="audience-card-title">
+                Growth-Stage Teams Seeking Traction
+              </div>
+              <div class="audience-card-desc">
+                You've validated the idea. Now you need a system — positioning,
+                funnel, and performance.
+              </div>
+            </div>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="9" y1="3" x2="9" y2="21" />
+                <line x1="15" y1="3" x2="15" y2="21" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="3" y1="15" x2="21" y2="15" />
+              </svg>
+            </div>
+            <div>
+              <div class="audience-card-title">
+                Established Organisations Realigning
+              </div>
+              <div class="audience-card-desc">
+                Marketing is running but growth is plateauing. We audit,
+                reframe, and rebuild the system.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT MAKES US DIFFERENT -->
+    <section class="diff-callout-section">
+      <div class="diff-callout-inner">
+        <div class="section-label reveal" style="justify-content: center">
+          What Sets Us Apart
+        </div>
+        <h2 class="reveal delay-1">We Bridge the Gap<br />Most Leave Open</h2>
+        <p class="reveal delay-2">
+          Most agencies focus on execution. Most consultants stop at advice.
+          Grey Sphere bridges both — bringing consulting rigour to marketing,
+          and marketing accountability to strategy.
+        </p>
+        <div class="diff-cols reveal delay-3">
+          <div class="diff-col">
+            <div class="diff-col-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <span class="diff-col-label">Most Agencies</span>
+            <div class="diff-col-title">Execute Without Strategy</div>
+            <p class="diff-col-desc">
+              Campaigns go out. Content gets made. But there's no strategic
+              foundation connecting it to your actual business direction or
+              growth goals.
+            </p>
+          </div>
+          <div class="diff-col">
+            <div class="diff-col-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <line x1="9" y1="15" x2="15" y2="15" />
+              </svg>
+            </div>
+            <span class="diff-col-label">Most Consultants</span>
+            <div class="diff-col-title">Advise Without Execution</div>
+            <p class="diff-col-desc">
+              Strategic clarity is delivered. The deck looks great. But
+              implementation falls to teams without the capability,
+              accountability, or system to execute it well.
+            </p>
+          </div>
+          <div class="diff-col">
+            <div class="diff-col-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <span class="diff-col-label">Grey Sphere</span>
+            <div class="diff-col-title">Strategy That Executes</div>
+            <p class="diff-col-desc">
+              We unify consulting rigour and marketing execution into one
+              accountable framework — so ideas don't just sound good, they
+              perform in the real world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+      <div class="team-inner">
+        <div class="team-header reveal">
+          <div class="section-label" style="justify-content: center">
+            The Team
+          </div>
+          <h2>The People Behind Grey Sphere</h2>
+          <p>
+            A small, senior team with deep conviction that strategy and
+            marketing belong together.
+          </p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal delay-1">
+            <div class="team-card-img-placeholder">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-name">Amar</div>
+              <div class="team-card-role">Founder & Lead Strategist</div>
+              <p class="team-card-bio">
+                Placeholder — add your bio here. Background in consulting,
+                marketing strategy, and brand architecture across D2C, SaaS, and
+                EdTech.
+              </p>
+              <div class="team-card-links">
+                <a href="#" title="LinkedIn"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" /></svg
+                ></a>
+                <a href="#" title="Instagram"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-2">
+            <div class="team-card-img-placeholder">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-name">Neha</div>
+              <div class="team-card-role">Creative Director</div>
+              <p class="team-card-bio">
+                Placeholder — add this person's bio and background. Expertise in
+                growth marketing, brand strategy, or relevant area.
+              </p>
+              <div class="team-card-links">
+                <a href="#" title="LinkedIn"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-3">
+            <div class="team-card-img-placeholder">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-name">Team Member Name</div>
+              <div class="team-card-role">Placeholder Role</div>
+              <p class="team-card-bio">
+                Placeholder — add this person's bio and background. Expertise in
+                performance marketing, analytics, or relevant area.
+              </p>
+              <div class="team-card-links">
+                <a href="#" title="LinkedIn"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <div class="about-cta-inner">
+        <div
+          class="section-label reveal"
+          style="justify-content: center; color: rgba(232, 180, 79, 0.8)"
+        >
+          Let's Build This Right
+        </div>
+        <h2 class="reveal delay-1">
+          If You're Looking for a Partner,<br />Not a <em>Vendor</em>
+        </h2>
+        <p class="reveal delay-2">
+          If you're looking for a partner who treats marketing as seriously as
+          strategy — and strategy as accountable as execution — we should talk.
+        </p>
+        <a href="contact.html" class="btn-cta-white reveal delay-3">
+          Book a Call
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="global.js"></script>
+    <script>
+      /* No page-specific JS needed — global.js handles scroll reveal and nav */
+    </script>
+  </body>
+</html>

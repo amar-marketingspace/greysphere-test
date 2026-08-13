@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "why-branding-matters",
+    "title": "Why Branding Matters More Than You Think",
+    "date": "2025-04-10",
+    "category": "Marketing & Branding",
+    "excerpt": "Most businesses treat branding as a logo and a colour palette. The ones that win treat it as a language — one that speaks before any salesperson does.",
+    "thumbnail": "assets/blog/branding-thumb.jpg",
+    "readTime": "5 min read",
+    "file": "blogs/why-branding-matters.html"
+  },
+  {
+    "slug": "seo-for-indian-startups",
+    "title": "SEO for Indian Startups: Where to Begin",
+    "date": "2025-03-22",
+    "category": "SEO & Digital",
+    "excerpt": "Search engine optimisation is not a one-time task. For Indian startups entering competitive markets, it is the compounding asset that pays dividends for years.",
+    "thumbnail": "assets/blog/seo-thumb.jpg",
+    "readTime": "7 min read",
+    "file": "blogs/seo-for-indian-startups.html"
+  },
+  {
+    "slug": "the-invisible-buying-journey",
+    "title": "The Invisible Buying Journey",
+    "date": "2025-05-04",
+    "category": "Marketing & Branding",
+    "excerpt": "Indian B2B buyers complete nearly 70% of their research before speaking to a salesperson. If your brand isn't visible during that silent phase, you've already lost the shortlist.",
+    "thumbnail": "assets/blog/invisible-buying-journey-thumb.jpg",
+    "readTime": "6 min read",
+    "file": "blogs/the-invisible-buying-journey.html"
+  }
+]

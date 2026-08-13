@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found — GreySphere</title>
+    <meta name="robots" content="noindex, follow" />
+
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/general-sans" />
+    <link rel="stylesheet" href="global.css" />
+
+    <style>
+      /* ============================================================
+   PAGE-SPECIFIC STYLES ONLY
+============================================================ */
+      .nf-wrap {
+        min-height: 78vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--navy-dark);
+        background-image: radial-gradient(
+            ellipse 140% 100% at 50% 0%,
+            rgba(0, 0, 0, 0) 55%,
+            rgba(0, 0, 0, 0.35) 100%
+          ),
+          radial-gradient(
+            circle at 72% 45%,
+            rgba(232, 180, 79, 0.1) 0%,
+            transparent 50%
+          );
+        padding: 100px 24px;
+        text-align: center;
+      }
+      .nf-eyebrow {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 20px;
+      }
+      .nf-code {
+        font-family: var(--font-serif);
+        font-size: clamp(72px, 12vw, 160px);
+        line-height: 1;
+        color: var(--white);
+        letter-spacing: -2px;
+      }
+      .nf-code .dot {
+        color: var(--amber);
+      }
+      .nf-title {
+        font-family: var(--font-serif);
+        font-size: clamp(22px, 2.6vw, 32px);
+        color: var(--white);
+        margin-top: 12px;
+        margin-bottom: 16px;
+      }
+      .nf-sub {
+        font-size: clamp(15px, 1.5vw, 17px);
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.65;
+        max-width: 460px;
+        margin: 0 auto 40px;
+      }
+      .nf-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--amber);
+        color: var(--navy-dark);
+        padding: 15px 30px;
+        border-radius: var(--radius-pill);
+        font-size: 15px;
+        font-weight: 700;
+        font-family: var(--font-sans);
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-s);
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--amber-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(232, 180, 79, 0.3);
+      }
+      .btn-outline-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--white);
+        padding: 14px 28px;
+        border-radius: var(--radius-pill);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        font-size: 15px;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        transition: var(--transition-s);
+      }
+      .btn-outline-dark:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main>
+      <section class="nf-wrap">
+        <div>
+          <div class="nf-eyebrow">GreySphere</div>
+          <div class="nf-code">404<span class="dot">.</span></div>
+          <h1 class="nf-title">This page took a wrong turn.</h1>
+          <p class="nf-sub">
+            The page you're looking for doesn't exist or may have moved.
+            Let's get you back on track.
+          </p>
+          <div class="nf-actions">
+            <a href="index.html" class="btn-primary"
+              >Back to home <span class="arrow">→</span></a
+            >
+            <a href="contact.html" class="btn-outline-dark"
+              >Start a Conversation →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="global.js"></script>
+  </body>
+</html>
