@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GreySphere — Logo Tiles</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1c355e;--navy-dark:#121f3a;
+    --amber:#e8b44f;
+    --white:#ffffff;--off-white:#f8f6f1;
+    --grey-900:#1a1a1a;
+    --font-display:'DM Serif Display',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e5e5e5;font-family:sans-serif;padding:40px;display:flex;flex-wrap:wrap;gap:32px}
+
+  .tile{
+    width:600px;height:600px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;flex-shrink:0;
+  }
+  .tile-label{
+    position:absolute;bottom:-28px;left:0;
+    font-size:13px;color:#555;font-family:sans-serif;
+  }
+
+  .wm{
+    font-family:var(--font-display);
+    letter-spacing:-1px;
+    white-space:nowrap;
+  }
+  .dot{color:var(--amber)}
+
+  /* Backgrounds */
+  .bg-navy{background:var(--navy-dark)}
+  .bg-white{background:var(--white)}
+  .bg-offwhite{background:var(--off-white)}
+  .bg-amber{background:var(--amber)}
+
+  /* Wordmark colour on each bg */
+  .bg-navy .wm{color:#fff;font-size:64px}
+  .bg-white .wm{color:var(--navy);font-size:64px}
+  .bg-offwhite .wm{color:var(--navy);font-size:64px}
+  .bg-amber .wm{color:var(--navy-dark);font-size:64px}
+  .bg-amber .dot{color:var(--navy-dark)} /* dot matches text on amber bg per spec */
+
+  /* Icon-free square app-icon style mark (dot-emphasis) for favicon/social profile use */
+  .tile-mono{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .tile-mono .wm-short{
+    font-family:var(--font-display);
+    font-size:48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="tile bg-navy">
+  <span class="wm">GreySphere<span class="dot">.</span></span>
+  <div class="tile-label">01 — Navy background, white wordmark</div>
+</div>
+
+<div class="tile bg-white">
+  <span class="wm">GreySphere<span class="dot">.</span></span>
+  <div class="tile-label">02 — White background, navy wordmark</div>
+</div>
+
+<div class="tile bg-offwhite">
+  <span class="wm">GreySphere<span class="dot">.</span></span>
+  <div class="tile-label">03 — Off-white background, navy wordmark</div>
+</div>
+
+<div class="tile bg-amber">
+  <span class="wm">GreySphere<span class="dot">.</span></span>
+  <div class="tile-label">04 — Amber background, navy wordmark + navy dot</div>
+</div>
+
+</body>
+</html>
