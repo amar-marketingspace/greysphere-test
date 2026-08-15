@@ -15,14 +15,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="GreySphere works with founders and leadership teams at the intersection of business consulting and modern marketing — helping businesses make clearer decisions, sharpen positioning, and build intelligent growth systems." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="GreySphere" />
-<meta property="og:title" content="GreySphere — Consulting + Marketing Partner" />
+<meta property="og:title" content="GreySphere - Consulting + Marketing Partner" />
 <meta property="og:description" content="GreySphere works with founders and leadership teams at the intersection of business consulting and modern marketing." />
 <meta property="og:url" content="https://greysphere.in/" />
 <meta property="og:image" content="https://greysphere.in/assets/social/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="GreySphere — Consulting + Marketing Partner" />
+<meta name="twitter:title" content="GreySphere - Consulting + Marketing Partner" />
 <meta name="twitter:description" content="GreySphere works with founders and leadership teams at the intersection of business consulting and modern marketing." />
 <meta name="twitter:image" content="https://greysphere.in/assets/social/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,26 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    HERO — Dark Strategy Hub
 ============================================================= */
       .hero-wrap {
-        background: var(--navy-dark);
-        background-image: radial-gradient(
-            ellipse 140% 100% at 50% 0%,
-            rgba(0, 0, 0, 0) 55%,
-            rgba(0, 0, 0, 0.35) 100%
-          ),
-          radial-gradient(
-            circle at 72% 45%,
-            rgba(232, 180, 79, 0.1) 0%,
-            transparent 50%
-          ),
-          repeating-radial-gradient(
-            circle at 72% 45%,
-            transparent 0,
-            transparent 70px,
-            rgba(255, 255, 255, 0.045) 71px,
-            transparent 72px
-          ),
-          radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-        background-size: auto, auto, auto, 46px 46px;
+        background: #000a14;
         position: relative;
         overflow: hidden;
         /* Extends the dark background up behind the now-transparent
@@ -82,26 +63,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         flex-direction: column;
         justify-content: center;
       }
-      .hero {
-        padding: clamp(36px, 5vw, 64px) clamp(24px, 8vw, 120px);
-        display: grid;
-        grid-template-columns: minmax(340px, 1fr) minmax(300px, 1fr);
-        gap: clamp(48px, 5vw, 80px);
-        align-items: center;
-        max-width: 1280px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 2;
-      }
-      @media (min-width: 901px) {
-        .hero {
-          grid-template-columns: minmax(340px, 1fr) minmax(300px, 1fr) !important;
-        }
-        .hero-right {
-          display: flex !important;
-          width: auto;
-        }
-      }
+.hero {
+  padding: clamp(36px, 5vw, 64px) clamp(40px, 6vw, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 80px);
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 901px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-right {
+    display: flex !important;
+    width: auto;
+    justify-content: center;
+  }
+
+  .hero-actions {
+    flex-wrap: nowrap;
+  }
+}
       .hero-left {
         display: flex;
         flex-direction: column;
@@ -130,11 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         line-height: 1.65;
         max-width: 460px;
       }
-      .hero-actions {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
+
       .btn-primary {
         display: inline-flex;
         align-items: center;
@@ -190,8 +178,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .strategy-hub {
         position: relative;
-        width: clamp(260px, 32vw, 540px);
+        display: block;
+        width: clamp(340px, 40vw, 620px);
         aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
         margin: 0 auto;
         animation: hubBreathe 6s ease-in-out infinite;
       }
@@ -1427,30 +1418,108 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              RESPONSIVE
           ============================================================= */
       @media (max-width: 900px) {
-        /* Hero: single col, image ALWAYS shows below text */
-        .hero {
-          grid-template-columns: 1fr;
-          padding: 48px clamp(20px, 6vw, 60px) 40px;
-        }
-        .hero-right {
-          display: flex !important;
-          width: 100%;
-          margin-top: 8px;
-          justify-content: center;
-        }
-        .strategy-hub {
-          width: clamp(220px, 58vw, 360px);
-        }
-        .hero-sub {
-          max-width: 100%;
-        }
-        .hero-trusted {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 14px;
-          padding: 0 clamp(20px, 6vw, 60px) 36px;
-        }
+        /* =============================================================
+   HERO — TABLET + MOBILE
+============================================================= */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  padding: 36px clamp(20px, 6vw, 60px) 32px;
+
+  gap: 0;
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------------
+   HERO CONTENT
+------------------------------------------------------------- */
+
+.hero-left {
+  display: contents;
+}
+
+/* Strategy at the Core */
+.hero-eyebrow {
+  margin: 0;
+}
+
+/* -------------------------------------------------------------
+   GLOBE
+------------------------------------------------------------- */
+
+.hero-right {
+  display: flex !important;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.strategy-hub {
+  display: block;
+  width: clamp(260px, 58vw, 380px);
+  height: auto;
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------------
+   HEADLINE
+------------------------------------------------------------- */
+
+.hero-title {
+  margin: 18px 0 0;
+}
+
+/* -------------------------------------------------------------
+   DESCRIPTION
+------------------------------------------------------------- */
+
+.hero-sub {
+  max-width: 100%;
+  margin: 18px 0 0;
+}
+
+/* -------------------------------------------------------------
+   CTA BUTTONS
+------------------------------------------------------------- */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin: 22px 0 0;
+}
+
+/* -------------------------------------------------------------
+   TRUSTED BRANDS
+------------------------------------------------------------- */
+
+.hero-trusted {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  width: 100%;
+
+  gap: 14px;
+
+  padding: 0 clamp(20px, 6vw, 60px) 32px;
+}
+
+.hero-trusted-label {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+
         /* About: single col, images ALWAYS show */
         .about-inner {
           grid-template-columns: 1fr;
@@ -1618,7 +1687,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           font-size: 36px;
         }
         .strategy-hub {
-          width: clamp(200px, 76vw, 300px);
+          width: clamp(230px, 72vw, 320px);
         }
         /* About: still show images, just smaller */
         .about-visual {
@@ -1667,6 +1736,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           max-width: 120px;
         }
       }
+      /* =============================================================
+   HERO — TABLET
+============================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .strategy-hub {
+    width: 360px;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 5vw, 54px);
+  }
+
+  .hero-sub {
+    max-width: 720px;
+  }
+
+  .hero-actions {
+    flex-wrap: nowrap;
+  }
+}
+/* =============================================================
+   HERO — MOBILE
+============================================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 32px 18px 28px;
+  }
+
+  .hero-right {
+    margin-top: 12px;
+  }
+
+  .strategy-hub {
+    width: clamp(260px, 76vw, 300px);
+  }
+
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.08;
+    margin-top: 12px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-trusted {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-trusted-label {
+    text-align: left;
+  }
+}
     </style>
   </head>
   <body>
@@ -1684,32 +1823,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ========================================================= -->
     <div class="hero-wrap">
       <section class="hero">
-        <div class="hero-left">
-          <p class="hero-eyebrow reveal">Strategy at the Core</p>
-          <h1 class="hero-title reveal delay-1">
-            One Strategy.<br />
-            Infinite Execution.<br />
-            <span class="accent">Real Growth.</span>
-          </h1>
-          <p class="hero-sub reveal delay-2">
-            We architect growth systems where strategy connects every capability
-            and drives measurable impact at scale.
-          </p>
-          <div class="hero-actions reveal delay-3">
-            <a href="contact.html" class="btn-primary"
-              >Book a Strategy Call <span class="arrow">→</span></a
-            >
-            <a href="#services" class="btn-outline-dark">View Our Work</a>
-          </div>
-        </div>
-        <div class="hero-right reveal-right">
-          <div
-            class="strategy-hub"
-            id="heroHub"
-            aria-label="GreySphere Strategy Hub — interactive diagram of connected capabilities"
-          ></div>
-        </div>
-      </section>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow reveal">Strategy at the Core</p>
+
+    <h1 class="hero-title reveal delay-1">
+      One Strategy.<br />
+      Infinite Execution.<br />
+      <span class="accent">Real Growth.</span>
+    </h1>
+
+    <p class="hero-sub reveal delay-2">
+      We architect growth systems where strategy connects every capability
+      and drives measurable impact at scale.
+    </p>
+
+    <div class="hero-actions reveal delay-3">
+      <a href="contact.html" class="btn-primary">
+        Book a Strategy Call <span class="arrow">→</span>
+      </a>
+      <a href="#services" class="btn-outline-dark">View Our Work</a>
+    </div>
+  </div>
+
+  <div class="hero-right reveal-right">
+    <img
+      class="strategy-hub"
+      src="assets/site images/hero-globe-solid.jpg"
+      alt="GreySphere Strategy Hub — connected capabilities across Strategy, Marketing, Campaigns, Website, SEO, PR, Analytics and Sales Enablement"
+      loading="eager"
+    />
+  </div>
+
+</section>
 
       <!-- LOGO MARQUEE (inside hero) -->
       <div class="hero-trusted">
@@ -2619,240 +2765,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      JAVASCRIPT
 ========================================================= -->
     <script src="global.js"></script>
-    <script>
-      (function () {
-        var NODES = [
-          {
-            id: "brand",
-            label: "Brand",
-            icon: '<circle cx="12" cy="9" r="5"/><path d="M9 13.5L7 21l5-3 5 3-2-7.5"/>',
-          },
-          {
-            id: "marketing",
-            label: "Marketing",
-            icon: '<path d="M4 20V12M10 20V6M16 20V10M22 20V4"/>',
-          },
-          {
-            id: "campaigns",
-            label: "Campaigns",
-            icon: '<path d="M3 11v2a2 2 0 002 2h1l3 5V6l-3 5H5a2 2 0 00-2 2z"/><path d="M14 8a4 4 0 010 8"/><path d="M17 5a8 8 0 010 14"/>',
-          },
-          {
-            id: "website",
-            label: "Website",
-            icon: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
-          },
-          {
-            id: "seo",
-            label: "SEO",
-            icon: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
-          },
-          {
-            id: "pr",
-            label: "PR",
-            icon: '<path d="M21 11.5a8.38 8.38 0 01-1.9 5.4 8.5 8.5 0 01-9.6 2.7L3 21l1.4-4.5A8.38 8.38 0 013 12.5 8.5 8.5 0 0111.5 4a8.38 8.38 0 015.4 1.9A8.5 8.5 0 0121 11.5z"/>',
-          },
-          {
-            id: "journey",
-            label: "Customer Journey",
-            icon: '<circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M5 8c0 6 14 2 14 8"/>',
-          },
-          {
-            id: "analytics",
-            label: "Analytics",
-            icon: '<path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 4-4"/>',
-          },
-          {
-            id: "persona",
-            label: "Persona Mapping",
-            icon: '<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>',
-          },
-          {
-            id: "sales",
-            label: "Sales Enablement",
-            icon: '<rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>',
-          },
-        ];
-
-        var reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-        function debounce(fn, wait) {
-          var t;
-          return function () {
-            clearTimeout(t);
-            t = setTimeout(fn, wait);
-          };
-        }
-
-        function iconMarkup(svgInner) {
-          return (
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">' +
-            svgInner +
-            "</svg>"
-          );
-        }
-
-        function buildHub(container, opts) {
-          if (!container) return null;
-          opts = opts || {};
-
-          container.innerHTML =
-            '<svg class="hub-lines"></svg>' +
-            '<div class="hub-center">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>' +
-            '<div class="hub-center-title">Strategy</div>' +
-            '<div class="hub-center-sub">The Growth Engine</div>' +
-            "</div>";
-
-          var svg = container.querySelector(".hub-lines");
-          var nodeEls = [];
-
-          NODES.forEach(function (node) {
-            var path = document.createElementNS(
-              "http://www.w3.org/2000/svg",
-              "path"
-            );
-            path.setAttribute("data-id", node.id);
-            svg.appendChild(path);
-
-            var btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "hub-node";
-            btn.setAttribute("data-id", node.id);
-            btn.setAttribute("aria-label", node.label);
-            btn.innerHTML =
-              iconMarkup(node.icon) + "<span>" + node.label + "</span>";
-            container.appendChild(btn);
-            nodeEls.push(btn);
-
-            function onEnter() {
-              activate(node);
-            }
-            btn.addEventListener("mouseenter", onEnter);
-            btn.addEventListener("focus", onEnter);
-            btn.addEventListener("mouseleave", clearActive);
-            btn.addEventListener("blur", clearActive);
-            /* Touch: tap activates the node and keeps it lit
-               (preventDefault stops the synthesized mouseleave
-               that would immediately clear the active state) */
-            btn.addEventListener(
-              "touchend",
-              function (e) {
-                e.preventDefault();
-                activate(node);
-              },
-              { passive: false }
-            );
-          });
-
-          function layout() {
-            var w = container.clientWidth,
-              h = container.clientHeight;
-            var cx = w / 2,
-              cy = h / 2;
-            var nodeSize = nodeEls[0] ? nodeEls[0].offsetWidth : 70;
-            var radius = Math.min(w, h) / 2 - nodeSize / 2 - 6;
-            svg.setAttribute("viewBox", "0 0 " + w + " " + h);
-
-            nodeEls.forEach(function (btn, i) {
-              var angle = ((-90 + i * (360 / NODES.length)) * Math.PI) / 180;
-              var x = cx + radius * Math.cos(angle);
-              var y = cy + radius * Math.sin(angle);
-              btn.style.left = x + "px";
-              btn.style.top = y + "px";
-
-              var path = svg.querySelector(
-                'path[data-id="' + NODES[i].id + '"]'
-              );
-              var mx = (cx + x) / 2,
-                my = (cy + y) / 2;
-              var perpX = -(y - cy),
-                perpY = x - cx;
-              var len = Math.sqrt(perpX * perpX + perpY * perpY) || 1;
-              var bend = radius * 0.12;
-              var cxp = mx + (perpX / len) * bend;
-              var cyp = my + (perpY / len) * bend;
-              path.setAttribute(
-                "d",
-                "M" + cx + "," + cy + " Q" + cxp + "," + cyp + " " + x + "," + y
-              );
-
-              var beadId = "bead-" + NODES[i].id;
-              var existingBead = svg.querySelector("#" + beadId);
-              if (existingBead) existingBead.remove();
-              var bead = document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "circle"
-              );
-              bead.setAttribute("id", beadId);
-              bead.setAttribute("r", "2.2");
-              bead.setAttribute("fill", "rgba(255,255,255,0.5)");
-              var midX = (cx + x) / 2 + (perpX / len) * bend;
-              var midY = (cy + y) / 2 + (perpY / len) * bend;
-              bead.setAttribute("cx", midX);
-              bead.setAttribute("cy", midY);
-              svg.appendChild(bead);
-            });
-          }
-
-          function activate(node) {
-            nodeEls.forEach(function (el) {
-              el.classList.toggle("active", el.dataset.id === node.id);
-              el.classList.toggle("dimmed", el.dataset.id !== node.id);
-            });
-            svg.querySelectorAll("path").forEach(function (p) {
-              p.classList.toggle("active", p.dataset.id === node.id);
-              p.classList.toggle("dimmed", p.dataset.id !== node.id);
-            });
-            if (!reduceMotion) spawnParticle(node.id);
-          }
-          function clearActive() {
-            nodeEls.forEach(function (el) {
-              el.classList.remove("active", "dimmed");
-            });
-            svg.querySelectorAll("path").forEach(function (p) {
-              p.classList.remove("active", "dimmed");
-            });
-          }
-          function spawnParticle(id) {
-            var path = svg.querySelector('path[data-id="' + id + '"]');
-            if (!path) return;
-            var dot = document.createElement("div");
-            dot.className = "hub-particle run";
-            dot.style.offsetPath = 'path("' + path.getAttribute("d") + '")';
-            container.appendChild(dot);
-            setTimeout(function () {
-              dot.remove();
-            }, 1450);
-          }
-
-          window.addEventListener("resize", debounce(layout, 150));
-          layout();
-
-          if (
-            !reduceMotion &&
-            opts.tilt &&
-            window.matchMedia("(hover: hover)").matches
-          ) {
-            container.addEventListener("mousemove", function (e) {
-              var r = container.getBoundingClientRect();
-              var px = (e.clientX - r.left) / r.width - 0.5;
-              container.style.transform = "rotate(" + px * 1.6 + "deg)";
-            });
-            container.addEventListener("mouseleave", function () {
-              container.style.transform = "";
-            });
-          }
-
-          return { layout: layout };
-        }
-
-        var heroHubEl = document.getElementById("heroHub");
-        if (heroHubEl) buildHub(heroHubEl, { tilt: true, autoCycle: true });
-      })();
-    </script>
     <script>
       /* Problems tap toggle (mobile) */
       function enableTap(selector) {
