@@ -557,6 +557,11 @@
 
         var params = new URLSearchParams(window.location.search);
         var fromKey = (params.get("from") || "default").toLowerCase();
+        window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'connect_card_view',
+  card_owner: fromKey
+});
 
         fetch("people.json")
           .then(function (res) {
