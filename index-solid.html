@@ -172,7 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .strategy-hub {
         position: relative;
         display: block;
-        width: clamp(260px, 32vw, 540px);
+        width: clamp(320px, 38vw, 600px);
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 50%;
@@ -1411,20 +1411,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              RESPONSIVE
           ============================================================= */
       @media (max-width: 900px) {
-        /* Hero: single col, image ALWAYS shows below text */
         .hero {
-          grid-template-columns: 1fr;
-          padding: 48px clamp(20px, 6vw, 60px) 40px;
-        }
-        .hero-right {
-          display: flex !important;
-          width: 100%;
-          margin-top: 8px;
-          justify-content: center;
-        }
-        .strategy-hub {
-          width: clamp(220px, 58vw, 360px);
-        }
+  grid-template-columns: 1fr;
+  padding: 48px clamp(20px, 6vw, 60px) 40px;
+}
+
+.hero-left {
+  order: 1;
+}
+
+.hero-right {
+  order: 2;
+  display: flex !important;
+  width: 100%;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.strategy-hub {
+  width: clamp(220px, 58vw, 360px);
+}
         .hero-sub {
           max-width: 100%;
         }
@@ -1689,7 +1695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-right reveal-right">
           <img
             class="strategy-hub"
-            src="assets/site images/hero-globe-solid.png"
+            src="assets/site images/hero-globe-solid.jpg"
             alt="GreySphere Strategy Hub — connected capabilities across Strategy, Marketing, Campaigns, Website, SEO, PR, Analytics and Sales Enablement"
             loading="eager"
           />
