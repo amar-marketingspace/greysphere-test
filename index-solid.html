@@ -63,26 +63,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         flex-direction: column;
         justify-content: center;
       }
-      .hero {
-        padding: clamp(36px, 5vw, 64px) clamp(24px, 8vw, 120px);
-        display: grid;
-        grid-template-columns: minmax(340px, 1fr) minmax(300px, 1fr);
-        gap: clamp(48px, 5vw, 80px);
-        align-items: center;
-        max-width: 1280px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 2;
-      }
-      @media (min-width: 901px) {
-        .hero {
-          grid-template-columns: minmax(340px, 1fr) minmax(300px, 1fr) !important;
-        }
-        .hero-right {
-          display: flex !important;
-          width: auto;
-        }
-      }
+.hero {
+  padding: clamp(36px, 5vw, 64px) clamp(40px, 6vw, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 80px);
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 901px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  .hero-right {
+    display: flex !important;
+    width: auto;
+    justify-content: center;
+  }
+
+  .hero-actions {
+    flex-wrap: nowrap;
+  }
+}
       .hero-left {
         display: flex;
         flex-direction: column;
@@ -172,7 +178,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .strategy-hub {
         position: relative;
         display: block;
-        width: clamp(320px, 38vw, 600px);
+        width: clamp(340px, 40vw, 620px);
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 50%;
@@ -1411,25 +1417,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              RESPONSIVE
           ============================================================= */
       @media (max-width: 900px) {
-        .hero {
+.hero {
+  display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto;
   padding: 48px clamp(20px, 6vw, 60px) 40px;
+  gap: 0;
 }
 
+/* Break the left wrapper so the hero elements
+   can be individually positioned on tablet/mobile */
 .hero-left {
-  order: 1;
+  display: contents;
 }
 
+/* 1. Strategy at the Core */
+.hero-eyebrow {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+/* 2. Globe immediately below the eyebrow */
 .hero-right {
-  order: 2;
+  grid-row: 2;
+  grid-column: 1;
   display: flex !important;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 20px;
+  margin-bottom: 28px;
   justify-content: center;
+  order: unset;
+}
+
+/* 3. Heading */
+.hero-title {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+/* 4. Description */
+.hero-sub {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+/* 5. CTAs */
+.hero-actions {
+  grid-row: 5;
+  grid-column: 1;
 }
 
 .strategy-hub {
-  width: clamp(220px, 58vw, 360px);
+  width: clamp(260px, 58vw, 420px);
 }
         .hero-sub {
           max-width: 100%;
@@ -1608,7 +1647,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           font-size: 36px;
         }
         .strategy-hub {
-          width: clamp(200px, 76vw, 300px);
+          width: clamp(230px, 72vw, 320px);
         }
         /* About: still show images, just smaller */
         .about-visual {
