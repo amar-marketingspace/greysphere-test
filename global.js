@@ -232,7 +232,7 @@ var _base = (function () {
   ---------------------------------------------------------- */
   function initNewsletter() {
     const SHEET_URL =
-      "https://script.google.com/macros/s/AKfycbyjefVRi4vJJaZhwGIxHNFiAVDKK1eGTs_vuDs8PCVkqHg1Me3AejRlhZqKxOs9CVrzsw/exec";
+      "https://script.google.com/macros/s/AKfycbzXFFVpkvKMm2H6WAIzHPpBgSKmRv_qvqYMqJlUpp6JhVE8NJNUKERV99K9pP9dUMyUlw/exec";
 
     const btn = document.getElementById("nlBtn");
     if (!btn) return;
