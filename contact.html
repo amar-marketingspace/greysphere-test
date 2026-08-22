@@ -1172,6 +1172,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   Message: payload.Message,
                 }),
               });
+              // Meta Pixel — successful contact-form submission
+              if (typeof fbq === "function") {
+              fbq("track", "Lead");
+              }
             }
             // Show success
             document.getElementById("formWrap").style.display = "none";
