@@ -1172,10 +1172,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   Message: payload.Message,
                 }),
               });
-              // Meta Pixel — successful contact-form submission
-              if (typeof fbq === "function") {
-              fbq("track", "Lead");
-              }
+              // GTM — successful contact-form submission
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+              event: "contact_form_success"
+            });
             }
             // Show success
             document.getElementById("formWrap").style.display = "none";
